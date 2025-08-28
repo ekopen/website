@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Eric Kopen</title>
+  <link rel="stylesheet" href="css/styles.css">
+  <style>
+    /* RESET */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      color: #333;
+      text-align: center;
+      padding: 0 1rem;
+    }
+
+    /* HEADER */
+    header {
+      padding: 2rem 0;
+    }
+
+    .profile-pic {
+      width: 30vw;           /* Responsive width */
+      max-width: 250px;      /* Cap it */
+      height: auto;          /* Keep aspect ratio */
+      border-radius: 50%;
+      object-fit: cover;
+      margin-bottom: 1rem;
+    }
+
+    header h1 {
+      font-size: clamp(1.5rem, 4vw, 2.5rem);
+      margin-bottom: 0.5rem;
+    }
+
+    /* MAIN SECTIONS */
+    main {
+      max-width: 1200px; /* Keep a nice max width */
+      width: 100%;
+      margin: 0 auto;
+      padding: 0 1rem;
+    }
+
+    section {
+      margin: 2rem 0;
+    }
+
+    section h2 {
+      margin-bottom: 1rem;
+      color: #444;
+      font-size: clamp(1.25rem, 3vw, 1.8rem);
+    }
+
+    section img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+      margin: 20px auto;
+    }
+
+        /* RESPONSIVE IFRAME */
+    .iframe-container {
+    position: relative;
+    width: 95%;           /* More horizontal space */
+    max-width: 1400px;    /* Allow larger width on big screens */
+    padding-bottom: 60%;  /* Increase height (default 56.25%) */
+    margin: 0 auto;       /* Keep centered */
+    height: 0;
+    overflow: hidden;
+    }
+
+    .iframe-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+    }
+
+    /* FOOTER */
+    footer {
+      margin-top: 2rem;
+      padding: 1rem 0;
+      color: #777;
+      font-size: 0.9rem;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <img src="images/eric-kopen.jpg" alt="Eric Kopen" class="profile-pic">
+  <h1>Eric Kopen</h1>
+  <h3>erictkopen@gmail.com</h3>
+</header>
+
+<main>
+  <section>
+    <h2>About</h2>
+    <p>
+      Hello! I’m Eric. Thanks for visiting my page.
+      <br><br>
+      I specialize in building and maintaining infrastructure for financial market interaction, a focus I’m deepening through projects featured here and on GitHub. 
+      I’m currently seeking part-time opportunities while completing my master’s this fall and will be available for full-time roles in 2026. 
+      My ideal position is an engineering role focused on real-time data systems.
+      <br><br>
+      I’m pursuing a Master’s in Financial Mathematics at the University of Chicago, graduating in December 2025. 
+      In summer 2025, I interned in quantitative finance at Bank of America, supporting teams that built risk engines for trading desks.
+      Before that, in the winter of 2025 I had an internship at Mizuho Bank, where I worked on machine learning approaches to building volatility surfaces. 
+      Prior to graduate school, I spent five years in data analysis and engineering roles at UnitedHealthcare and Agiliti Health. 
+      I hold a Bachelor's degree from the University of Minnesota, where I graduated in 2019 after studying Management Information Systems and Finance.
+    </p>
+  </section>
+
+  <section>
+    <h2>Projects</h2>
+    <p>
+      A simplified pipeline for streaming, storing, and visualizing live market tick data, inspired by trading firm infrastructure. 
+      Built with Kafka, ClickHouse, Grafana, and Docker. 
+      Deployed on a DigitalOcean DNS server.
+    </p>
+    <a href="https://github.com/ekopen/Real_Time_Market_Data_Pipeline" target="_blank">View on GitHub</a>
+    <img src="images/architecture_simple.png" alt="Architecture Diagram">
+
+
+    <div class="iframe-container">
+      <iframe 
+        src="http://159.65.41.22:3000/d/37fb53d0-bf32-4e50-b46e-3bf1a868e61e/market-data?orgId=1&from=now-5m&to=now&timezone=browser&refresh=5s"
+        loading="lazy">
+      </iframe>
+    </div>
+  </section>
+</main>
+
+</body>
+</html>

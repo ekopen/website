@@ -68,19 +68,18 @@
         /* RESPONSIVE IFRAME */
     .iframe-container {
     position: relative;
-    width: 100%;          /* Full width */
-    padding-bottom: 60%;  /* Adjust height ratio */
-    margin: 0;            /* Remove side margins */
-    height: 0;
+    width: 100%;
+    aspect-ratio: 16 / 9;   /* or whatever ratio you want */
+    margin: 0;
     overflow: hidden;
+    max-height: 750px;
     }
 
     .iframe-container iframe {
     position: absolute;
-    top: 0;
-    left: 0;
+    inset: 0;               /* top:0; right:0; bottom:0; left:0 */
     width: 100%;
-    height: 75%;
+    height: 800px;          /* <— key change */
     border: 0;
     }
 
@@ -141,11 +140,20 @@
     <img src="images/architecture_simple.png" alt="Architecture Diagram">
 
     <section class="full-width">
+    <h3>Market Data Dashboard</h3>
     <div class="iframe-container">
         <iframe 
         src="https://grafana.erickopen.com/d/37fb53d0-bf32-4e50-b46e-3bf1a868e61e/market-data?orgId=1&from=now-5m&to=now&timezone=browser&refresh=5s&kiosk&fullscreen&theme=light"
         loading="lazy">
         </iframe>
+    </div>
+    <br><br>
+    <h3>Pipeline Health Dashboard</h3>
+    <div class="iframe-container">
+    <iframe 
+    src="https://grafana.erickopen.com/d/087f3f78-11c9-4259-96ac-916af471a99c/market-data?orgId=1&from=now-5m&to=now&timezone=browser&refresh=5s&kiosk&fullscreen&theme=light"
+    loading="lazy">
+    </iframe>
     </div>
     </section>
   </section>
@@ -153,3 +161,5 @@
 
 </body>
 </html>
+
+

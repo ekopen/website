@@ -59,7 +59,7 @@
     }
 
     section img {
-      max-width: 100%;
+      max-width: 75%;
       height: auto;
       display: block;
       margin: 20px auto;
@@ -68,10 +68,9 @@
         /* RESPONSIVE IFRAME */
     .iframe-container {
     position: relative;
-    width: 95%;           /* More horizontal space */
-    max-width: 1400px;    /* Allow larger width on big screens */
-    padding-bottom: 60%;  /* Increase height (default 56.25%) */
-    margin: 0 auto;       /* Keep centered */
+    width: 100%;          /* Full width */
+    padding-bottom: 60%;  /* Adjust height ratio */
+    margin: 0;            /* Remove side margins */
     height: 0;
     overflow: hidden;
     }
@@ -83,6 +82,16 @@
     width: 100%;
     height: 100%;
     border: 0;
+    }
+
+    .full-width {
+    width: 90vw;
+    max-width: 90vw;
+    margin: 0 auto;
+    padding: 0;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%); /* centers it regardless of parent max-width */
     }
 
     /* FOOTER */
@@ -113,7 +122,7 @@
       My ideal position is an engineering role focused on real-time data systems.
       <br><br>
       I’m pursuing a Master’s in Financial Mathematics at the University of Chicago, graduating in December 2025. 
-      In summer 2025, I interned in quantitative finance at Bank of America, supporting teams that built risk engines for trading desks.
+      In summer 2025, I interned at Bank of America, supporting teams that built risk engines for trading desks.
       Before that, in the winter of 2025 I had an internship at Mizuho Bank, where I worked on machine learning approaches to building volatility surfaces. 
       Prior to graduate school, I spent five years in data analysis and engineering roles at UnitedHealthcare and Agiliti Health. 
       I hold a Bachelor's degree from the University of Minnesota, where I graduated in 2019 after studying Management Information Systems and Finance.
@@ -122,6 +131,7 @@
 
   <section>
     <h2>Projects</h2>
+    <h3>Real Time Market Data Pipeline</h3>
     <p>
       A simplified pipeline for streaming, storing, and visualizing live market tick data, inspired by trading firm infrastructure. 
       Built with Kafka, ClickHouse, Grafana, and Docker. 
@@ -130,14 +140,14 @@
     <a href="https://github.com/ekopen/Real_Time_Market_Data_Pipeline" target="_blank">View on GitHub</a>
     <img src="images/architecture_simple.png" alt="Architecture Diagram">
 
-
+    <section class="full-width">
     <div class="iframe-container">
-    <iframe 
-        src="https://grafana.erickopen.com/d/37fb53d0-bf32-4e50-b46e-3bf1a868e61e/market-data?orgId=1&from=now-5m&to=now&timezone=browser&refresh=5s"
+        <iframe 
+        src="https://grafana.erickopen.com/d/37fb53d0-bf32-4e50-b46e-3bf1a868e61e/market-data?orgId=1&from=now-5m&to=now&timezone=browser&refresh=5s&kiosk&fullscreen&theme=light"
         loading="lazy">
-    </iframe>
+        </iframe>
     </div>
-    </div>
+    </section>
   </section>
 </main>
 

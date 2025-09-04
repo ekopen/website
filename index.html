@@ -73,6 +73,28 @@
       .shell { grid-template-columns: 1fr; }
       .left { border-right: 0; border-bottom: 1px solid #eee; }
     }
+
+
+    /* misc */
+    .socials {
+      margin-top: 8px;
+      display: flex;
+      gap: 12px;
+    }
+    .socials a svg {
+      transition: transform 0.2s ease;
+    }
+    .socials a:hover svg {
+      transform: scale(1.1);
+    }
+
+    .img-inline {
+      max-width: 50%;   /* scale relative to text width */
+      height: auto;     /* keep aspect ratio */
+      display: block;
+      margin: 1rem auto; /* centers it with spacing */
+    }
+
   </style>
 </head>
 <body>
@@ -83,35 +105,106 @@
       <div id="left-about" class="stack">
         <img src="images/eric-kopen.jpg" alt="Eric Kopen" class="pfp" />
         <div class="name">Eric Kopen</div>
+
+          <!-- Social links -->
+          <div class="socials">
+            <a href="https://www.linkedin.com/in/eric-kopen-419266116/" target="_blank" aria-label="LinkedIn">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="#0A66C2">
+                <path d="M20.447 20.452H16.89v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 
+                        0-2.136 1.445-2.136 2.939v5.667H9.345V9h3.409v1.561h.049c.476-.9 
+                        1.637-1.85 3.369-1.85 3.598 0 4.263 2.368 4.263 5.452v6.289zM5.337 
+                        7.433a1.986 1.986 0 1 1 0-3.972 1.986 1.986 0 0 1 0 3.972zM6.814 
+                        20.452H3.861V9h2.953v11.452zM22.225 0H1.771C.792 0 0 
+                        .774 0 1.729v20.542C0 23.227.792 24 1.771 
+                        24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 
+                        .774 23.2 0 22.225 0z"/>
+              </svg>
+            </a>
+            <a href="https://github.com/ekopen" target="_blank" aria-label="GitHub">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="#181717">
+                <path d="M12 .297c-6.63 0-12 5.373-12 
+                        12 0 5.303 3.438 9.8 8.205 
+                        11.385.6.113.82-.258.82-.577 
+                        0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61-.546-1.387-1.333-1.757-1.333-1.757-1.09-.744.084-.729.084-.729 
+                        1.205.084 1.84 1.237 1.84 1.237 
+                        1.07 1.835 2.809 1.305 3.495.998.108-.775.418-1.305.762-1.605-2.665-.3-5.466-1.334-5.466-5.93 
+                        0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 
+                        0 0 1.005-.322 3.3 1.23a11.5 
+                        11.5 0 0 1 3-.405c1.02.005 2.045.138 
+                        3 .405 2.28-1.552 3.285-1.23 
+                        3.285-1.23.645 1.653.24 2.873.12 
+                        3.176.765.84 1.23 1.91 1.23 
+                        3.22 0 4.61-2.805 5.625-5.475 
+                        5.92.435.372.81 1.096.81 
+                        2.22 0 1.606-.015 2.896-.015 
+                        3.286 0 .315.21.69.825.57C20.565 
+                        22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/>
+              </svg>
+            </a>
+          </div>
+
+
+
+
         <div class="muted">erictkopen@gmail.com</div>
         <a href="#projects" class="pill btn-terracotta">→ Projects</a>
       </div>
 
       <!-- PROJECTS VIEW (structured projects) -->
       <div id="left-projects" class="hidden stack">
-        <a href="#about" class="pill">← Back to About</a>
+        <a href="#about" class="pill btn-terracotta">← Back to About</a>
 
         <!-- Project Block -->
         <div class="proj-block">
           <div class="proj-header">Real-Time Market Data Pipeline</div>
-          <div class="proj-sub">INSERT TEXT</div>
+          <div class="proj-sub">Streams, stores, monitors, and visualizes market tick data, similar to systems used in trading environments. Currently deployed via Docker on a DigitalOcean server.</div>
           <ul class="proj-list">
             <li>
+
+
               <button
                 class="proj-btn btn-normal"
                 data-title="Overview"
-                data-desc="INSERT TEXT"
-                data-src=""
-              >
+                data-desc='
+                  <div class="stack">
+                    <p>
+                      A simplified, real-time market data pipeline for streaming, storing, monitoring, and
+                      visualizing financial tick data, similar to systems used in trading environments.<br>
+                      Currently deployed via Docker on a DigitalOcean server.
+                    </p>
+
+                    <!-- <img src="images/architecture_simple.png" alt="Architecture Diagram" class="img-inline"/> -->
+
+                    <h2>Architecture</h2>
+                    <ul>
+                      <li><strong>Ingestion:</strong> Kafka producer streams live market data from an API into a Kafka topic.</li>
+                      <li><strong>Storage:</strong> Kafka consumer validates, batches, and inserts data into ClickHouse tables.</li>
+                      <li><strong>Monitoring:</strong> Metrics and logs are tracked with Prometheus, Loki, and Python logging.</li>
+                      <li><strong>Archival:</strong> Data is automatically backed up to AWS S3 for long-term storage.</li>
+                      <li><strong>Dashboard:</strong> Grafana provides real-time views of tick data and pipeline health.</li>
+                      <li><strong>Deployment:</strong> Docker Compose ensures reproducibility and simple scaling.</li>
+                    </ul>
+
+                    <img src="images/architecture_complex.png" alt="Detailed Diagram" />
+
+                    <h2>Tech Stack</h2>
+                    <p>
+                      Docker • Python • Kafka • ClickHouse • Grafana • Promtail/Loki • Blackbox/Prometheus • AWS S3 • DigitalOcean DNS Hosting
+                    </p>
+                  </div>'
+                data-src="">
                 Overview
               </button>
+
+
+
             </li>
             <li>
               <button
                 class="proj-btn btn-normal"
                 data-title="Server Monitoring"
                 data-desc="INSERT TEXT"
-                data-src="https://grafana.erickopen.com/d/blackbox-uptime/server-monitoring?var-interval=10s&orgId=1&from=now-15m&to=now&timezone=browser&var-target=$__all&var-job=node_exporter&var-node=node_exporter:9100&var-nodename=c8926d21c857&refresh=10s&kiosk&theme=light"
+                data-src="https://grafana.erickopen.com/d/blackbox-uptime/server-monitoring?var-interval=10s&orgId=1&from=now-24h&to=now&timezone=browser&var-target=$__all&var-job=node_exporter&var-node=node_exporter:9100&var-nodename=c8926d21c857&refresh=10s&kiosk&theme=light"
               >
                 Server Monitoring
               </button>
@@ -121,7 +214,7 @@
                 class="proj-btn btn-normal"
                 data-title="Platform Monitoring"
                 data-desc="INSERT TEXT"
-                data-src="https://grafana.erickopen.com/d/944fd6f9-38e7-46dc-8c3c-465f610b1f1e/platform-monitoring?var-interval=10s&orgId=1&from=now-15m&to=now&timezone=browser&var-target=$__all&var-job=node_exporter&var-node=node_exporter:9100&var-nodename=c8926d21c857&refresh=10s&kiosk&theme=light"
+                data-src="https://grafana.erickopen.com/d/944fd6f9-38e7-46dc-8c3c-465f610b1f1e/platform-monitoring?var-interval=10s&orgId=1&from=now-24h&to=now&timezone=browser&var-target=$__all&var-job=node_exporter&var-node=node_exporter:9100&var-nodename=c8926d21c857&refresh=10s&kiosk&theme=light"
               >
                 Platform Monitoring
               </button>
@@ -131,7 +224,7 @@
                 class="proj-btn btn-normal"
                 data-title="Pipeline Monitoring"
                 data-desc="INSERT TEXT"
-                data-src="https://grafana.erickopen.com/d/087f3f78-11c9-4259-96ac-916af471a99c/pipeline-monitoring?var-interval=10s&orgId=1&from=now-15m&to=now&timezone=browser&var-target=$__all&var-job=node_exporter&var-node=node_exporter:9100&var-nodename=c8926d21c857&refresh=10s&kiosk&theme=light"
+                data-src="https://grafana.erickopen.com/d/087f3f78-11c9-4259-96ac-916af471a99c/pipeline-monitoring?var-interval=10s&orgId=1&from=now-24h&to=now&timezone=browser&var-target=$__all&var-job=node_exporter&var-node=node_exporter:9100&var-nodename=c8926d21c857&refresh=10s&kiosk&theme=light"
               >
                 Pipeline Monitoring
               </button>
@@ -141,7 +234,7 @@
                 class="proj-btn btn-normal"
                 data-title="Market Data"
                 data-desc="INSERT TEXT"
-                data-src="https://grafana.erickopen.com/d/37fb53d0-bf32-4e50-b46e-3bf1a868e61e/market-data?var-interval=10s&orgId=1&from=now-15m&to=now&timezone=browser&var-target=$__all&var-job=node_exporter&var-node=node_exporter:9100&var-nodename=c8926d21c857&refresh=10s&kiosk&theme=light"
+                data-src="https://grafana.erickopen.com/d/37fb53d0-bf32-4e50-b46e-3bf1a868e61e/market-data?var-interval=10s&orgId=1&from=now-24h&to=now&timezone=browser&var-target=$__all&var-job=node_exporter&var-node=node_exporter:9100&var-nodename=c8926d21c857&refresh=10s&kiosk&theme=light"
               >
                 Market Data
               </button>
@@ -206,7 +299,7 @@
         const src   = btn.dataset.src   || '';
 
         document.getElementById('p-title').textContent = title;
-        document.getElementById('p-desc').textContent  = desc;
+        document.getElementById('p-desc').innerHTML = desc;
 
         const frame = document.getElementById('proj-frame');
         const wrap  = document.getElementById('proj-frame-wrap');

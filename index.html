@@ -4,161 +4,199 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Eric Kopen</title>
-  <link rel="stylesheet" href="css/styles.css">
   <style>
-    /* RESET */
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+    /* ===== RESET ===== */
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; }
+    body { margin: 0; font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; color: #222; }
+    a { color: inherit; }
+    img { max-width: 100%; height: auto; display: block; }
+    button { font: inherit; }
 
-    body {
-      font-family: Arial, sans-serif;
-      line-height: 1.6;
-      color: #333;
-      text-align: center;
-      padding: 0 1rem;
+    /* ===== LAYOUT: 1/3 left, 2/3 right ===== */
+    .shell {
+      min-height: 100vh;
+      display: grid;
+      grid-template-columns: 1fr 2fr; /* 1/3 : 2/3 */
     }
+    .left { padding: 24px; border-right: 1px solid #eee; }
+    .right { padding: 24px; }
 
-    /* HEADER */
-    header {
-      padding: 2rem 0;
-    }
+    /* Basic look */
+    .pill { display:inline-block; padding: 6px 10px; border:1px solid #ddd; border-radius: 999px; text-decoration:none; }
+    .stack > * { margin-block: 12px; }
+    .muted { color: #666; }
 
-    .profile-pic {
-      width: 30vw;           /* Responsive width */
-      max-width: 250px;      /* Cap it */
-      height: auto;          /* Keep aspect ratio */
-      border-radius: 50%;
-      object-fit: cover;
-      margin-bottom: 1rem;
-    }
+    /* Profile */
+    .pfp { width: 160px; height: 160px; border-radius: 50%; object-fit: cover; }
+    .name { font-size: 1.6rem; font-weight: 700; }
 
-    header h1 {
-      font-size: clamp(1.5rem, 4vw, 2.5rem);
-      margin-bottom: 0.5rem;
-    }
+    /* Simple nav (hash-based) */
+    .hidden { display: none; }
 
-    /* MAIN SECTIONS */
-    main {
-      max-width: 1200px; /* Keep a nice max width */
-      width: 100%;
-      margin: 0 auto;
-      padding: 0 1rem;
-    }
+    /* Projects left */
+    .proj-header { font-size: 1.1rem; font-weight: 700; margin-top: 16px; }
+    .proj-sub { font-size: 0.9rem; color: #555; margin-bottom: 12px; }
+    .proj-list { list-style: none; padding: 0; margin: 0; }
+    .proj-list li { margin: 8px 0; }
+    .proj-btn { width: 100%; text-align: left; padding: 10px 12px; border: 1px solid #ddd; border-radius: 8px; background: #fafafa; cursor: pointer; }
+    .proj-btn:hover { background: #f3f3f3; }
 
-    section {
-      margin: 2rem 0;
-    }
+    .iframe-wrap { width: 100%; aspect-ratio: 16/9; border: 1px solid #eee; margin-top: 16px; }
+    .iframe-wrap iframe { width: 100%; height: 100%; border: 0; }
 
-    section h2 {
-      margin-bottom: 1rem;
-      color: #444;
-      font-size: clamp(1.25rem, 3vw, 1.8rem);
-    }
-
-    section img {
-      max-width: 75%;
-      height: auto;
-      display: block;
-      margin: 20px auto;
-    }
-
-        /* RESPONSIVE IFRAME */
-    .iframe-container {
-    position: relative;
-    width: 100%;
-    aspect-ratio: 16 / 9;   /* or whatever ratio you want */
-    margin: 0;
-    overflow: hidden;
-    max-height: 750px;
-    }
-
-    .iframe-container iframe {
-    position: absolute;
-    inset: 0;               /* top:0; right:0; bottom:0; left:0 */
-    width: 100%;
-    height: 800px;          /* <— key change */
-    border: 0;
-    }
-
-    .full-width {
-    width: 90vw;
-    max-width: 90vw;
-    margin: 0 auto;
-    padding: 0;
-    position: relative;
-    left: 50%;
-    transform: translateX(-50%); /* centers it regardless of parent max-width */
-    }
-
-    /* FOOTER */
-    footer {
-      margin-top: 2rem;
-      padding: 1rem 0;
-      color: #777;
-      font-size: 0.9rem;
+    /* Mobile: stack columns */
+    @media (max-width: 800px) {
+      .shell { grid-template-columns: 1fr; }
+      .left { border-right: 0; border-bottom: 1px solid #eee; }
     }
   </style>
 </head>
 <body>
+  <div class="shell">
+    <!-- ===== LEFT COLUMN ===== -->
+    <aside class="left">
+      <!-- ABOUT VIEW (landing) -->
+      <div id="left-about" class="stack">
+        <img src="images/eric-kopen.jpg" alt="Eric Kopen" class="pfp" />
+        <div class="name">Eric Kopen</div>
+        <div class="muted">erictkopen@gmail.com</div>
+        <a href="#projects" class="pill">→ Projects</a>
+      </div>
 
-<header>
-  <img src="images/eric-kopen.jpg" alt="Eric Kopen" class="profile-pic">
-  <h1>Eric Kopen</h1>
-  <h3>erictkopen@gmail.com</h3>
-</header>
+      <!-- PROJECTS VIEW (structured projects) -->
+      <div id="left-projects" class="hidden stack">
+        <a href="#about" class="pill">← Back to About</a>
 
-<main>
-  <section>
-    <h2>About</h2>
-    <p>
-      Hello! I’m Eric. Thanks for visiting my page.
-      <br><br>
-      I specialize in building and maintaining infrastructure for financial market interaction, a focus I’m deepening through projects featured here and on GitHub. 
-      I’m currently seeking part-time opportunities while completing my master’s this fall and will be available for full-time roles in 2026. 
-      My ideal position is an engineering role focused on real-time data systems.
-      <br><br>
-      I’m pursuing a Master’s in Financial Mathematics at the University of Chicago, graduating in December 2025. 
-      In summer 2025, I interned at Bank of America, supporting teams that built risk engines for trading desks.
-      Before that, in the winter of 2025 I had an internship at Mizuho Bank, where I worked on machine learning approaches to building volatility surfaces. 
-      Prior to graduate school, I spent five years in data analysis and engineering roles at UnitedHealthcare and Agiliti Health. 
-      I hold a Bachelor's degree from the University of Minnesota, where I graduated in 2019 after studying Management Information Systems and Finance.
-    </p>
-  </section>
+        <!-- Project Block -->
+        <div class="proj-block">
+          <div class="proj-header">Real-Time Market Data Pipeline</div>
+          <div class="proj-sub">INSERT TEXT</div>
+          <ul class="proj-list">
+            <li>
+              <button
+                class="proj-btn"
+                data-title="Overview"
+                data-desc="INSERT TEXT"
+                data-src=""
+              >
+                Overview
+              </button>
+            </li>
+            <li>
+              <button
+                class="proj-btn"
+                data-title="Server Dashboard"
+                data-desc="INSERT TEXT"
+                data-src="https://grafana.erickopen.com/d/blackbox-uptime/server-monitoring?var-interval=10s&orgId=1&from=now-15m&to=now&timezone=browser&var-target=$__all&var-job=node_exporter&var-node=node_exporter:9100&var-nodename=c8926d21c857&refresh=10s&kiosk&theme=light"
+              >
+                Server Monitoring
+              </button>
+            </li>
+            <li>
+              <button
+                class="proj-btn"
+                data-title="Docker Monitoring"
+                data-desc="INSERT TEXT"
+                data-src="https://grafana.erickopen.com/d/944fd6f9-38e7-46dc-8c3c-465f610b1f1e/docker-monitoring?var-interval=10s&orgId=1&from=now-15m&to=now&timezone=browser&var-target=$__all&var-job=node_exporter&var-node=node_exporter:9100&var-nodename=c8926d21c857&refresh=10s&kiosk&theme=light"
+              >
+                Docker Monitoring
+              </button>
+            </li>
+            <li>
+              <button
+                class="proj-btn"
+                data-title="Pipeline Monitoring"
+                data-desc="INSERT TEXT"
+                data-src=""
+              >
+                Pipeline Monitoring
+              </button>
+            </li>
+            <li>
+              <button
+                class="proj-btn"
+                data-title="Market Data"
+                data-desc="INSERT TEXT"
+                data-src="https://grafana.erickopen.com/d/37fb53d0-bf32-4e50-b46e-3bf1a868e61e/market-data?var-interval=10s&orgId=1&from=now-15m&to=now&timezone=browser&var-target=$__all&var-job=node_exporter&var-node=node_exporter:9100&var-nodename=c8926d21c857&refresh=10s&kiosk&theme=light"
+              >
+                Market Data
+              </button>
+            </li>            
+          </ul>
+        </div>
+      </div>
+    </aside>
 
-  <section>
-    <h2>Projects</h2>
-    <h3>Real Time Market Data Pipeline</h3>
-    <p>
-      A simplified pipeline for streaming, storing, and visualizing live market tick data, inspired by trading firm infrastructure. 
-      Built with Kafka, ClickHouse, Grafana, and Docker. 
-      Deployed on a DigitalOcean DNS server.
-    </p>
-    <a href="https://github.com/ekopen/Real_Time_Market_Data_Pipeline" target="_blank">View on GitHub</a>
-    <img src="images/architecture_simple.png" alt="Architecture Diagram">
+    <!-- ===== RIGHT COLUMN ===== -->
+    <main class="right">
+      <!-- ABOUT VIEW RIGHT -->
+      <section id="right-about" class="stack">
+        <h2>About</h2>
+        <p>Hello! I’m Eric. Thanks for visiting my page.</p>
+        <p>I specialize in building and maintaining infrastructure for financial market interaction, a focus I’m deepening through projects featured here and on GitHub. I’m currently seeking part-time opportunities while completing my master’s this fall and will be available for full-time roles in 2026. My ideal position is an engineering role focused on real-time data systems.</p>
+        <p>I’m pursuing a Master’s in Financial Mathematics at the University of Chicago, graduating in December 2025. In summer 2025, I interned at Bank of America, supporting teams that built risk engines for trading desks. Before that, in the winter of 2025 I had an internship at Mizuho Bank, where I worked on machine learning approaches to building volatility surfaces. Prior to graduate school, I spent five years in data analysis and engineering roles at UnitedHealthcare and Agiliti Health. I hold a Bachelor's degree from the University of Minnesota, where I graduated in 2019 after studying Management Information Systems and Finance.</p>
+      </section>
 
-    <section class="full-width">
-    <h3>Market Data Dashboard</h3>
-    <div class="iframe-container">
-    <iframe
-      src="https://grafana.erickopen.com/d/blackbox-uptime/server-monitoring?var-interval=10s&orgId=1&from=now-15m&to=now&timezone=browser&var-target=$__all&var-job=node_exporter&var-node=node_exporter:9100&var-nodename=c8926d21c857&refresh=10s&kiosk&theme=light"
-    ></iframe>
-    </div>
-    <br><br>
-    <h3>Pipeline Health Dashboard</h3>
-    <!-- <div class="iframe-container">
-    <iframe 
-    src="https://grafana.erickopen.com/d/087f3f78-11c9-4259-96ac-916af471a99c/market-data?orgId=1&from=now-5m&to=now&timezone=browser&refresh=5s&kiosk&fullscreen&theme=light"
-    loading="lazy">
-    </iframe>
-    </div> -->
-    </section>
-  </section>
-</main>
+      <!-- PROJECTS VIEW RIGHT -->
+      <section id="right-projects" class="hidden stack">
+        <h2 id="p-title">Select a Project</h2>
+        <p id="p-desc" class="muted">Click a button on the left to see details here.</p>
+        <div class="iframe-wrap" id="proj-frame-wrap">
+          <iframe id="proj-frame" title="Project View" allowfullscreen></iframe>
+        </div>
+      </section>
+    </main>
+  </div>
 
+  <script>
+    // ===== Tiny router (hash-based): #about or #projects =====
+    function show(view) {
+      const isAbout = view !== 'projects';
+      document.getElementById('left-about').classList.toggle('hidden', !isAbout);
+      document.getElementById('left-projects').classList.toggle('hidden', isAbout);
+      document.getElementById('right-about').classList.toggle('hidden', !isAbout);
+      document.getElementById('right-projects').classList.toggle('hidden', isAbout);
+    }
+
+    function route() {
+      const hash = location.hash.replace('#','');
+      show(hash === 'projects' ? 'projects' : 'about');
+    }
+
+    window.addEventListener('hashchange', route);
+    window.addEventListener('load', () => {
+      route();
+
+      // Project button click
+      document.querySelectorAll('.proj-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+          const title = btn.dataset.title || '';
+          const desc  = btn.dataset.desc  || '';
+          const src   = btn.dataset.src   || '';
+
+          document.getElementById('p-title').textContent = title;
+          document.getElementById('p-desc').textContent  = desc;
+
+          const frame = document.getElementById('proj-frame');
+          const wrap  = document.getElementById('proj-frame-wrap');
+
+          if (src) {
+            wrap.style.display = 'block';
+            frame.src = src;
+          } else {
+            wrap.style.display = 'none';
+            frame.src = '';
+          }
+        });
+      });
+
+      // Default load: show Overview when Projects first opens
+      if (location.hash === '#projects') {
+        const first = document.querySelector('.proj-btn');
+        if (first) first.click();
+      }
+    });
+  </script>
 </body>
 </html>
-
-

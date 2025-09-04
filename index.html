@@ -19,7 +19,7 @@
       display: grid;
       grid-template-columns: 1fr 2fr; /* 1/3 : 2/3 */
     }
-    .left { padding: 24px; border-right: 1px solid #eee; }
+    .left { padding: 24px; border-right: 1px solid #eee; background: #FAF9F6; }
     .right { padding: 24px; }
 
     /* Basic look */
@@ -37,10 +37,33 @@
     /* Projects left */
     .proj-header { font-size: 1.1rem; font-weight: 700; margin-top: 16px; }
     .proj-sub { font-size: 0.9rem; color: #555; margin-bottom: 12px; }
-    .proj-list { list-style: none; padding: 0; margin: 0; }
+    .proj-list { list-style: none; padding: 0; margin: 0; margin-left: 12px; } /* slight indent under header/sub */
     .proj-list li { margin: 8px 0; }
-    .proj-btn { width: 100%; text-align: left; padding: 10px 12px; border: 1px solid #ddd; border-radius: 8px; background: #fafafa; cursor: pointer; }
-    .proj-btn:hover { background: #f3f3f3; }
+
+    /* Button base */
+    .proj-btn { width: 100%; text-align: left; padding: 10px 12px; border: 1px solid #ddd; border-radius: 8px; background: #fafafa; cursor: pointer; transition: filter .15s ease, transform .02s ease; }
+    .proj-btn:active { transform: translateY(1px); }
+
+    /* Themed buttons */
+    .btn-green { background: #B7C9A8; border-color: #8f9e82; color: #1e1e1e; }
+    .btn-green:hover { filter: brightness(0.97); }
+
+    .btn-blue { background: #c8e3fe; border-color: #a6bed6; color: #1e1e1e; }
+    .btn-blue:hover { filter: brightness(0.97); }
+
+    .btn-normal { background: #e7e7e6; border-color: #c2c2c2; color: #1e1e1e; }
+    .btn-normal:hover { filter: brightness(0.97); }
+
+    .btn-terracotta { background: #E07A5F; border-color: #E07A5F; color: #fff; }
+    .btn-terracotta:hover { filter: brightness(0.97); }
+
+    .proj-btn.selected {
+      filter: brightness(0.9);
+      border-color: #999;
+    }
+
+    /* Specific overrides */
+    .btn-overview { font-weight: 600; }
 
     .iframe-wrap { width: 100%; aspect-ratio: 16/9; border: 1px solid #eee; margin-top: 16px; }
     .iframe-wrap iframe { width: 100%; height: 100%; border: 0; }
@@ -61,7 +84,7 @@
         <img src="images/eric-kopen.jpg" alt="Eric Kopen" class="pfp" />
         <div class="name">Eric Kopen</div>
         <div class="muted">erictkopen@gmail.com</div>
-        <a href="#projects" class="pill">→ Projects</a>
+        <a href="#projects" class="pill btn-terracotta">→ Projects</a>
       </div>
 
       <!-- PROJECTS VIEW (structured projects) -->
@@ -75,7 +98,7 @@
           <ul class="proj-list">
             <li>
               <button
-                class="proj-btn"
+                class="proj-btn btn-normal"
                 data-title="Overview"
                 data-desc="INSERT TEXT"
                 data-src=""
@@ -85,8 +108,8 @@
             </li>
             <li>
               <button
-                class="proj-btn"
-                data-title="Server Dashboard"
+                class="proj-btn btn-normal"
+                data-title="Server Monitoring"
                 data-desc="INSERT TEXT"
                 data-src="https://grafana.erickopen.com/d/blackbox-uptime/server-monitoring?var-interval=10s&orgId=1&from=now-15m&to=now&timezone=browser&var-target=$__all&var-job=node_exporter&var-node=node_exporter:9100&var-nodename=c8926d21c857&refresh=10s&kiosk&theme=light"
               >
@@ -95,34 +118,34 @@
             </li>
             <li>
               <button
-                class="proj-btn"
-                data-title="Docker Monitoring"
+                class="proj-btn btn-normal"
+                data-title="Platform Monitoring"
                 data-desc="INSERT TEXT"
-                data-src="https://grafana.erickopen.com/d/944fd6f9-38e7-46dc-8c3c-465f610b1f1e/docker-monitoring?var-interval=10s&orgId=1&from=now-15m&to=now&timezone=browser&var-target=$__all&var-job=node_exporter&var-node=node_exporter:9100&var-nodename=c8926d21c857&refresh=10s&kiosk&theme=light"
+                data-src="https://grafana.erickopen.com/d/944fd6f9-38e7-46dc-8c3c-465f610b1f1e/platform-monitoring?var-interval=10s&orgId=1&from=now-15m&to=now&timezone=browser&var-target=$__all&var-job=node_exporter&var-node=node_exporter:9100&var-nodename=c8926d21c857&refresh=10s&kiosk&theme=light"
               >
-                Docker Monitoring
+                Platform Monitoring
               </button>
             </li>
             <li>
               <button
-                class="proj-btn"
+                class="proj-btn btn-normal"
                 data-title="Pipeline Monitoring"
                 data-desc="INSERT TEXT"
-                data-src=""
+                data-src="https://grafana.erickopen.com/d/087f3f78-11c9-4259-96ac-916af471a99c/pipeline-monitoring?var-interval=10s&orgId=1&from=now-15m&to=now&timezone=browser&var-target=$__all&var-job=node_exporter&var-node=node_exporter:9100&var-nodename=c8926d21c857&refresh=10s&kiosk&theme=light"
               >
                 Pipeline Monitoring
               </button>
             </li>
             <li>
               <button
-                class="proj-btn"
+                class="proj-btn btn-normal"
                 data-title="Market Data"
                 data-desc="INSERT TEXT"
                 data-src="https://grafana.erickopen.com/d/37fb53d0-bf32-4e50-b46e-3bf1a868e61e/market-data?var-interval=10s&orgId=1&from=now-15m&to=now&timezone=browser&var-target=$__all&var-job=node_exporter&var-node=node_exporter:9100&var-nodename=c8926d21c857&refresh=10s&kiosk&theme=light"
               >
                 Market Data
               </button>
-            </li>            
+            </li>
           </ul>
         </div>
       </div>
@@ -168,28 +191,35 @@
     window.addEventListener('load', () => {
       route();
 
-      // Project button click
-      document.querySelectorAll('.proj-btn').forEach(btn => {
-        btn.addEventListener('click', () => {
-          const title = btn.dataset.title || '';
-          const desc  = btn.dataset.desc  || '';
-          const src   = btn.dataset.src   || '';
+    // Project button click
+    document.querySelectorAll('.proj-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        // Remove 'selected' from all buttons
+        document.querySelectorAll('.proj-btn').forEach(b => b.classList.remove('selected'));
 
-          document.getElementById('p-title').textContent = title;
-          document.getElementById('p-desc').textContent  = desc;
+        // Add 'selected' to the clicked button
+        btn.classList.add('selected');
 
-          const frame = document.getElementById('proj-frame');
-          const wrap  = document.getElementById('proj-frame-wrap');
+        // Your existing code:
+        const title = btn.dataset.title || '';
+        const desc  = btn.dataset.desc  || '';
+        const src   = btn.dataset.src   || '';
 
-          if (src) {
-            wrap.style.display = 'block';
-            frame.src = src;
-          } else {
-            wrap.style.display = 'none';
-            frame.src = '';
-          }
-        });
+        document.getElementById('p-title').textContent = title;
+        document.getElementById('p-desc').textContent  = desc;
+
+        const frame = document.getElementById('proj-frame');
+        const wrap  = document.getElementById('proj-frame-wrap');
+
+        if (src) {
+          wrap.style.display = 'block';
+          frame.src = src;
+        } else {
+          wrap.style.display = 'none';
+          frame.src = '';
+        }
       });
+    });
 
       // Default load: show Overview when Projects first opens
       if (location.hash === '#projects') {

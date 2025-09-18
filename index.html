@@ -17,7 +17,7 @@
     .shell {
       min-height: 100vh;
       display: grid;
-      grid-template-columns: 1fr 2fr; /* 1/3 : 2/3 */
+      grid-template-columns: 1fr 4fr;
     }
     .left { padding: 24px; border-right: 1px solid #eee; background: #FAF9F6; }
     .right { padding: 24px; }
@@ -154,14 +154,12 @@
       <div id="left-projects" class="hidden stack">
         <a href="#about" class="pill btn-terracotta">← Back to About</a>
 
-        <!-- Project Block -->
+        <!-- Project Block: PROJECT ARCHITECTURE -->
         <div class="proj-block">
-          <div class="proj-header">Real-Time Market Data Pipeline</div>
-          <div class="proj-sub">A real-time market data pipeline for streaming, storing, monitoring, and visualizing financial tick data, designed as simplified recreation to systems used in trading environments. The pipeline is live and displayed on my personal website, www.erickopen.com. I continuously monitor and improve it in my free time.</div>
+          <div class="proj-header">Project Architecture</div>
+          <div class="proj-sub">Sentence</div>
           <ul class="proj-list">
             <li>
-
-
               <button
                 class="proj-btn btn-normal"
                 data-title="Overview"
@@ -185,49 +183,169 @@
                 data-src="">
                 Overview
               </button>
-
             </li>
             <li>
               <button
                 class="proj-btn btn-normal"
                 data-title="Server Monitoring"
                 data-desc='This dashboard displays metrics regarding the Digital Ocean server this runs on. Information is gathered via Node Explorer, which is scraped by Prometheus.'
-                data-src="https://grafana.erickopen.com/d/blackbox-uptime/server-monitoring?var-interval=10s&orgId=1&from=now-24h&to=now&timezone=browser&var-target=$__all&var-job=node_exporter&var-node=node_exporter:9100&var-nodename=c8926d21c857&refresh=10s&kiosk&theme=light"
+                data-src="https://grafana.erickopen.com/d/blackbox-uptime/server-monitoring?var-interval=10s&orgId=1&from=now-24h&to=now&timezone=browser&var-target=$__all&var-job=node_exporter&var-node=node_exporter:9100&var-nodename=c8926d21c857&refresh=5s&kiosk&theme=light"
               >
-                Server Monitoring
-              </button>
-            </li>
-            <li>
-              <button
-                class="proj-btn btn-normal"
-                data-title='Platform Monitoring'
-                data-desc="This dashboard displays metrics for the orchestration, in this case Docker. Information is gathered via cAdvisor and Blackbox, which are scraped by Prometheus."
-                data-src="https://grafana.erickopen.com/d/944fd6f9-38e7-46dc-8c3c-465f610b1f1e/platform-monitoring?var-interval=10s&orgId=1&from=now-24h&to=now&timezone=browser&var-target=$__all&var-job=node_exporter&var-node=node_exporter:9100&var-nodename=c8926d21c857&refresh=10s&kiosk&theme=light"
-              >
-                Platform Monitoring
-              </button>
-            </li>
-            <li>
-              <button
-                class="proj-btn btn-normal"
-                data-title="Pipeline Monitoring"
-                data-desc="This dashboard displays metrics for the real-time market data pipeline itself. Information is gathered via standard logging (which is collected by Promtail and displayed via Loki) and frequent diagnostic/monitoring queries (which are stored and displayed with Clickhouse)."
-                data-src="https://grafana.erickopen.com/d/087f3f78-11c9-4259-96ac-916af471a99c/pipeline-monitoring?var-interval=10s&orgId=1&from=now-24h&to=now&timezone=browser&var-target=$__all&var-job=node_exporter&var-node=node_exporter:9100&var-nodename=c8926d21c857&refresh=10s&kiosk&theme=light"
-              >
-                Pipeline Monitoring
-              </button>
-            </li>
-            <li>
-              <button
-                class="proj-btn btn-normal"
-                data-title="Market Data"
-                data-desc="This dashboard displays market data captured by the pipeline. Data is stored and displayed with Clickhouse. Currently, the pipeline is only capturing Ethereum pricing data up to 24 hours old."
-                data-src="https://grafana.erickopen.com/d/37fb53d0-bf32-4e50-b46e-3bf1a868e61e/market-data?var-interval=10s&orgId=1&from=now-24h&to=now&timezone=browser&var-target=$__all&var-job=node_exporter&var-node=node_exporter:9100&var-nodename=c8926d21c857&refresh=10s&kiosk&theme=light"
-              >
-                Market Data
+                Monitoring
               </button>
             </li>
           </ul>
+        </div>
+
+
+        <!-- Project Block: MARKET DATA STREAM -->
+        <div class="proj-block">
+          <div class="proj-header">Market Data Stream</div>
+          <div class="proj-sub">Sentence</div>
+          <ul class="proj-list">
+            <li>
+              <button
+                class="proj-btn btn-normal"
+                data-title="Overview"
+                data-desc='
+                  <div class="stack">
+
+                    <p> View more documentation on my <strong> <a href="https://github.com/ekopen/Real_Time_Market_Data_Pipeline" target="_blank"> GitHub </a> </strong> </p>
+
+                    <ul>
+                      <li><strong>Configuration:</strong> This project is orchestrated via Docker and deployed on a Digital Ocean server. NGINX was used to display Grafana dashboards on www.erickopen.com.</li>
+                      <li><strong>Ingestion:</strong> A Kafka producer connects to a Finnhub API websocket, which streams exchange data from Binance. This data is fed into a Kafka topic.</li>
+                      <li><strong>Storage:</strong> A Kafka consumer validates, batches, and inserts data into a ClickHouse table.</li>
+                      <li><strong>Monitoring:</strong> The pipeline itself is monitored via standard logging and a periodic diagnostic/monitoring queries (which are stored in seperate Clickhouse tables). Status of the Digital Ocean server and Docker are monitored by a variety of tools that feed into Prometheus.</li>
+                      <li><strong>Archival:</strong> Market data, logging data, and diagnostic/monitoring data gathered from the pipeline are archived to parquets after a day, which are then automatically uploaded to AWS S3 for long term storage.</li>
+                      <li><strong>Dashboard:</strong> Grafana dashboards highlight various metrics related to the status of the server, Docker, and pipeline. Additionally, market data captured is displayed for informative purposes.</li>
+                    </ul>
+
+                    <img src="images/architecture_complex.png" alt="Detailed Diagram" />
+
+                  </div>'
+                data-src="">
+                Overview
+              </button>
+            </li>
+            <li>
+              <button
+                class="proj-btn btn-normal"
+                data-title="Monitoring"
+                data-desc='This dashboard displays metrics regarding the Digital Ocean server this runs on. Information is gathered via Node Explorer, which is scraped by Prometheus.'
+                data-src="https://grafana.erickopen.com/d/blackbox-uptime/server-monitoring?var-interval=10s&orgId=1&from=now-24h&to=now&timezone=browser&var-target=$__all&var-job=node_exporter&var-node=node_exporter:9100&var-nodename=c8926d21c857&refresh=5s&kiosk&theme=light"
+              >
+                Monitoring
+              </button>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Project Block: STORAGE -->
+        <div class="proj-block">
+          <div class="proj-header">Continuous Data Storage</div>
+          <div class="proj-sub">Sentence</div>
+          <ul class="proj-list">
+            <li>
+              <button
+                class="proj-btn btn-normal"
+                data-title="Overview"
+                data-desc='
+                  <div class="stack">
+
+                    <p> View more documentation on my <strong> <a href="https://github.com/ekopen/Real_Time_Market_Data_Pipeline" target="_blank"> GitHub </a> </strong> </p>
+
+                    <ul>
+                      <li><strong>Configuration:</strong> This project is orchestrated via Docker and deployed on a Digital Ocean server. NGINX was used to display Grafana dashboards on www.erickopen.com.</li>
+                      <li><strong>Ingestion:</strong> A Kafka producer connects to a Finnhub API websocket, which streams exchange data from Binance. This data is fed into a Kafka topic.</li>
+                      <li><strong>Storage:</strong> A Kafka consumer validates, batches, and inserts data into a ClickHouse table.</li>
+                      <li><strong>Monitoring:</strong> The pipeline itself is monitored via standard logging and a periodic diagnostic/monitoring queries (which are stored in seperate Clickhouse tables). Status of the Digital Ocean server and Docker are monitored by a variety of tools that feed into Prometheus.</li>
+                      <li><strong>Archival:</strong> Market data, logging data, and diagnostic/monitoring data gathered from the pipeline are archived to parquets after a day, which are then automatically uploaded to AWS S3 for long term storage.</li>
+                      <li><strong>Dashboard:</strong> Grafana dashboards highlight various metrics related to the status of the server, Docker, and pipeline. Additionally, market data captured is displayed for informative purposes.</li>
+                    </ul>
+
+                    <img src="images/architecture_complex.png" alt="Detailed Diagram" />
+
+                  </div>'
+                data-src="">
+                Overview
+              </button>
+            </li>
+            <li>
+              <button
+                class="proj-btn btn-normal"
+                data-title="Monitoring"
+                data-desc='This dashboard displays metrics regarding the Digital Ocean server this runs on. Information is gathered via Node Explorer, which is scraped by Prometheus.'
+                data-src="https://grafana2.erickopen.com/d/blackbox-uptime/system-monitoring?var-interval=10s&orgId=1&from=now-24h&to=now&timezone=browser&var-target=$__all&var-job=node_exporter&var-node=node_exporter:9100&var-nodename=c8926d21c857&refresh=5s&kiosk&theme=light"
+              >
+                Monitoring
+              </button>
+            </li>
+            <li>
+              <button
+                class="proj-btn btn-normal"
+                data-title="Data"
+                data-desc='This dashboard displays metrics regarding the Digital Ocean server this runs on. Information is gathered via Node Explorer, which is scraped by Prometheus.'
+                data-src="https://grafana2.erickopen.com/d/37fb53d0-bf32-4e50-b46e-3bf1a868e61e/market-data?var-interval=10s&orgId=1&from=now-24h&to=now&timezone=browser&var-target=$__all&var-job=node_exporter&var-node=node_exporter:9100&var-nodename=c8926d21c857&refresh=5s&kiosk&theme=light"
+              >
+                Data
+              </button>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Project Block: TRADING -->
+        <div class="proj-block">
+          <div class="proj-header">Systematic Trading</div>
+          <div class="proj-sub">Sentence</div>
+          <ul class="proj-list">
+            <li>
+              <button
+                class="proj-btn btn-normal"
+                data-title="Overview"
+                data-desc='
+                  <div class="stack">
+
+                    <p> View more documentation on my <strong> <a href="https://github.com/ekopen/Real_Time_Market_Data_Pipeline" target="_blank"> GitHub </a> </strong> </p>
+
+                    <ul>
+                      <li><strong>Configuration:</strong> This project is orchestrated via Docker and deployed on a Digital Ocean server. NGINX was used to display Grafana dashboards on www.erickopen.com.</li>
+                      <li><strong>Ingestion:</strong> A Kafka producer connects to a Finnhub API websocket, which streams exchange data from Binance. This data is fed into a Kafka topic.</li>
+                      <li><strong>Storage:</strong> A Kafka consumer validates, batches, and inserts data into a ClickHouse table.</li>
+                      <li><strong>Monitoring:</strong> The pipeline itself is monitored via standard logging and a periodic diagnostic/monitoring queries (which are stored in seperate Clickhouse tables). Status of the Digital Ocean server and Docker are monitored by a variety of tools that feed into Prometheus.</li>
+                      <li><strong>Archival:</strong> Market data, logging data, and diagnostic/monitoring data gathered from the pipeline are archived to parquets after a day, which are then automatically uploaded to AWS S3 for long term storage.</li>
+                      <li><strong>Dashboard:</strong> Grafana dashboards highlight various metrics related to the status of the server, Docker, and pipeline. Additionally, market data captured is displayed for informative purposes.</li>
+                    </ul>
+
+                    <img src="images/architecture_complex.png" alt="Detailed Diagram" />
+
+                  </div>'
+                data-src="">
+                Overview
+              </button>
+            </li>
+            <li>
+              <button
+                class="proj-btn btn-normal"
+                data-title="Monitoring"
+                data-desc='This dashboard displays metrics regarding the Digital Ocean server this runs on. Information is gathered via Node Explorer, which is scraped by Prometheus.'
+                data-src="https://grafana2.erickopen.com/d/blackbox-uptime/system-monitoring?var-interval=10s&orgId=1&from=now-24h&to=now&timezone=browser&var-target=$__all&var-job=node_exporter&var-node=node_exporter:9100&var-nodename=c8926d21c857&refresh=5s&kiosk&theme=light"
+              >
+                Monitoring
+              </button>
+            </li>
+            <li>
+              <button
+                class="proj-btn btn-normal"
+                data-title="Data"
+                data-desc='This dashboard displays metrics regarding the Digital Ocean server this runs on. Information is gathered via Node Explorer, which is scraped by Prometheus.'
+                data-src="https://grafana3.erickopen.com/d/dafd943f-13d6-4eff-bc86-4da341bec809/trading-dashboard?var-interval=10s&orgId=1&from=now-24h&to=now&timezone=browser&var-target=$__all&var-job=node_exporter&var-node=node_exporter:9100&var-nodename=c8926d21c857&refresh=5s&kiosk&theme=light"
+              >
+                Data
+              </button>
+            </li>
+          </ul>
+        
         </div>
       </div>
     </aside>

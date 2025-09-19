@@ -156,197 +156,61 @@
 
         <!-- Project Block: PROJECT ARCHITECTURE -->
         <div class="proj-block">
-          <div class="proj-header">Project Architecture</div>
-          <div class="proj-sub">Sentence</div>
-          <ul class="proj-list">
-            <li>
-              <button
-                class="proj-btn btn-normal"
-                data-title="Overview"
-                data-desc='
-                  <div class="stack">
-
-                    <p> View more documentation on my <strong> <a href="https://github.com/ekopen/Real_Time_Market_Data_Pipeline" target="_blank"> GitHub </a> </strong> </p>
-
-                    <ul>
-                      <li><strong>Configuration:</strong> This project is orchestrated via Docker and deployed on a Digital Ocean server. NGINX was used to display Grafana dashboards on www.erickopen.com.</li>
-                      <li><strong>Ingestion:</strong> A Kafka producer connects to a Finnhub API websocket, which streams exchange data from Binance. This data is fed into a Kafka topic.</li>
-                      <li><strong>Storage:</strong> A Kafka consumer validates, batches, and inserts data into a ClickHouse table.</li>
-                      <li><strong>Monitoring:</strong> The pipeline itself is monitored via standard logging and a periodic diagnostic/monitoring queries (which are stored in seperate Clickhouse tables). Status of the Digital Ocean server and Docker are monitored by a variety of tools that feed into Prometheus.</li>
-                      <li><strong>Archival:</strong> Market data, logging data, and diagnostic/monitoring data gathered from the pipeline are archived to parquets after a day, which are then automatically uploaded to AWS S3 for long term storage.</li>
-                      <li><strong>Dashboard:</strong> Grafana dashboards highlight various metrics related to the status of the server, Docker, and pipeline. Additionally, market data captured is displayed for informative purposes.</li>
-                    </ul>
-
-                    <img src="images/architecture_complex.png" alt="Detailed Diagram" />
-
-                  </div>'
-                data-src="">
-                Overview
-              </button>
-            </li>
-            <li>
-              <button
-                class="proj-btn btn-normal"
-                data-title="Server Monitoring"
-                data-desc='This dashboard displays metrics regarding the Digital Ocean server this runs on. Information is gathered via Node Explorer, which is scraped by Prometheus.'
-                data-src="https://grafana.erickopen.com/d/blackbox-uptime/server-monitoring?var-interval=10s&orgId=1&from=now-24h&to=now&timezone=browser&var-target=$__all&var-job=node_exporter&var-node=node_exporter:9100&var-nodename=c8926d21c857&refresh=5s&kiosk&theme=light"
-              >
-                Monitoring
-              </button>
-            </li>
-          </ul>
+          <button class="proj-btn btn-normal proj-header-btn" 
+                  data-title="Project Architecture"
+                  data-desc='
+                    <div class="stack">
+                      <img src="images/architecture_complex.png" alt="Detailed Diagram" />
+                    </div>'>
+            Project Architecture
+          </button>
+          <div class="proj-sub">Sentence about this project.</div>
         </div>
 
-
-        <!-- Project Block: MARKET DATA STREAM -->
+        <!-- Project Block: DATA STREAM  -->
         <div class="proj-block">
-          <div class="proj-header">Market Data Stream</div>
-          <div class="proj-sub">Sentence</div>
-          <ul class="proj-list">
-            <li>
-              <button
-                class="proj-btn btn-normal"
-                data-title="Overview"
-                data-desc='
-                  <div class="stack">
-
-                    <p> View more documentation on my <strong> <a href="https://github.com/ekopen/Real_Time_Market_Data_Pipeline" target="_blank"> GitHub </a> </strong> </p>
-
-                    <ul>
-                      <li><strong>Configuration:</strong> This project is orchestrated via Docker and deployed on a Digital Ocean server. NGINX was used to display Grafana dashboards on www.erickopen.com.</li>
-                      <li><strong>Ingestion:</strong> A Kafka producer connects to a Finnhub API websocket, which streams exchange data from Binance. This data is fed into a Kafka topic.</li>
-                      <li><strong>Storage:</strong> A Kafka consumer validates, batches, and inserts data into a ClickHouse table.</li>
-                      <li><strong>Monitoring:</strong> The pipeline itself is monitored via standard logging and a periodic diagnostic/monitoring queries (which are stored in seperate Clickhouse tables). Status of the Digital Ocean server and Docker are monitored by a variety of tools that feed into Prometheus.</li>
-                      <li><strong>Archival:</strong> Market data, logging data, and diagnostic/monitoring data gathered from the pipeline are archived to parquets after a day, which are then automatically uploaded to AWS S3 for long term storage.</li>
-                      <li><strong>Dashboard:</strong> Grafana dashboards highlight various metrics related to the status of the server, Docker, and pipeline. Additionally, market data captured is displayed for informative purposes.</li>
-                    </ul>
-
-                    <img src="images/architecture_complex.png" alt="Detailed Diagram" />
-
-                  </div>'
-                data-src="">
-                Overview
-              </button>
-            </li>
-            <li>
-              <button
-                class="proj-btn btn-normal"
-                data-title="Monitoring"
-                data-desc='This dashboard displays metrics regarding the Digital Ocean server this runs on. Information is gathered via Node Explorer, which is scraped by Prometheus.'
-                data-src="https://grafana.erickopen.com/d/blackbox-uptime/server-monitoring?var-interval=10s&orgId=1&from=now-24h&to=now&timezone=browser&var-target=$__all&var-job=node_exporter&var-node=node_exporter:9100&var-nodename=c8926d21c857&refresh=5s&kiosk&theme=light"
-              >
-                Monitoring
-              </button>
-            </li>
-          </ul>
+          <button class="proj-btn btn-normal proj-header-btn" 
+                  data-title="Data Stream"
+                  data-desc='
+                    <div class="stack">
+                      <iframe src="https://grafana.erickopen.com/d/blackbox-uptime/server-monitoring?var-interval=10s&orgId=1&from=now-24h&to=now&timezone=browser&var-target=$__all&var-job=node_exporter&var-node=node_exporter:9100&var-nodename=c8926d21c857&refresh=5s&kiosk&theme=light"
+                              style="width:100%; height:400px; border:0; margin-top:1rem;"></iframe>
+                    </div>'>
+            Data Stream
+          </button>
+          <div class="proj-sub">Sentence about this project.</div>
         </div>
 
-        <!-- Project Block: STORAGE -->
+        <!-- Project Block: DATA STORAGE  -->
         <div class="proj-block">
-          <div class="proj-header">Continuous Data Storage</div>
-          <div class="proj-sub">Sentence</div>
-          <ul class="proj-list">
-            <li>
-              <button
-                class="proj-btn btn-normal"
-                data-title="Overview"
-                data-desc='
-                  <div class="stack">
-
-                    <p> View more documentation on my <strong> <a href="https://github.com/ekopen/Real_Time_Market_Data_Pipeline" target="_blank"> GitHub </a> </strong> </p>
-
-                    <ul>
-                      <li><strong>Configuration:</strong> This project is orchestrated via Docker and deployed on a Digital Ocean server. NGINX was used to display Grafana dashboards on www.erickopen.com.</li>
-                      <li><strong>Ingestion:</strong> A Kafka producer connects to a Finnhub API websocket, which streams exchange data from Binance. This data is fed into a Kafka topic.</li>
-                      <li><strong>Storage:</strong> A Kafka consumer validates, batches, and inserts data into a ClickHouse table.</li>
-                      <li><strong>Monitoring:</strong> The pipeline itself is monitored via standard logging and a periodic diagnostic/monitoring queries (which are stored in seperate Clickhouse tables). Status of the Digital Ocean server and Docker are monitored by a variety of tools that feed into Prometheus.</li>
-                      <li><strong>Archival:</strong> Market data, logging data, and diagnostic/monitoring data gathered from the pipeline are archived to parquets after a day, which are then automatically uploaded to AWS S3 for long term storage.</li>
-                      <li><strong>Dashboard:</strong> Grafana dashboards highlight various metrics related to the status of the server, Docker, and pipeline. Additionally, market data captured is displayed for informative purposes.</li>
-                    </ul>
-
-                    <img src="images/architecture_complex.png" alt="Detailed Diagram" />
-
-                  </div>'
-                data-src="">
-                Overview
-              </button>
-            </li>
-            <li>
-              <button
-                class="proj-btn btn-normal"
-                data-title="Monitoring"
-                data-desc='This dashboard displays metrics regarding the Digital Ocean server this runs on. Information is gathered via Node Explorer, which is scraped by Prometheus.'
-                data-src="https://grafana2.erickopen.com/d/blackbox-uptime/system-monitoring?var-interval=10s&orgId=1&from=now-24h&to=now&timezone=browser&var-target=$__all&var-job=node_exporter&var-node=node_exporter:9100&var-nodename=c8926d21c857&refresh=5s&kiosk&theme=light"
-              >
-                Monitoring
-              </button>
-            </li>
-            <li>
-              <button
-                class="proj-btn btn-normal"
-                data-title="Data"
-                data-desc='This dashboard displays metrics regarding the Digital Ocean server this runs on. Information is gathered via Node Explorer, which is scraped by Prometheus.'
-                data-src="https://grafana2.erickopen.com/d/37fb53d0-bf32-4e50-b46e-3bf1a868e61e/market-data?var-interval=10s&orgId=1&from=now-24h&to=now&timezone=browser&var-target=$__all&var-job=node_exporter&var-node=node_exporter:9100&var-nodename=c8926d21c857&refresh=5s&kiosk&theme=light"
-              >
-                Data
-              </button>
-            </li>
-          </ul>
+          <button class="proj-btn btn-normal proj-header-btn" 
+                  data-title="Data Storage"
+                  data-desc='
+                    <div class="stack">
+                      <iframe src="https://grafana2.erickopen.com/d/blackbox-uptime/system-monitoring?var-interval=10s&orgId=1&from=now-24h&to=now&timezone=browser&var-target=$__all&var-job=node_exporter&var-node=node_exporter:9100&var-nodename=c8926d21c857&refresh=5s&kiosk&theme=light"
+                              style="width:100%; height:400px; border:0; margin-top:1rem;"></iframe>
+                      <iframe src="https://grafana2.erickopen.com/d/37fb53d0-bf32-4e50-b46e-3bf1a868e61e/market-data?var-interval=10s&orgId=1&from=now-24h&to=now&timezone=browser&var-target=$__all&var-job=node_exporter&var-node=node_exporter:9100&var-nodename=c8926d21c857&refresh=5s&kiosk&theme=light"
+                              style="width:100%; height:400px; border:0; margin-top:1rem;"></iframe>
+                    </div>'>
+            Data Storage
+          </button>
+          <div class="proj-sub">Sentence about this project.</div>
         </div>
 
-        <!-- Project Block: TRADING -->
+        <!-- Project Block: SYSTEMATIC TRADING  -->
         <div class="proj-block">
-          <div class="proj-header">Systematic Trading</div>
-          <div class="proj-sub">Sentence</div>
-          <ul class="proj-list">
-            <li>
-              <button
-                class="proj-btn btn-normal"
-                data-title="Overview"
-                data-desc='
-                  <div class="stack">
-
-                    <p> View more documentation on my <strong> <a href="https://github.com/ekopen/Real_Time_Market_Data_Pipeline" target="_blank"> GitHub </a> </strong> </p>
-
-                    <ul>
-                      <li><strong>Configuration:</strong> This project is orchestrated via Docker and deployed on a Digital Ocean server. NGINX was used to display Grafana dashboards on www.erickopen.com.</li>
-                      <li><strong>Ingestion:</strong> A Kafka producer connects to a Finnhub API websocket, which streams exchange data from Binance. This data is fed into a Kafka topic.</li>
-                      <li><strong>Storage:</strong> A Kafka consumer validates, batches, and inserts data into a ClickHouse table.</li>
-                      <li><strong>Monitoring:</strong> The pipeline itself is monitored via standard logging and a periodic diagnostic/monitoring queries (which are stored in seperate Clickhouse tables). Status of the Digital Ocean server and Docker are monitored by a variety of tools that feed into Prometheus.</li>
-                      <li><strong>Archival:</strong> Market data, logging data, and diagnostic/monitoring data gathered from the pipeline are archived to parquets after a day, which are then automatically uploaded to AWS S3 for long term storage.</li>
-                      <li><strong>Dashboard:</strong> Grafana dashboards highlight various metrics related to the status of the server, Docker, and pipeline. Additionally, market data captured is displayed for informative purposes.</li>
-                    </ul>
-
-                    <img src="images/architecture_complex.png" alt="Detailed Diagram" />
-
-                  </div>'
-                data-src="">
-                Overview
-              </button>
-            </li>
-            <li>
-              <button
-                class="proj-btn btn-normal"
-                data-title="Monitoring"
-                data-desc='This dashboard displays metrics regarding the Digital Ocean server this runs on. Information is gathered via Node Explorer, which is scraped by Prometheus.'
-                data-src="https://grafana2.erickopen.com/d/blackbox-uptime/system-monitoring?var-interval=10s&orgId=1&from=now-24h&to=now&timezone=browser&var-target=$__all&var-job=node_exporter&var-node=node_exporter:9100&var-nodename=c8926d21c857&refresh=5s&kiosk&theme=light"
-              >
-                Monitoring
-              </button>
-            </li>
-            <li>
-              <button
-                class="proj-btn btn-normal"
-                data-title="Data"
-                data-desc='This dashboard displays metrics regarding the Digital Ocean server this runs on. Information is gathered via Node Explorer, which is scraped by Prometheus.'
-                data-src="https://grafana3.erickopen.com/d/dafd943f-13d6-4eff-bc86-4da341bec809/trading-dashboard?var-interval=10s&orgId=1&from=now-24h&to=now&timezone=browser&var-target=$__all&var-job=node_exporter&var-node=node_exporter:9100&var-nodename=c8926d21c857&refresh=5s&kiosk&theme=light"
-              >
-                Data
-              </button>
-            </li>
-          </ul>
-        
+          <button class="proj-btn btn-normal proj-header-btn" 
+                  data-title="Systematic Trading"
+                  data-desc='
+                    <div class="stack">
+                      <iframe src="https://grafana3.erickopen.com/d/dafd943f-13d6-4eff-bc86-4da341bec809/trading-dashboard?var-interval=10s&orgId=1&from=now-24h&to=now&timezone=browser&var-target=$__all&var-job=node_exporter&var-node=node_exporter:9100&var-nodename=c8926d21c857&refresh=5s&kiosk&theme=light"
+                              style="width:100%; height:400px; border:0; margin-top:1rem;"></iframe>
+                    </div>'>
+            Systematic Trading
+          </button>
+          <div class="proj-sub">Sentence about this project.</div>
         </div>
+
       </div>
     </aside>
 
@@ -355,7 +219,7 @@
       <!-- ABOUT VIEW RIGHT -->
       <section id="right-about" class="stack">
         <h2>About</h2>
-        <p>Hello! I’m Eric. Thanks for visiting my page.</p>
+        <p>Hello! I’m Eric. Thanks for visiting my page!</p>
         <p>I specialize in building and maintaining infrastructure for financial market interaction, a focus I’m deepening through projects featured here and on GitHub. I’m currently seeking part-time opportunities while completing my master’s this fall and will be available for full-time roles in 2026. My ideal position is an engineering role focused on real-time data systems.</p>
         <p>I’m pursuing a Master’s in Financial Mathematics at the University of Chicago, graduating in December 2025. In summer 2025, I interned at Bank of America, supporting teams that built risk engines for trading desks. Before that, in the winter of 2025 I had an internship at Mizuho Bank, where I worked on machine learning approaches to building volatility surfaces. Prior to graduate school, I spent five years in data analysis and engineering roles at UnitedHealthcare and Agiliti Health. I hold a Bachelor's degree from the University of Minnesota, where I graduated in 2019 after studying Management Information Systems and Finance.</p>
       </section>
@@ -391,32 +255,21 @@
       route();
 
     // Project button click
-    document.querySelectorAll('.proj-btn').forEach(btn => {
+    document.querySelectorAll('.proj-header-btn').forEach(btn => {
       btn.addEventListener('click', () => {
-        // Remove 'selected' from all buttons
-        document.querySelectorAll('.proj-btn').forEach(b => b.classList.remove('selected'));
-
-        // Add 'selected' to the clicked button
+        // remove highlight from other buttons
+        document.querySelectorAll('.proj-header-btn').forEach(b => b.classList.remove('selected'));
         btn.classList.add('selected');
 
-        // Your existing code:
+        // update right column
         const title = btn.dataset.title || '';
         const desc  = btn.dataset.desc  || '';
-        const src   = btn.dataset.src   || '';
 
         document.getElementById('p-title').textContent = title;
         document.getElementById('p-desc').innerHTML = desc;
 
-        const frame = document.getElementById('proj-frame');
-        const wrap  = document.getElementById('proj-frame-wrap');
-
-        if (src) {
-          wrap.style.display = 'block';
-          frame.src = src;
-        } else {
-          wrap.style.display = 'none';
-          frame.src = '';
-        }
+        // hide the iframe wrapper since we directly embed iframes inside desc now
+        document.getElementById('proj-frame-wrap').style.display = 'none';
       });
     });
 

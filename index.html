@@ -4,98 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Eric Kopen</title>
-  <style>
-    /* ===== RESET ===== */
-    *, *::before, *::after { box-sizing: border-box; }
-    html, body { height: 100%; }
-    body { margin: 0; font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; color: #222; }
-    a { color: inherit; }
-    img { max-width: 100%; height: auto; display: block; }
-    button { font: inherit; }
-
-    /* ===== LAYOUT: 1/3 left, 2/3 right ===== */
-    .shell {
-      min-height: 100vh;
-      display: grid;
-      grid-template-columns: 1fr 4fr;
-    }
-    .left { padding: 24px; border-right: 1px solid #eee; background: #FAF9F6; }
-    .right { padding: 24px; }
-
-    /* Basic look */
-    .pill { display:inline-block; padding: 6px 10px; border:1px solid #ddd; border-radius: 999px; text-decoration:none; }
-    .stack > * { margin-block: 12px; }
-    .muted { color: #666; }
-
-    /* Profile */
-    .pfp { width: 160px; height: 160px; border-radius: 50%; object-fit: cover; }
-    .name { font-size: 1.6rem; font-weight: 700; }
-
-    /* Simple nav (hash-based) */
-    .hidden { display: none; }
-
-    /* Projects left */
-    .proj-header { font-size: 1.1rem; font-weight: 700; margin-top: 16px; }
-    .proj-sub { font-size: 0.9rem; color: #555; margin-bottom: 12px; }
-    .proj-list { list-style: none; padding: 0; margin: 0; margin-left: 12px; } /* slight indent under header/sub */
-    .proj-list li { margin: 8px 0; }
-
-    /* Button base */
-    .proj-btn { width: 100%; text-align: left; padding: 10px 12px; border: 1px solid #ddd; border-radius: 8px; background: #fafafa; cursor: pointer; transition: filter .15s ease, transform .02s ease; }
-    .proj-btn:active { transform: translateY(1px); }
-
-    /* Themed buttons */
-    .btn-green { background: #B7C9A8; border-color: #8f9e82; color: #1e1e1e; }
-    .btn-green:hover { filter: brightness(0.97); }
-
-    .btn-blue { background: #c8e3fe; border-color: #a6bed6; color: #1e1e1e; }
-    .btn-blue:hover { filter: brightness(0.97); }
-
-    .btn-normal { background: #e7e7e6; border-color: #c2c2c2; color: #1e1e1e; }
-    .btn-normal:hover { filter: brightness(0.97); }
-
-    .btn-terracotta { background: #E07A5F; border-color: #E07A5F; color: #fff; }
-    .btn-terracotta:hover { filter: brightness(0.97); }
-
-    .proj-btn.selected {
-      filter: brightness(0.9);
-      border-color: #999;
-    }
-
-    /* Specific overrides */
-    .btn-overview { font-weight: 600; }
-
-    .iframe-wrap { width: 100%; aspect-ratio: 16/9; border: 1px solid #eee; margin-top: 16px; }
-    .iframe-wrap iframe { width: 100%; height: 100%; border: 0; }
-
-    /* Mobile: stack columns */
-    @media (max-width: 800px) {
-      .shell { grid-template-columns: 1fr; }
-      .left { border-right: 0; border-bottom: 1px solid #eee; }
-    }
-
-
-    /* misc */
-    .socials {
-      margin-top: 8px;
-      display: flex;
-      gap: 12px;
-    }
-    .socials a svg {
-      transition: transform 0.2s ease;
-    }
-    .socials a:hover svg {
-      transform: scale(1.1);
-    }
-
-    .img-inline {
-      max-width: 50%;   /* scale relative to text width */
-      height: auto;     /* keep aspect ratio */
-      display: block;
-      margin: 1rem auto; /* centers it with spacing */
-    }
-
-  </style>
+  <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
   <div class="shell">
@@ -106,45 +15,44 @@
         <img src="images/eric-kopen.jpg" alt="Eric Kopen" class="pfp" />
         <div class="name">Eric Kopen</div>
 
-          <!-- Social links -->
-          <div class="socials">
-            <a href="https://www.linkedin.com/in/eric-kopen-419266116/" target="_blank" aria-label="LinkedIn">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="#0A66C2">
-                <path d="M20.447 20.452H16.89v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 
-                        0-2.136 1.445-2.136 2.939v5.667H9.345V9h3.409v1.561h.049c.476-.9 
-                        1.637-1.85 3.369-1.85 3.598 0 4.263 2.368 4.263 5.452v6.289zM5.337 
-                        7.433a1.986 1.986 0 1 1 0-3.972 1.986 1.986 0 0 1 0 3.972zM6.814 
-                        20.452H3.861V9h2.953v11.452zM22.225 0H1.771C.792 0 0 
-                        .774 0 1.729v20.542C0 23.227.792 24 1.771 
-                        24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 
-                        .774 23.2 0 22.225 0z"/>
-              </svg>
-            </a>
-            <a href="https://github.com/ekopen" target="_blank" aria-label="GitHub">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="#181717">
-                <path d="M12 .297c-6.63 0-12 5.373-12 
-                        12 0 5.303 3.438 9.8 8.205 
-                        11.385.6.113.82-.258.82-.577 
-                        0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61-.546-1.387-1.333-1.757-1.333-1.757-1.09-.744.084-.729.084-.729 
-                        1.205.084 1.84 1.237 1.84 1.237 
-                        1.07 1.835 2.809 1.305 3.495.998.108-.775.418-1.305.762-1.605-2.665-.3-5.466-1.334-5.466-5.93 
-                        0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 
-                        0 0 1.005-.322 3.3 1.23a11.5 
-                        11.5 0 0 1 3-.405c1.02.005 2.045.138 
-                        3 .405 2.28-1.552 3.285-1.23 
-                        3.285-1.23.645 1.653.24 2.873.12 
-                        3.176.765.84 1.23 1.91 1.23 
-                        3.22 0 4.61-2.805 5.625-5.475 
-                        5.92.435.372.81 1.096.81 
-                        2.22 0 1.606-.015 2.896-.015 
-                        3.286 0 .315.21.69.825.57C20.565 
-                        22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/>
-              </svg>
-            </a>
-          </div>
-
-
-
+        <!-- Social links -->
+        <div class="socials">
+          <a href="https://www.linkedin.com/in/eric-kopen-419266116/" target="_blank" aria-label="LinkedIn">
+            <!-- LinkedIn SVG -->
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="#0A66C2">
+              <path d="M20.447 20.452H16.89v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 
+                      0-2.136 1.445-2.136 2.939v5.667H9.345V9h3.409v1.561h.049c.476-.9 
+                      1.637-1.85 3.369-1.85 3.598 0 4.263 2.368 4.263 5.452v6.289zM5.337 
+                      7.433a1.986 1.986 0 1 1 0-3.972 1.986 1.986 0 0 1 0 3.972zM6.814 
+                      20.452H3.861V9h2.953v11.452zM22.225 0H1.771C.792 0 0 
+                      .774 0 1.729v20.542C0 23.227.792 24 1.771 
+                      24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 
+                      .774 23.2 0 22.225 0z"/>
+            </svg>
+          </a>
+          <a href="https://github.com/ekopen" target="_blank" aria-label="GitHub">
+            <!-- GitHub SVG -->
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="#444D84">
+              <path d="M12 .297c-6.63 0-12 5.373-12 
+                      12 0 5.303 3.438 9.8 8.205 
+                      11.385.6.113.82-.258.82-.577 
+                      0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61-.546-1.387-1.333-1.757-1.333-1.757-1.09-.744.084-.729.084-.729 
+                      1.205.084 1.84 1.237 1.84 1.237 
+                      1.07 1.835 2.809 1.305 3.495.998.108-.775.418-1.305.762-1.605-2.665-.3-5.466-1.334-5.466-5.93 
+                      0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 
+                      0 0 1.005-.322 3.3 1.23a11.5 
+                      11.5 0 0 1 3-.405c1.02.005 2.045.138 
+                      3 .405 2.28-1.552 3.285-1.23 
+                      3.285-1.23.645 1.653.24 2.873.12 
+                      3.176.765.84 1.23 1.91 1.23 
+                      3.22 0 4.61-2.805 5.625-5.475 
+                      5.92.435.372.81 1.096.81 
+                      2.22 0 1.606-.015 2.896-.015 
+                      3.286 0 .315.21.69.825.57C20.565 
+                      22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/>
+            </svg>
+          </a>
+        </div>
 
         <div class="muted">erictkopen@gmail.com</div>
         <a href="#projects" class="pill btn-terracotta">→ Projects</a>
@@ -154,63 +62,83 @@
       <div id="left-projects" class="hidden stack">
         <a href="#about" class="pill btn-terracotta">← Back to About</a>
 
-        <!-- Project Block: PROJECT ARCHITECTURE -->
-        <div class="proj-block">
-          <button class="proj-btn btn-normal proj-header-btn" 
-                  data-title="Project Architecture"
-                  data-desc='
-                    <div class="stack">
-                      <img src="images/architecture_complex.png" alt="Detailed Diagram" />
-                    </div>'>
-            Project Architecture
-          </button>
-          <div class="proj-sub">Sentence about this project.</div>
-        </div>
+        <div class="proj-group">
+          <h3 class="proj-header">Live Trading Engine</h3>
 
-        <!-- Project Block: DATA STREAM  -->
-        <div class="proj-block">
-          <button class="proj-btn btn-normal proj-header-btn" 
-                  data-title="Data Stream"
-                  data-desc='
+          <!-- Project Block: OVERVIEW -->
+          <div class="proj-block">
+            <button class="proj-btn btn-normal proj-header-btn" 
+                    data-title="Overview"
+                    data-desc='
                     <div class="stack">
-                      <iframe src="https://grafana.erickopen.com/d/blackbox-uptime/server-monitoring?var-interval=10s&orgId=1&from=now-24h&to=now&timezone=browser&var-target=$__all&var-job=node_exporter&var-node=node_exporter:9100&var-nodename=c8926d21c857&refresh=5s&kiosk&theme=light"
-                              style="width:100%; height:400px; border:0; margin-top:1rem;"></iframe>
-                    </div>'>
-            Data Stream
-          </button>
-          <div class="proj-sub">Sentence about this project.</div>
-        </div>
+                    <p>
+                    Working with real-time data is something I find both fascinating and immensely rewarding. 
+                    Financial markets present a unique challenge in this space: markets generate a torrent of information every millisecond, and building robust architecture that can effectively ingest and process this flow is critical.
+                    This project highlights that very challenge: it is a system that connects to a live market data feed, stores the incoming information, and leverages those insights to make trading decisions.
+                  </p>
 
-        <!-- Project Block: DATA STORAGE  -->
-        <div class="proj-block">
-          <button class="proj-btn btn-normal proj-header-btn" 
-                  data-title="Data Storage"
-                  data-desc='
+                  <p>
+                    Because cryptocurrency markets never close, these modules are designed to run continuously... they are <strong>always</strong> on! 
+                    The code (available on my GitHub and linked on this website) is deployed live across multiple servers.
+                  </p>
+
+                  <p>
+                    Feel free to explore the live dashboards and documentation, and don’t hesitate to reach out with any comments or questions. Thank you!
+                  </p>
+                  <br>
+                  <p>
+
+                    </div>'>      
+              Overview
+            </button>
+          </div>
+
+          <!-- Project Block: Architecture -->
+          <div class="proj-block">
+            <button class="proj-btn btn-normal proj-header-btn" 
+                    data-title="Architecture"
+                    data-desc='
                     <div class="stack">
-                      <iframe src="https://grafana2.erickopen.com/d/blackbox-uptime/system-monitoring?var-interval=10s&orgId=1&from=now-24h&to=now&timezone=browser&var-target=$__all&var-job=node_exporter&var-node=node_exporter:9100&var-nodename=c8926d21c857&refresh=5s&kiosk&theme=light"
-                              style="width:100%; height:400px; border:0; margin-top:1rem;"></iframe>
-                      <iframe src="https://grafana2.erickopen.com/d/37fb53d0-bf32-4e50-b46e-3bf1a868e61e/market-data?var-interval=10s&orgId=1&from=now-24h&to=now&timezone=browser&var-target=$__all&var-job=node_exporter&var-node=node_exporter:9100&var-nodename=c8926d21c857&refresh=5s&kiosk&theme=light"
-                              style="width:100%; height:400px; border:0; margin-top:1rem;"></iframe>
-                    </div>'>
-            Data Storage
-          </button>
-          <div class="proj-sub">Sentence about this project.</div>
-        </div>
+                  <p>
+                    Below is a diagram that details the architecture of this project:
+                  </p>
+                    <img src="images/server_diagram.png" alt="server_diagram" />
 
-        <!-- Project Block: SYSTEMATIC TRADING  -->
-        <div class="proj-block">
-          <button class="proj-btn btn-normal proj-header-btn" 
-                  data-title="Systematic Trading"
-                  data-desc='
-                    <div class="stack">
-                      <iframe src="https://grafana3.erickopen.com/d/dafd943f-13d6-4eff-bc86-4da341bec809/trading-dashboard?var-interval=10s&orgId=1&from=now-24h&to=now&timezone=browser&var-target=$__all&var-job=node_exporter&var-node=node_exporter:9100&var-nodename=c8926d21c857&refresh=5s&kiosk&theme=light"
-                              style="width:100%; height:400px; border:0; margin-top:1rem;"></iframe>
-                    </div>'>
-            Systematic Trading
-          </button>
-          <div class="proj-sub">Sentence about this project.</div>
-        </div>
+                    </div>'>      
+              Architecture
+            </button>
+          </div>
 
+          <!-- Project Block: DATA STREAM -->
+          <div class="proj-block">
+            <button class="proj-btn btn-normal proj-header-btn" 
+                    data-title="Market Data Stream"
+                    data-github="https://github.com/ekopen/systematic_trading"
+                    data-desc='<div class="stack"><iframe src="https://grafana.erickopen.com/d/blackbox-uptime/server-monitoring?..."></iframe></div>'>
+              Market Data Stream
+            </button>
+          </div>
+
+          <!-- Project Block: DATA STORAGE -->
+          <div class="proj-block">
+            <button class="proj-btn btn-normal proj-header-btn" 
+                    data-title="Market Data Storage"
+                    data-github="https://github.com/ekopen/market_data_storage"
+                    data-desc='<div class="stack"><p> TEST! </p><iframe src="https://grafana2.erickopen.com/..."></iframe></div>'>
+              Market Data Storage
+            </button>
+          </div>
+
+          <!-- Project Block: SYSTEMATIC TRADING -->
+          <div class="proj-block">
+            <button class="proj-btn btn-normal proj-header-btn" 
+                    data-title="Systematic Trading"
+                    data-github="https://github.com/ekopen/systematic_trading"
+                    data-desc='<div class="stack"><iframe src="https://grafana3.erickopen.com/..."></iframe></div>'>
+              Systematic Trading
+            </button>
+          </div>
+        </div>
       </div>
     </aside>
 
@@ -226,7 +154,29 @@
 
       <!-- PROJECTS VIEW RIGHT -->
       <section id="right-projects" class="hidden stack">
-        <h2 id="p-title">Select a Project</h2>
+        <div class="proj-title-bar">
+          <h2 id="p-title">Select a Project</h2>
+          <a id="p-github" href="#" target="_blank" class="hidden" aria-label="View on GitHub">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="22" height="22" fill="#181717">
+              <path d="M12 .297c-6.63 0-12 5.373-12 12 
+                0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 
+                0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61
+                -.546-1.387-1.333-1.757-1.333-1.757-1.09-.744.084-.729.084-.729
+                1.205.084 1.84 1.237 1.84 1.237 
+                1.07 1.835 2.809 1.305 3.495.998.108-.775.418-1.305.762-1.605
+                -2.665-.3-5.466-1.334-5.466-5.93 
+                0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 
+                0 0 1.005-.322 3.3 1.23a11.5 11.5 0 0 1 3-.405
+                c1.02.005 2.045.138 3 .405 2.28-1.552 3.285-1.23 
+                3.285-1.23.645 1.653.24 2.873.12 
+                3.176.765.84 1.23 1.91 1.23 3.22 
+                0 4.61-2.805 5.625-5.475 5.92.435.372.81 1.096.81 
+                2.22 0 1.606-.015 2.896-.015 
+                3.286 0 .315.21.69.825.57C20.565 
+                22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/>
+            </svg>
+          </a>
+        </div>
         <p id="p-desc" class="muted">Click a button on the left to see details here.</p>
         <div class="iframe-wrap" id="proj-frame-wrap">
           <iframe id="proj-frame" title="Project View" allowfullscreen></iframe>
@@ -235,50 +185,6 @@
     </main>
   </div>
 
-  <script>
-    // ===== Tiny router (hash-based): #about or #projects =====
-    function show(view) {
-      const isAbout = view !== 'projects';
-      document.getElementById('left-about').classList.toggle('hidden', !isAbout);
-      document.getElementById('left-projects').classList.toggle('hidden', isAbout);
-      document.getElementById('right-about').classList.toggle('hidden', !isAbout);
-      document.getElementById('right-projects').classList.toggle('hidden', isAbout);
-    }
-
-    function route() {
-      const hash = location.hash.replace('#','');
-      show(hash === 'projects' ? 'projects' : 'about');
-    }
-
-    window.addEventListener('hashchange', route);
-    window.addEventListener('load', () => {
-      route();
-
-    // Project button click
-    document.querySelectorAll('.proj-header-btn').forEach(btn => {
-      btn.addEventListener('click', () => {
-        // remove highlight from other buttons
-        document.querySelectorAll('.proj-header-btn').forEach(b => b.classList.remove('selected'));
-        btn.classList.add('selected');
-
-        // update right column
-        const title = btn.dataset.title || '';
-        const desc  = btn.dataset.desc  || '';
-
-        document.getElementById('p-title').textContent = title;
-        document.getElementById('p-desc').innerHTML = desc;
-
-        // hide the iframe wrapper since we directly embed iframes inside desc now
-        document.getElementById('proj-frame-wrap').style.display = 'none';
-      });
-    });
-
-      // Default load: show Overview when Projects first opens
-      if (location.hash === '#projects') {
-        const first = document.querySelector('.proj-btn');
-        if (first) first.click();
-      }
-    });
-  </script>
+  <script src="js/script.js"></script>
 </body>
 </html>

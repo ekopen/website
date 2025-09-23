@@ -71,28 +71,24 @@
                     data-title="Overview"
                     data-desc='
                     <div class="stack">
-                    <h4> Motivation </h4>
-                    <p>
-                    Working with real-time data is something I find both fascinating and immensely rewarding. 
-                    Finance presents a unique challenge in this space: markets generate a torrent of information every millisecond. and building robust architecture that can effectively ingest and process this flow is critical.
-                    </p>
-                    <p>
-                    This project addresses that challenge: it is a system that connects to a live market data feed, stores the incoming information, and leverages those insights to make trading decisions.
-                    </p>
-
-                    <p>
-                    Because cryptocurrency markets never close, these modules are designed to run continuously... they are <strong>always</strong> on! 
-                    The code (available on my GitHub and linked on this website) is deployed live across multiple servers.
-                    </p>
-                    <h4> Results </h4>
-
-                    <h4> Reflection </h4>
-                    <p>
-                    Feel free to explore the live dashboards and documentation, and don’t hesitate to reach out with any comments or questions. Thank you!
-                    </p>
-                  <br>
-                  <p>
-
+                      <h4>Motivation</h4>
+                      <p>
+                        Working with real-time data is both fascinating and immensely rewarding. 
+                        Finance presents a unique challenge in this space: markets generate a torrent of information every millisecond, and building robust architecture that can effectively ingest and process this flow is critical.
+                      </p>
+                      <p>
+                        This project addresses that challenge: it connects to a live market data feed (in this case, cryptocurrency data), stores the incoming information, and leverages those insights to make trading decisions.
+                        In addition, this project is <strong>always</strong> on! Because cryptocurrency markets never close, these modules are designed to run 24/7 and are deployed across several servers.
+                      </p>
+                      <p>
+                        A link to a GitHub repository is provided for each module, with additional documentation in their README files. Grafana dashboards are featured on this website as well.
+                        Please feel free to reach out with any comments or questions at erictkopen@gmail.com. Thank you for visiting!
+                      </p>
+                      <h4>Results</h4>
+                      <h4>Reflection</h4>
+                      <p>
+                        Feel free to explore the live dashboards and documentation, and don’t hesitate to reach out with any questions. Thank you!
+                      </p>
                     </div>'>      
               Overview
             </button>
@@ -104,11 +100,15 @@
                     data-title="Architecture"
                     data-desc='
                     <div class="stack">
-                  <p>
-                    Below is a diagram that details the architecture of this project:
-                  </p>
-                    <img src="images/server_diagram.png" alt="server_diagram" />
-
+                      <p>
+                        For simplicity and resilience, each module runs on its own server.
+                        Below is a diagram that details this architecture:
+                      </p>
+                      <img src="images/server_diagram.png" alt="Server architecture diagram" />
+                      <p>
+                        Additionally, since Docker is used across all modules, we can monitor server metrics in one aggregated Grafana dashboard:
+                      </p>
+                      <iframe src="https://grafana.erickopen..."></iframe>
                     </div>'>      
               Architecture
             </button>
@@ -119,7 +119,14 @@
             <button class="proj-btn btn-normal proj-header-btn" 
                     data-title="Market Data Stream"
                     data-github="https://github.com/ekopen/systematic_trading"
-                    data-desc='<div class="stack"><iframe src="https://grafana.erickopen.com/d/blackbox-uptime/server-monitoring?..."></iframe></div>'>
+                    data-desc='
+                    <div class="stack">
+                      <p>
+                        Kafka is the ingestion engine of choice and serves several downstream modules.
+                        Here are the key metrics to ensure it is running properly:
+                      </p>
+                      <iframe src="https://grafana.erickopen..."></iframe>
+                    </div>'> 
               Market Data Stream
             </button>
           </div>
@@ -129,7 +136,18 @@
             <button class="proj-btn btn-normal proj-header-btn" 
                     data-title="Market Data Storage"
                     data-github="https://github.com/ekopen/market_data_storage"
-                    data-desc='<div class="stack"><p> TEST! </p><iframe src="https://grafana2.erickopen.com/..."></iframe></div>'>
+                    data-desc='
+                    <div class="stack">
+                      <p>
+                        ClickHouse is used across the project as the database engine.
+                        This Grafana dashboard shows the details surrounding its ingestion from Kafka:
+                      </p>
+                      <iframe src="https://grafana.erickopen..."></iframe>
+                      <p>
+                        This dashboard shows a representation of the market data being captured:
+                      </p>
+                      <iframe src="https://grafana.erickopen..."></iframe>
+                    </div>'> 
               Market Data Storage
             </button>
           </div>
@@ -139,7 +157,15 @@
             <button class="proj-btn btn-normal proj-header-btn" 
                     data-title="Systematic Trading"
                     data-github="https://github.com/ekopen/systematic_trading"
-                    data-desc='<div class="stack"><iframe src="https://grafana3.erickopen.com/..."></iframe></div>'>
+                    data-desc='
+                    <div class="stack">
+                      <p>
+                        Trading strategies use historical and live data to generate signals. These are entirely algorithmic and run executions (within defined risk parameters) continuously.
+                        Please note: these are simulated trades, and no actual orders are being sent. 
+                        A dashboard showing strategy performance is displayed below:
+                      </p>
+                      <iframe src="https://grafana.erickopen..."></iframe>
+                    </div>'>
               Systematic Trading
             </button>
           </div>
@@ -153,9 +179,25 @@
       <section id="right-about" class="stack">
         <h2>About</h2>
         <p>Hello! I’m Eric. Thanks for visiting my page!</p>
-        <p>I specialize in building and maintaining infrastructure for financial market interaction, a focus I’m deepening through projects featured here and on GitHub. I’m currently seeking part-time opportunities while completing my master’s this fall and will be available for full-time roles in 2026. My ideal position is an engineering role focused on real-time data systems.</p>
-        <p>I’m pursuing a Master’s in Financial Mathematics at the University of Chicago, graduating in December 2025. In summer 2025, I interned at Bank of America, supporting teams that built risk engines for trading desks. Before that, in the winter of 2025 I had an internship at Mizuho Bank, where I worked on machine learning approaches to building volatility surfaces. Prior to graduate school, I spent five years in data analysis and engineering roles at UnitedHealthcare and Agiliti Health. I hold a Bachelor's degree from the University of Minnesota, where I graduated in 2019 after studying Management Information Systems and Finance.</p>
+        <p>
+          I specialize in building and maintaining infrastructure for financial market interaction, a focus I’m deepening through projects featured here and on GitHub. I’m currently seeking part-time opportunities while completing my master’s this fall and will be available for full-time roles in 2026. My ideal position is an engineering role focused on real-time data systems.
+        </p>
+        <p>
+          Here’s a summary of my professional experience:
+        </p>
+          <ul>
+            <li><strong>Bank of America (Summer 2025):</strong> Built data pipelines, automated risk processes, and developed trader dashboards.</li>
+            <li><strong>Mizuho Bank (Winter 2025):</strong> Designed ML models to generate and analyze volatility surfaces.</li>
+            <li><strong>UnitedHealthcare (2022–2024):</strong> Engineered SQL workflows, automated ETL, and implemented data quality controls.</li>
+            <li><strong>Agiliti Health (2019–2022):</strong> Built pricing models, dashboards with API integrations, and managed database infrastructure.</li>
+          </ul>
+        <p>
+          I’m pursuing a Master’s in Financial Mathematics at the University of Chicago, graduating in December 2025. 
+          Before that, I obtained a Bachelor's degree from the University of Minnesota (2019), where I studied Management Information Systems and Finance.
+          Please reach out to me if you would like to connect!
+        </p>
       </section>
+
 
       <!-- PROJECTS VIEW RIGHT -->
       <section id="right-projects" class="hidden stack">

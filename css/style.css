@@ -88,3 +88,19 @@ button { font: inherit; }
   transform: scale(1.25);
   fill: #3a4173; /* darker hover shade */
 }
+
+.proj-header-with-github {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.proj-github-link svg {
+  transition: transform 0.2s ease;
+}
+
+.proj-github-link:hover svg {
+  transform: scale(1.25);
+  fill: #181717; /* optional darker hover color */
+}
+

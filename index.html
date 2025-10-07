@@ -103,7 +103,7 @@
                     data-desc='
                     <div class="stack">
                       <p>
-                        Financial markets generate massive streams of data every millisecond. This project tackles that challenge by building an end-to-end trading engine, starting with connecting to a cryptocurrency market data feed and resulting in making trading decisions.
+                        Financial markets produce vast amounts of streaming data. This project develops a full-stack trading engine that integrates real-time data ingestion, processing, and machine learning to drive automated trading decisions.
                       </p>
 
                       <p>
@@ -133,7 +133,7 @@
                         Additionally, I took away several lessongs from building this:
                         <ul>
                           <li><strong>Uptime reveals hidden issues:</strong> Persistent logs and crashed connections taught me the importance of graceful restarts and resource monitoring.</li>
-                          <li><strong>Architecture matters:</strong> Early ad hoc design caused hours of rework, such as migrating to Docker simplified orchestration and consolidating modules sprawled across several servers.</li>
+                          <li><strong>Architecture matters:</strong> Early ad hoc design caused hours of rework, such as migrating to Docker and consolidating modules sprawled across several servers.</li>
                           <li><strong>Modularity drives scalability:</strong> Adding new assets or strategies was painful until I fully modularized each component.</li>
                         </ul>
                       </p>
@@ -154,20 +154,89 @@
                     data-title="Architecture"
                     data-desc='
                     <div class="stack">
+
+                      <p> Below is an overview of the architecture for the whole system and each module. </p>
+
+                      <br>
+
+                      <div class="icon-block">
+                        <img src="icons/digitalocean.png" alt="DigitalOcean" class="icon-left">
+                        <p>
+                          <strong>DigitalOcean</strong> hosts the server the project runs on (and this website). It currently supported by a $48/month droplet with 8GB RAM, 4 vCPUs, and 160GB SSD storage.
+                        </p>
+                      </div>
+
+                      <div class="icon-block">
+                        <img src="icons/docker.png" alt="Docker" class="icon-left">
+                        <p>
+                          <strong>Docker</strong> is the platform this project is orchestrated with. Besides the module containers, there are continers for Kafka, Clickhouse, Grafana, Prometheus, and other monitoring tools.
+                        </p>
+                      </div>
+
+                      <div class="icon-block">
+                        <img src="icons/grafana.png" alt="Grafana" class="icon-left">
+                        <p>
+                          <strong>Grafana</strong> powers all dashboards displayed on this site. They are updated in real time, were reverse proxied through nginx for diplay here.
+                        </p>
+                      </div>
+
+                      <br>
+
+                      <p> <strong> Market Data Stream </strong> </p>
+
+                      <div class="icon-block">
+                        <img src="icons/binance.png" alt="Finnhub" class="icon-left">
+                        <p>
+                          <strong>Binance</strong> serves as the source for cryptocurrency tick-level data, which is ingested from the exchange in real time via a WebSocket provided through <strong>Finnhub</strong>.
+                        </p>
+                      </div>
+
+                      <div class="icon-block">
+                        <img src="icons/kafka.png" alt="Kafka" class="icon-left">
+                        <p>
+                          <strong>Kafka</strong> captures all data from the WebSocket, where a producer publishes incoming messages to a Kafka topic managed by one broker.
+                        </p>
+                      </div>
+
+                      <br>
+
+                      <p> <strong> Market Data Storage </strong> </p>
+
+                      <div class="icon-block">
+                        <img src="icons/clickhouse.png" alt="ClickHouse" class="icon-left">
+                        <p>
+                          <strong>ClickHouse</strong> is connected to the data stream via a Kafka consumer. New data is appeded to the database via batch processing, and monitoring/diagnostics measures are periodically recorded.
+                        </p>
+                      </div>
+
+                      <div class="icon-block">
+                        <img src="icons/aws.png" alt="AWS" class="icon-left">
+                        <p>
+                          <strong>AWS</strong> serves as a cold storage for old data. Data older than 7 days is converted to a parquet, deleted from Clickhouse, and uploaded to an S3 bucket.
+                        </p>
+                      </div>
+
+                      <br>
+                      <p> <strong> ML Trading Strategies </strong> </p>
+                      <p> An array of machine learning models are trained with recent market data (accssed via Clickhouse) on set intervals. Their performance are recorded, and the models are then uploaded to an AWS ML repository. </p>
+
+                      <br>
+                      <p> <strong> Systematic Trading </strong> </p>
+                      <p> Trading strategies are continously ran. This process is powered via exeuction, risk, and portfolio monitoring engines. </p> 
+                      <p> Machine learning strategies use models accessed from the AWS ML repository, and are benchmarked against buy and hold strategies. All trades are simulated with slippage conditions. </p>
+                      
+                      <br>
                       <p>
-                        For simplicity and resilience, each module runs on its own server.
-                        Below is a diagram that details this architecture:
+                        Below is a Grafana dashboard monitoring the health of the servers, including memory usage by module:
                       </p>
-                      <img src="images/server_diagram.png" alt="Server architecture diagram" />
-                      <p>
-                        Additionally, since Docker is used across all modules, we can monitor server metrics in one aggregated Grafana dashboard:
-                      </p>
-                        <iframe 
-                          src="https://grafana-trading-engine.erickopen.com/d/ad9ppm2/server-metrics?orgId=1&from=now-24h&to=now&timezone=browser&refresh=60s&theme=light&kiosk"
-                          width="100%"
-                          height="600"
-                          frameborder="0">
-                        </iframe>
+
+                      <iframe 
+                        src="https://grafana-trading-engine.erickopen.com/d/ad9ppm2/server-metrics?orgId=1&from=now-24h&to=now&timezone=browser&refresh=60s&theme=light&kiosk"
+                        width="100%"
+                        height="500"
+                        frameborder="0">
+                      </iframe>
+
                     </div>'>      
               Architecture
             </button>

@@ -103,36 +103,47 @@
                     data-desc='
                     <div class="stack">
                       <p>
-                        Finance presents a challenge in the space of real-time data: markets generate a torrent of information every millisecod.
-                        This project addresses that challenge. Its an end-to-end trading engine starts with connecting to a cryptocurrency market data feed and results in making trading decisions.
+                        Financial markets generate massive streams of data every millisecond. This project tackles that challenge by building an end-to-end trading engine, starting with connecting to a cryptocurrency market data feed and resulting in making trading decisions.
                       </p>
+
                       <p>
-                        What I built is broken down into four key modules:
+                        The system is built around four core modules:
                         <ul>
-                        <li> <strong> Market Data Stream: </strong> Processes real time tick level market data from a cryptocurrency exchange.</li>
-                        <li> <strong> Market Data Storage: </strong> Connects to the data feed to continuously populate a database.</li>
-                        <li> <strong> ML Trading Strategies: </strong> Frequently retrains machine learning models to capture recent market conditions.</li>
-                        <li> <strong> Systematic Trading: </strong> Utilizes ML models to simulate making trading decisions, incorporating execution, risk, and portfolio engines.</li>
+                          <li><strong>Market Data Stream:</strong> Ingests real-time, tick-level data from a crypto exchange.</li>
+                          <li><strong>Market Data Storage:</strong> Continuously writes incoming data to a local and cloud-backed database.</li>
+                          <li><strong>ML Trading Strategies:</strong> Retrains machine learning models regularly to adapt to current market conditions.</li>
+                          <li><strong>Systematic Trading:</strong> Executes trades using ML predictions with integrated risk and portfolio management.</li>
                         </ul>
                       </p>
+
                       <p>
-                        Most importantly, this project is <strong>always</strong> on! These modules are all designed to run 24/7 and are deployed on a remote server.
+                        Most importantly, this system is designed to up constantly up! It runs <strong>24/7</strong> on a remote server.  
                       </p>
+
                       <p>
-                        Here are some key results from the project:
+                        Here are some of the key results:
                         <ul>
-                          <li> Streams exchange data for 5 different cryptocurrencies, processing more than 70,000 ticks a minute with less than a second of latency.</li>
-                          <li> Maintains 7 days worth of high granularity tick data (while uploading older data to the cloud), resulting in over 130 million rows stored on disk. </li>
-                          <li> Trains 5 different machine learning models, used to generate trading decisions in a portfolio tracking 10 different strategies.</li>
+                          <li><strong>High-Throughput Streaming:</strong> Processes 70,000+ ticks per minute across five cryptocurrencies with sub-second latency.</li>
+                          <li><strong>Efficient Storage:</strong> Maintains a rolling seven-day window of high-frequency data (over 130 million rows) while archiving older data to the cloud.</li>
+                          <li><strong>Adaptive Trading:</strong> Retrains five ML models in real time to generate trades across ten portfolio strategies.</li>
+                        </ul>
                       </p>
+
                       <p>
-                        Please refrence my GitHub, which has README files for each module offering additional documentation. Grafana dashboards are featured on this website as well.
-                        Feel free to reach out with any comments or questions at erictkopen@gmail.com. Thank you for visiting!
+                        Additionally, I took away several lessongs from building this:
+                        <ul>
+                          <li><strong>Uptime reveals hidden issues:</strong> Persistent logs and crashed connections taught me the importance of graceful restarts and resource monitoring.</li>
+                          <li><strong>Architecture matters:</strong> Early ad hoc design caused hours of rework, such as migrating to Docker simplified orchestration and consolidating modules sprawled across several servers.</li>
+                          <li><strong>Modularity drives scalability:</strong> Adding new assets or strategies was painful until I fully modularized each component.</li>
+                        </ul>
                       </p>
+
                       <p>
-                        Explore the live dashboards and documentation, and don’t hesitate to reach out with any questions. Thank you!
+                        Thanks for exploring this project! Detailed module documentation is available on my <a href="https://github.com/ekopen/live_trading_engine">GitHub</a>, along with Grafana dashboards featured on this site.  
+                        For questions or feedback, feel free to reach out at <a href="mailto:erictkopen@gmail.com">erictkopen@gmail.com</a>.
                       </p>
-                    </div>'>      
+                    </div>
+                    '>      
               Overview
             </button>
           </div>

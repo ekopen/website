@@ -102,21 +102,33 @@
                     data-title="Overview"
                     data-desc='
                     <div class="stack">
-                      <h4>Motivation</h4>
                       <p>
-                        Working with real-time data is both fascinating and immensely rewarding. 
-                        Finance presents a unique challenge in this space: markets generate a torrent of information every millisecond, and building robust architecture that can effectively ingest and process this flow is critical.
+                        Finance presents a challenge in the space of real-time data: markets generate a torrent of information every millisecod.
+                        This project addresses that challenge. Its an end-to-end trading engine starts with connecting to a cryptocurrency market data feed and results in making trading decisions.
                       </p>
                       <p>
-                        This project addresses that challenge: it connects to a live market data feed (in this case, cryptocurrency data), stores the incoming information, and leverages those insights to make trading decisions.
-                        In addition, this project is <strong>always</strong> on! Because cryptocurrency markets never close, these modules are designed to run 24/7 and are deployed on a remote server.
+                        What I built is broken down into four key modules:
+                        <ul>
+                        <li> <strong> Market Data Stream: </strong> Processes real time tick level market data from a cryptocurrency exchange.</li>
+                        <li> <strong> Market Data Storage: </strong> Connects to the data feed to continuously populate a database.</li>
+                        <li> <strong> ML Trading Strategies: </strong> Frequently retrains machine learning models to capture recent market conditions.</li>
+                        <li> <strong> Systematic Trading: </strong> Utilizes ML models to simulate making trading decisions, incorporating execution, risk, and portfolio engines.</li>
+                        </ul>
+                      </p>
+                      <p>
+                        Most importantly, this project is <strong>always</strong> on! These modules are all designed to run 24/7 and are deployed on a remote server.
+                      </p>
+                      <p>
+                        Here are some key results from the project:
+                        <ul>
+                          <li> Streams exchange data for 5 different cryptocurrencies, processing more than 70,000 ticks a minute with less than a second of latency.</li>
+                          <li> Maintains 7 days worth of high granularity tick data (while uploading older data to the cloud), resulting in over 130 million rows stored on disk. </li>
+                          <li> Trains 5 different machine learning models, used to generate trading decisions in a portfolio tracking 10 different strategies.</li>
                       </p>
                       <p>
                         Please refrence my GitHub, which has README files for each module offering additional documentation. Grafana dashboards are featured on this website as well.
                         Feel free to reach out with any comments or questions at erictkopen@gmail.com. Thank you for visiting!
                       </p>
-                      <h4>Results</h4>
-                      <h4>Reflection</h4>
                       <p>
                         Explore the live dashboards and documentation, and don’t hesitate to reach out with any questions. Thank you!
                       </p>

@@ -131,3 +131,17 @@ button { font: inherit; }
     align-items: flex-start;
   }
 }
+
+.architecture-diagram {
+  margin-top: 0.5rem;  /* reduce space above */
+  margin-bottom: 0.5rem; /* reduce space below */
+  padding: 0; /* optional if there’s padding inside */
+}
+.architecture-diagram text {
+  font-family: "Inter", system-ui, sans-serif;
+}
+
+.architecture-diagram svg {
+  transform: scale(0.9);   /* 0.8 = 80% of original size */
+  transform-origin: center; /* keeps it centered */
+}

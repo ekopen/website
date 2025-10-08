@@ -102,6 +102,7 @@
                     data-title="Overview"
                     data-desc='
                     <div class="stack">
+                      <hr>
                       <p>
                         Financial markets produce vast amounts of streaming data. This project develops a full-stack trading engine that integrates real-time data ingestion, processing, and machine learning to drive automated trading decisions.
                       </p>
@@ -154,11 +155,62 @@
                     data-title="Architecture"
                     data-desc='
                     <div class="stack">
+                      <hr>
+                      <h3>System Flowchart</h3>
+                      <p> Simplified visual overview of the system:</p>
 
-                      <p> Below is an overview of the architecture for the whole system and each module. </p>
+                      <!-- ARCHITECTURE DIAGRAM -->
+                      <div class="architecture-diagram">
+                        <svg viewBox="0 0 1000 200" xmlns="http://www.w3.org/2000/svg" style="max-width: 90%; height: auto;">
+                          <!-- Market Data Stream -->
+                          <polygon points="20,60 140,60 170,100 140,140 20,140" fill="#EFFFF9" stroke="#66DD99" stroke-width="2"/>
+                          <text x="90" y="90" text-anchor="middle" font-size="13" font-weight="700" fill="#333">Market Data Stream</text>
+                          <text x="90" y="110" text-anchor="middle" font-size="12" fill="#444">Generates live feed</text>
+                          <text x="90" y="125" text-anchor="middle" font-size="12" fill="#444">of crypto market data</text>
 
+                          <!-- Arrow -->
+                          <line x1="170" y1="100" x2="260" y2="100" stroke="#AFAFAF" stroke-width="2" marker-end="url(#arrowhead)"/>
+
+                          <!-- Market Data Storage -->
+                          <rect x="260" y="60" width="160" height="80" rx="40" fill="#f8efff" stroke="#c979f5" stroke-width="2"/>
+                          <text x="340" y="90" text-anchor="middle" font-size="13" font-weight="700" fill="#333">Market Data Storage</text>
+                          <text x="340" y="110" text-anchor="middle" font-size="13" fill="#444">Collects & stores</text>
+                          <text x="340" y="125" text-anchor="middle" font-size="12" fill="#444">all market data</text>
+
+                          <!-- Arrow -->
+                          <line x1="420" y1="100" x2="520" y2="100" stroke="#AFAFAF" stroke-width="2" marker-end="url(#arrowhead)"/>
+
+                          <!-- ML Trading Strategies -->
+                          <rect x="520" y="60" width="180" height="80" fill="#fff3fa" stroke="#f17cb0" stroke-width="2"/>
+                          <text x="610" y="90" text-anchor="middle" font-size="13" font-weight="700" fill="#333">ML Trading Strategies</text>
+                          <text x="610" y="110" text-anchor="middle" font-size="12" fill="#444">Trains ML models</text>
+                          <text x="610" y="125" text-anchor="middle" font-size="12" fill="#444">on new market data</text>
+
+                          <!-- Arrow -->
+                          <line x1="700" y1="100" x2="800" y2="100" stroke="#AFAFAF" stroke-width="2" marker-end="url(#arrowhead)"/>
+
+                          <!-- Systematic Trading -->
+                          <rect x="800" y="60" width="180" height="80" fill="#fff3fa" stroke="#f17cb0" stroke-width="2"/>
+                          <text x="890" y="90" text-anchor="middle" font-size="13" font-weight="700" fill="#333">Systematic Trading</text>
+                          <text x="890" y="110" text-anchor="middle" font-size="12" fill="#444">Executes ML-based</text>
+                          <text x="890" y="125" text-anchor="middle" font-size="12" fill="#444">strategies & simulations</text>
+
+                          <!-- Arrowhead Definition -->
+                          <defs>
+                            <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="10" refY="3.5" orient="auto">
+                              <polygon points="0 0, 10 3.5, 0 7" fill="#AFAFAF" />
+                            </marker>
+                          </defs>
+                        </svg>
+                      </div>
+                      <!-- END ARCHITECTURE DIAGRAM -->
+
+                      
+                      <hr>
                       <br>
-
+                      <h3>System Details </h3>
+                      <p> Breakdown of the different components in the project: </p>
+                      <br>
                       <div class="icon-block">
                         <img src="icons/digitalocean.png" alt="DigitalOcean" class="icon-left">
                         <p>
@@ -224,10 +276,12 @@
                       <p> <strong> Systematic Trading </strong> </p>
                       <p> Trading strategies are continously ran. This process is powered via exeuction, risk, and portfolio monitoring engines. </p> 
                       <p> Machine learning strategies use models accessed from the AWS ML repository, and are benchmarked against buy and hold strategies. All trades are simulated with slippage conditions. </p>
-                      
                       <br>
+                      <hr>
+                      <br>
+                      <h3>Server Monitoring </h3>
                       <p>
-                        Below is a Grafana dashboard monitoring the health of the servers, including memory usage by module:
+                        Below is a Grafana dashboard monitoring the health of the server, including memory usage by module:
                       </p>
 
                       <iframe 
@@ -248,16 +302,15 @@
                     data-title="Market Data Stream"
                     data-desc='
                     <div class="stack">
-                      <p>
-                        Kafka is the ingestion engine of choice and serves several downstream modules.
-                        Here are the key metrics to ensure it is running properly:
+                      <hr>
+                      <p> Kafka is the ideal tool for enabling a high-throughput and fault-tolerant data stream. Plus, it can be accessed by multiple consumers via different modules. </p>
+                      <p> The dashboard below shows us if data is flowing into the system from the websocket: </p>
                         <iframe 
                           src="https://grafana-trading-engine.erickopen.com/d/advz678/data-stream-v2?orgId=1&from=now-24h&to=now&timezone=browser&refresh=5s&&theme=light&kiosk"
                           width="100%"
-                          height="600"
+                          height="550"
                           frameborder="0">
                         </iframe>
-                      </p>
                     </div>'> 
               Market Data Stream
             </button>
@@ -269,23 +322,26 @@
                     data-title="Market Data Storage"
                     data-desc='
                     <div class="stack">
+                      <hr>
                       <p>
-                        ClickHouse is used across the project as the database engine.
-                        This Grafana dashboard shows the details surrounding its ingestion from Kafka:
+                        Because it is a fast, columnar database designed for massive datasets, ClickHouse is used across the project as the tool to quickly store tick data and power analytics
+                      </p>
+                      <p>
+                        This dashboard visualizes the market data we are capturing for each ticker:
                       </p>
                         <iframe 
                           src="https://grafana-trading-engine.erickopen.com/d/37fb53d0-bf32-4e50-b46e-3bf1a868e61e/market-data?orgId=1&from=now-7d&to=now&timezone=browser&var-ds=af0a2qlhij6yoa&var-Ticker=ETH&refresh=5s&theme=light&kiosk"
                           width="100%"
-                          height="600"
+                          height="700"
                           frameborder="0">
                         </iframe>
                       <p>
-                        This dashboard shows a representation of the market data being captured:
+                        This dashboard shows us important metrics regarding the size of the database and the lag in the system:
                       </p>
                         <iframe 
                           src="https://grafana-trading-engine.erickopen.com/d/market-data-monitoring/market-data-monitoring?orgId=1&from=now-24h&to=now&timezone=browser&var-ds_clickhouse=af0a2qlhij6yoa&refresh=10s&theme=light&kiosk"
                           width="100%"
-                          height="600"
+                          height="300"
                           frameborder="0">
                         </iframe>
                     </div>'> 

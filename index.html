@@ -131,7 +131,7 @@
                       </p>
 
                       <p>
-                        Additionally, I took away several lessongs from building this:
+                        Additionally, I took away several lessons from building this:
                         <ul>
                           <li><strong>Uptime reveals hidden issues:</strong> Persistent logs and crashed connections taught me the importance of graceful restarts and resource monitoring.</li>
                           <li><strong>Architecture matters:</strong> Early ad hoc design caused hours of rework, such as migrating to Docker and consolidating modules sprawled across several servers.</li>
@@ -221,14 +221,14 @@
                       <div class="icon-block">
                         <img src="icons/docker.png" alt="Docker" class="icon-left">
                         <p>
-                          <strong>Docker</strong> is the platform this project is orchestrated with. Besides the module containers, there are continers for Kafka, Clickhouse, Grafana, Prometheus, and other monitoring tools.
+                          <strong>Docker</strong> is the platform this project is orchestrated with. Besides the module containers, there are containers for Kafka, Clickhouse, Grafana, Prometheus, and other monitoring tools.
                         </p>
                       </div>
 
                       <div class="icon-block">
                         <img src="icons/grafana.png" alt="Grafana" class="icon-left">
                         <p>
-                          <strong>Grafana</strong> powers all dashboards displayed on this site. They are updated in real time, were reverse proxied through nginx for diplay here.
+                          <strong>Grafana</strong> powers all dashboards displayed on this site. They are updated in real time, were reverse proxied through nginx for display here.
                         </p>
                       </div>
 
@@ -237,7 +237,7 @@
                       <p> <strong> Market Data Stream </strong> </p>
 
                       <div class="icon-block">
-                        <img src="icons/binance.png" alt="Finnhub" class="icon-left">
+                        <img src="icons/binance.png" alt="Binance" class="icon-left">
                         <p>
                           <strong>Binance</strong> serves as the source for cryptocurrency tick-level data, which is ingested from the exchange in real time via a WebSocket provided through <strong>Finnhub</strong>.
                         </p>
@@ -257,7 +257,7 @@
                       <div class="icon-block">
                         <img src="icons/clickhouse.png" alt="ClickHouse" class="icon-left">
                         <p>
-                          <strong>ClickHouse</strong> is connected to the data stream via a Kafka consumer. New data is appeded to the database via batch processing, and monitoring/diagnostics measures are periodically recorded.
+                          <strong>ClickHouse</strong> is connected to the data stream via a Kafka consumer. New data is appended to the database via batch processing, and monitoring/diagnostics measures are periodically recorded.
                         </p>
                       </div>
 
@@ -270,11 +270,11 @@
 
                       <br>
                       <p> <strong> ML Trading Strategies </strong> </p>
-                      <p> An array of machine learning models are trained with recent market data (accssed via Clickhouse) on set intervals. Their performance are recorded, and the models are then uploaded to an AWS ML repository. </p>
+                      <p> An array of machine learning models are trained with recent market data (accessed via Clickhouse) on set intervals. Their performance are recorded, and the models are then uploaded to an AWS ML repository. </p>
 
                       <br>
                       <p> <strong> Systematic Trading </strong> </p>
-                      <p> Trading strategies are continously ran. This process is powered via exeuction, risk, and portfolio monitoring engines. </p> 
+                      <p> Trading strategies are continuously ran. This process is powered via execution, risk, and portfolio monitoring engines. </p> 
                       <p> Machine learning strategies use models accessed from the AWS ML repository, and are benchmarked against buy and hold strategies. All trades are simulated with slippage conditions. </p>
                       <br>
                       <hr>
@@ -355,13 +355,13 @@
                     data-title="ML Trading Strategies"
                     data-desc='
                     <div class="stack">
-                      <p>
-                        An array of machine learning stategies are continously retrained on new data and implemented in the trading module.
-                      </p>
+                      <hr>
+                      <p> An array of machine learning strategies are continuously retrained on new data, uploaded to AWS, and implemented in the trading module. </p>
+                      <p> The dashboard below shows metrics regarding the last run of each model, as well as when they are scheduled for their next run: </p>
                         <iframe 
                           src="https://grafana-trading-engine.erickopen.com/d/adgkt7m/ml-strategies?orgId=1&from=now-24h&to=now&timezone=browser&refresh=60s&theme=light&kiosk"
                           width="100%"
-                          height="600"
+                          height="400"
                           frameborder="0">
                         </iframe>
                     </div>'> 
@@ -376,15 +376,22 @@
                     data-title="Systematic Trading"
                     data-desc='
                     <div class="stack">
+                      <hr>
                       <p>
-                        Trading strategies use historical and live data to generate signals. These are entirely algorithmic and run executions (within defined risk parameters) continuously.
-                        Please note: these are simulated trades, and no actual orders are being sent. 
-                        A dashboard showing strategy performance is displayed below:
+                        The systematic trading module executes trades based on signals from the ML models, as well as benchmark buy and hold strategies. 
+                        Trades are simulated with slippage conditions, and risk and portfolio management are integrated. 
+                      </p>
+                      <p>
+                      Please note, I am in no way endorsing the performance of these models, just demonstrating the functionality of the system.
+                      </p>
+                      </p>
+                      <p>
+                        A dashboard showing performance of the strategies and execution related metrics is below:
                       </p>
                         <iframe 
-                          src="https://grafana-trading-engine.erickopen.com/d/ad5pdrs/systematic-trading?orgId=1&from=now-6h&to=now&timezone=browser&refresh=60s&theme=light&kiosk"
+                          src="https://grafana-trading-engine.erickopen.com/d/ad5pdrs/systematic-trading?orgId=1&from=now-24h&to=now&timezone=browser&refresh=5s&theme=light&kiosk"
                           width="100%"
-                          height="600"
+                          height="1100"
                           frameborder="0">
                         </iframe>
                     </div>'>

@@ -285,7 +285,7 @@
                       </p>
 
                       <iframe 
-                        src="https://grafana-trading-engine.erickopen.com/d/ad9ppm2/server-metrics?orgId=1&from=now-24h&to=now&timezone=browser&refresh=60s&theme=light&kiosk"
+                        src="https://grafana-trading-engine.erickopen.com/d/ad9ppm2/server-metrics?orgId=1&from=now-7d&to=now&timezone=browser&refresh=60s&theme=light&kiosk"
                         width="100%"
                         height="500"
                         frameborder="0">
@@ -296,47 +296,43 @@
             </button>
           </div>
 
-          <!-- Project Block: DATA STREAM -->
+          <!-- Project Block: LIVE DASHBOARDS -->
           <div class="proj-block">
             <button class="proj-btn btn-normal proj-header-btn" 
-                    data-title="Market Data Stream"
+                    data-title="Live Dashboards"
                     data-desc='
                     <div class="stack">
                       <hr>
-                      <p> Kafka is the ideal tool for enabling a high-throughput and fault-tolerant data stream. Plus, it can be accessed by multiple consumers via different modules. </p>
-                      <p> The dashboard below shows us if data is flowing into the system from the websocket: </p>
+                      <p> Because this runs 24/7, I created a variety of Grafana dashboards to frequently monitor how things are going. </p>
+
+                      <p>
+                        First, we want to see how the machine learning based trading strategies are performing. This shows their cumulative historical performance vs a long only benchmark, plus the recent trades made.
+                      </p>
                         <iframe 
-                          src="https://grafana-trading-engine.erickopen.com/d/advz678/data-stream-v2?orgId=1&from=now-24h&to=now&timezone=browser&refresh=5s&&theme=light&kiosk"
+                          src="https://grafana-trading-engine.erickopen.com/d/ad5pdrs/systematic-trading?orgId=1&from=now-30d&to=now&timezone=browser&refresh=5s&theme=light&kiosk"
                           width="100%"
-                          height="550"
+                          height="600"
                           frameborder="0">
                         </iframe>
-                    </div>'> 
-              Market Data Stream
-            </button>
-          </div>
 
-          <!-- Project Block: DATA STORAGE -->
-          <div class="proj-block">
-            <button class="proj-btn btn-normal proj-header-btn" 
-                    data-title="Market Data Storage"
-                    data-desc='
-                    <div class="stack">
-                      <hr>
-                      <p>
-                        Because it is a fast, columnar database designed for massive datasets, ClickHouse is used across the project as the tool to quickly store tick data and power analytics
-                      </p>
-                      <p>
-                        This dashboard visualizes the market data we are capturing for each ticker:
-                      </p>
+                      <p> Next, we can see when the ML trading models will be next retrained on recent market data, alongside the performance of the currently implemented models. </p>
                         <iframe 
-                          src="https://grafana-trading-engine.erickopen.com/d/37fb53d0-bf32-4e50-b46e-3bf1a868e61e/market-data?orgId=1&from=now-7d&to=now&timezone=browser&var-ds=af0a2qlhij6yoa&var-Ticker=ETH&refresh=5s&theme=light&kiosk"
+                          src="https://grafana-trading-engine.erickopen.com/d/adgkt7m/ml-strategies?orgId=1&from=now-24h&to=now&timezone=browser&refresh=60s&theme=light&kiosk"
+                          width="100%"
+                          height="400"
+                          frameborder="0">
+                        </iframe>
+
+                      <p> All models are trained on tick data captured in a Clickhouse database, which is shown alongside other related metrics. </p>
+
+                        <iframe 
+                          src="https://grafana-trading-engine.erickopen.com/d/37fb53d0-bf32-4e50-b46e-3bf1a868e61e/market-data?orgId=1&from=now-30d&to=now&timezone=browser&var-ds=af0a2qlhij6yoa&var-Ticker=ETH&refresh=5s&theme=light&kiosk"
                           width="100%"
                           height="700"
                           frameborder="0">
                         </iframe>
                       <p>
-                        This dashboard shows us important metrics regarding the size of the database and the lag in the system:
+                        A few extra tidbits relating to the database size and data lag are also tracked here.
                       </p>
                         <iframe 
                           src="https://grafana-trading-engine.erickopen.com/d/market-data-monitoring/market-data-monitoring?orgId=1&from=now-24h&to=now&timezone=browser&var-ds_clickhouse=af0a2qlhij6yoa&refresh=10s&theme=light&kiosk"
@@ -344,60 +340,20 @@
                           height="300"
                           frameborder="0">
                         </iframe>
-                    </div>'> 
-              Market Data Storage
-            </button>
-          </div>
 
-          <!-- Project Block: ML TRADING STRATEGIES -->
-          <div class="proj-block">
-            <button class="proj-btn btn-normal proj-header-btn" 
-                    data-title="ML Trading Strategies"
-                    data-desc='
-                    <div class="stack">
-                      <hr>
-                      <p> An array of machine learning strategies are continuously retrained on new data, uploaded to AWS, and implemented in the trading module. </p>
-                      <p> The dashboard below shows metrics regarding the last run of each model, as well as when they are scheduled for their next run: </p>
+                      <p> Finally, since the backbone of this system is a real time market data stream, we want to monitor the performance of the websocket and Kafka. </p>
                         <iframe 
-                          src="https://grafana-trading-engine.erickopen.com/d/adgkt7m/ml-strategies?orgId=1&from=now-24h&to=now&timezone=browser&refresh=60s&theme=light&kiosk"
+                          src="https://grafana-trading-engine.erickopen.com/d/advz678/data-stream-v2?orgId=1&from=now-7d&to=now&timezone=browser&refresh=5s&&theme=light&kiosk"
                           width="100%"
-                          height="400"
+                          height="550"
                           frameborder="0">
                         </iframe>
                     </div>'> 
-              ML Trading Strategies
+              Live Dashboards
             </button>
           </div>
 
 
-          <!-- Project Block: SYSTEMATIC TRADING -->
-          <div class="proj-block">
-            <button class="proj-btn btn-normal proj-header-btn" 
-                    data-title="Systematic Trading"
-                    data-desc='
-                    <div class="stack">
-                      <hr>
-                      <p>
-                        The systematic trading module executes trades based on signals from the ML models, as well as benchmark buy and hold strategies. 
-                        Trades are simulated with slippage conditions, and risk and portfolio management are integrated. 
-                      </p>
-                      <p>
-                      Please note, I am in no way endorsing the performance of these models, just demonstrating the functionality of the system.
-                      </p>
-                      </p>
-                      <p>
-                        A dashboard showing performance of the strategies and execution related metrics is below:
-                      </p>
-                        <iframe 
-                          src="https://grafana-trading-engine.erickopen.com/d/ad5pdrs/systematic-trading?orgId=1&from=now-24h&to=now&timezone=browser&refresh=5s&theme=light&kiosk"
-                          width="100%"
-                          height="1100"
-                          frameborder="0">
-                        </iframe>
-                    </div>'>
-              Systematic Trading
-            </button>
-          </div>
         </div>
       </div>
     </aside>

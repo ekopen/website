@@ -8,12 +8,14 @@
 </head>
 <body>
   <div class="shell">
-    <!-- ===== LEFT COLUMN ===== -->
+    <!-- ===== LEFT COLUMN (NAV) ===== -->
     <aside class="left">
-      <!-- ABOUT VIEW (landing) -->
-      <div id="left-about" class="stack">
-        <img src="images/eric-kopen.jpg" alt="Eric Kopen" class="pfp" />
-        <div class="name">Eric Kopen</div>
+      <!-- ABOUT (Landing) -->
+      <div id="nav-about" class="stack">
+        <div class="profile-card">
+          <img src="images/eric-kopen.jpg" alt="Eric Kopen" class="pfp" />
+          <div class="name">Eric Kopen</div>
+        </div>
 
         <!-- Social links -->
         <div class="socials">
@@ -52,367 +54,260 @@
                       22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/>
             </svg>
           </a>
-        </div>
-
-        <div class="muted">erictkopen@gmail.com</div>
-        <a href="#projects" class="pill btn-terracotta">→ Projects</a>
-      </div>
-
-      <!-- PROJECTS VIEW (structured projects) -->
-      <div id="left-projects" class="hidden stack">
-        <a href="#about" class="pill btn-terracotta">← Back to About</a>
-
-      <div class="proj-group">
-        <div class="proj-header-with-github">
-          <h3 class="proj-header">Live Trading Engine</h3>
-          <a href="https://github.com/ekopen/live_trading_engine" 
-            target="_blank" 
-            aria-label="GitHub Repository" 
-            class="proj-github-link">
-            <svg xmlns="http://www.w3.org/2000/svg" 
-                viewBox="0 0 24 24" 
-                width="25" height="25" 
-                fill="#444D84">
-              <path d="M12 .297c-6.63 0-12 5.373-12 
-                12 0 5.303 3.438 9.8 8.205 
-                11.385.6.113.82-.258.82-.577 
-                0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61
-                -.546-1.387-1.333-1.757-1.333-1.757-1.09-.744.084-.729.084-.729 
-                1.205.084 1.84 1.237 1.84 1.237 
-                1.07 1.835 2.809 1.305 3.495.998.108-.775.418-1.305.762-1.605
-                -2.665-.3-5.466-1.334-5.466-5.93 
-                0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 
-                0 0 1.005-.322 3.3 1.23a11.5 
-                11.5 0 0 1 3-.405c1.02.005 2.045.138 
-                3 .405 2.28-1.552 3.285-1.23 
-                3.285-1.23.645 1.653.24 2.873.12 
-                3.176.765.84 1.23 1.91 1.23 
-                3.22 0 4.61-2.805 5.625-5.475 
-                5.92.435.372.81 1.096.81 
-                2.22 0 1.606-.015 2.896-.015 
-                3.286 0 .315.21.69.825.57C20.565 
-                22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/>
+          <a href="https://x.com/e_kopen" target="_blank" aria-label="Twitter">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="#1D9BF0">
+              <path d="M17.21 2h3.24l-7.07 8.08L21 22h-6.18l-4.84-6.33L4.4 22H1.16l7.55-8.65L3 2h6.34l4.36 5.72L17.21 2Zm-1.14 18h1.8L8.29 4h-1.9l9.68 16Z" />
             </svg>
           </a>
         </div>
 
-          <!-- Project Block: OVERVIEW -->
-          <div class="proj-block">
-            <button class="proj-btn btn-normal proj-header-btn" 
-                    data-title="Overview"
-                    data-desc='
-                    <div class="stack">
-                      <hr>
-                      <p>
-                        Financial markets produce vast amounts of streaming data. This project develops a full-stack trading engine that integrates real-time data ingestion, processing, and machine learning to drive automated trading decisions.
-                      </p>
+        <div class="muted contact">erictkopen@gmail.com</div>
 
-                      <p>
-                        The system is built around four core modules:
-                        <ul>
-                          <li><strong>Market Data Stream:</strong> Ingests real-time, tick-level data from a crypto exchange.</li>
-                          <li><strong>Market Data Storage:</strong> Continuously writes incoming data to a local and cloud-backed database.</li>
-                          <li><strong>ML Trading Strategies:</strong> Retrains machine learning models regularly to adapt to current market conditions.</li>
-                          <li><strong>Systematic Trading:</strong> Executes trades using ML predictions with integrated risk and portfolio management.</li>
-                        </ul>
-                      </p>
+        <!-- Primary nav buttons -->
+        <div class="primary-nav">
+          <button id="nav-about-top" class="pill nav-pill primary-nav-btn btn-primary-blue" type="button">
+            About
+          </button>
+        </div>
 
-                      <p>
-                        Most importantly, this system is designed to up constantly up! It runs <strong>24/7</strong> on a remote server.  
-                      </p>
-
-                      <p>
-                        Here are some of the key results:
-                        <ul>
-                          <li><strong>High-Throughput Streaming:</strong> Processes 70,000+ ticks per minute across five cryptocurrencies with sub-second latency.</li>
-                          <li><strong>Efficient Storage:</strong> Maintains a rolling seven-day window of high-frequency data (over 130 million rows) while archiving older data to the cloud.</li>
-                          <li><strong>Adaptive Trading:</strong> Retrains five ML models in real time to generate trades across ten portfolio strategies.</li>
-                        </ul>
-                      </p>
-
-                      <p>
-                        Additionally, I took away several lessons from building this:
-                        <ul>
-                          <li><strong>Uptime reveals hidden issues:</strong> Persistent logs and crashed connections taught me the importance of graceful restarts and resource monitoring.</li>
-                          <li><strong>Architecture matters:</strong> Early ad hoc design caused hours of rework, such as migrating to Docker and consolidating modules sprawled across several servers.</li>
-                          <li><strong>Modularity drives scalability:</strong> Adding new assets or strategies was painful until I fully modularized each component.</li>
-                        </ul>
-                      </p>
-
-                      <p>
-                        Thanks for exploring this project! Detailed module documentation is available on my <a href="https://github.com/ekopen/live_trading_engine">GitHub</a>, along with Grafana dashboards featured on this site.  
-                        For questions or feedback, feel free to reach out at <a href="mailto:erictkopen@gmail.com">erictkopen@gmail.com</a>.
-                      </p>
-                    </div>
-                    '>      
-              Overview
+        <!-- Projects list -->
+        <div class="nav-card">
+          <div class="nav-card-heading">
+            <p class="nav-label">Projects</p>
+          </div>
+          <div class="nav-projects" role="list">
+            <button id="nav-lte" class="pill nav-pill nav-child btn-project-blue" type="button">
+              Live Trading Engine
+            </button>
+            <button id="nav-pma" class="pill nav-pill nav-child btn-project-blue" type="button">
+              Prediction Market Aggregator
             </button>
           </div>
+        </div>
 
-          <!-- Project Block: Architecture -->
-          <div class="proj-block">
-            <button class="proj-btn btn-normal proj-header-btn" 
-                    data-title="Architecture"
-                    data-desc='
-                    <div class="stack">
-                      <hr>
-                      <h3>System Flowchart</h3>
-                      <p> Simplified visual overview of the system:</p>
-
-                      <!-- ARCHITECTURE DIAGRAM -->
-                      <div class="architecture-diagram">
-                        <svg viewBox="0 0 1000 200" xmlns="http://www.w3.org/2000/svg" style="max-width: 90%; height: auto;">
-                          <!-- Market Data Stream -->
-                          <polygon points="20,60 140,60 170,100 140,140 20,140" fill="#EFFFF9" stroke="#66DD99" stroke-width="2"/>
-                          <text x="90" y="90" text-anchor="middle" font-size="13" font-weight="700" fill="#333">Market Data Stream</text>
-                          <text x="90" y="110" text-anchor="middle" font-size="12" fill="#444">Generates live feed</text>
-                          <text x="90" y="125" text-anchor="middle" font-size="12" fill="#444">of crypto market data</text>
-
-                          <!-- Arrow -->
-                          <line x1="170" y1="100" x2="260" y2="100" stroke="#AFAFAF" stroke-width="2" marker-end="url(#arrowhead)"/>
-
-                          <!-- Market Data Storage -->
-                          <rect x="260" y="60" width="160" height="80" rx="40" fill="#f8efff" stroke="#c979f5" stroke-width="2"/>
-                          <text x="340" y="90" text-anchor="middle" font-size="13" font-weight="700" fill="#333">Market Data Storage</text>
-                          <text x="340" y="110" text-anchor="middle" font-size="13" fill="#444">Collects & stores</text>
-                          <text x="340" y="125" text-anchor="middle" font-size="12" fill="#444">all market data</text>
-
-                          <!-- Arrow -->
-                          <line x1="420" y1="100" x2="520" y2="100" stroke="#AFAFAF" stroke-width="2" marker-end="url(#arrowhead)"/>
-
-                          <!-- ML Trading Strategies -->
-                          <rect x="520" y="60" width="180" height="80" fill="#fff3fa" stroke="#f17cb0" stroke-width="2"/>
-                          <text x="610" y="90" text-anchor="middle" font-size="13" font-weight="700" fill="#333">ML Trading Strategies</text>
-                          <text x="610" y="110" text-anchor="middle" font-size="12" fill="#444">Trains ML models</text>
-                          <text x="610" y="125" text-anchor="middle" font-size="12" fill="#444">on new market data</text>
-
-                          <!-- Arrow -->
-                          <line x1="700" y1="100" x2="800" y2="100" stroke="#AFAFAF" stroke-width="2" marker-end="url(#arrowhead)"/>
-
-                          <!-- Systematic Trading -->
-                          <rect x="800" y="60" width="180" height="80" fill="#fff3fa" stroke="#f17cb0" stroke-width="2"/>
-                          <text x="890" y="90" text-anchor="middle" font-size="13" font-weight="700" fill="#333">Systematic Trading</text>
-                          <text x="890" y="110" text-anchor="middle" font-size="12" fill="#444">Executes ML-based</text>
-                          <text x="890" y="125" text-anchor="middle" font-size="12" fill="#444">strategies & simulations</text>
-
-                          <!-- Arrowhead Definition -->
-                          <defs>
-                            <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="10" refY="3.5" orient="auto">
-                              <polygon points="0 0, 10 3.5, 0 7" fill="#AFAFAF" />
-                            </marker>
-                          </defs>
-                        </svg>
-                      </div>
-                      <!-- END ARCHITECTURE DIAGRAM -->
-
-                      
-                      <hr>
-                      <br>
-                      <h3>System Details </h3>
-                      <p> Breakdown of the different components in the project: </p>
-                      <br>
-                      <div class="icon-block">
-                        <img src="icons/digitalocean.png" alt="DigitalOcean" class="icon-left">
-                        <p>
-                          <strong>DigitalOcean</strong> hosts the server the project runs on (and this website). It currently supported by a $48/month droplet with 8GB RAM, 4 vCPUs, and 160GB SSD storage.
-                        </p>
-                      </div>
-
-                      <div class="icon-block">
-                        <img src="icons/docker.png" alt="Docker" class="icon-left">
-                        <p>
-                          <strong>Docker</strong> is the platform this project is orchestrated with. Besides the module containers, there are containers for Kafka, Clickhouse, Grafana, Prometheus, and other monitoring tools.
-                        </p>
-                      </div>
-
-                      <div class="icon-block">
-                        <img src="icons/grafana.png" alt="Grafana" class="icon-left">
-                        <p>
-                          <strong>Grafana</strong> powers all dashboards displayed on this site. They are updated in real time, were reverse proxied through nginx for display here.
-                        </p>
-                      </div>
-
-                      <br>
-
-                      <p> <strong> Market Data Stream </strong> </p>
-
-                      <div class="icon-block">
-                        <img src="icons/binance.png" alt="Binance" class="icon-left">
-                        <p>
-                          <strong>Binance</strong> serves as the source for cryptocurrency tick-level data, which is ingested from the exchange in real time via a WebSocket provided through <strong>Finnhub</strong>.
-                        </p>
-                      </div>
-
-                      <div class="icon-block">
-                        <img src="icons/kafka.png" alt="Kafka" class="icon-left">
-                        <p>
-                          <strong>Kafka</strong> captures all data from the WebSocket, where a producer publishes incoming messages to a Kafka topic managed by one broker.
-                        </p>
-                      </div>
-
-                      <br>
-
-                      <p> <strong> Market Data Storage </strong> </p>
-
-                      <div class="icon-block">
-                        <img src="icons/clickhouse.png" alt="ClickHouse" class="icon-left">
-                        <p>
-                          <strong>ClickHouse</strong> is connected to the data stream via a Kafka consumer. New data is appended to the database via batch processing, and monitoring/diagnostics measures are periodically recorded.
-                        </p>
-                      </div>
-
-                      <div class="icon-block">
-                        <img src="icons/aws.png" alt="AWS" class="icon-left">
-                        <p>
-                          <strong>AWS</strong> serves as a cold storage for old data. Data older than 7 days is converted to a parquet, deleted from Clickhouse, and uploaded to an S3 bucket.
-                        </p>
-                      </div>
-
-                      <br>
-                      <p> <strong> ML Trading Strategies </strong> </p>
-                      <p> An array of machine learning models are trained with recent market data (accessed via Clickhouse) on set intervals. Their performance are recorded, and the models are then uploaded to an AWS ML repository. </p>
-
-                      <br>
-                      <p> <strong> Systematic Trading </strong> </p>
-                      <p> Trading strategies are continuously ran. This process is powered via execution, risk, and portfolio monitoring engines. </p> 
-                      <p> Machine learning strategies use models accessed from the AWS ML repository, and are benchmarked against buy and hold strategies. All trades are simulated with slippage conditions. </p>
-                      <br>
-                      <hr>
-                      <br>
-                      <h3>Server Monitoring </h3>
-                      <p>
-                        Below is a Grafana dashboard monitoring the health of the server, including memory usage by module:
-                      </p>
-
-                      <iframe 
-                        src="https://grafana-trading-engine.erickopen.com/d/ad9ppm2/server-metrics?orgId=1&from=now-7d&to=now&timezone=browser&refresh=60s&theme=light&kiosk"
-                        width="100%"
-                        height="500"
-                        frameborder="0">
-                      </iframe>
-
-                    </div>'>      
-              Architecture
-            </button>
-          </div>
-
-          <!-- Project Block: LIVE DASHBOARDS -->
-          <div class="proj-block">
-            <button class="proj-btn btn-normal proj-header-btn" 
-                    data-title="Live Dashboards"
-                    data-desc='
-                    <div class="stack">
-                      <hr>
-                      <p> Because this runs 24/7, I created a variety of Grafana dashboards to frequently monitor how things are going. </p>
-
-                      <p>
-                        First, we want to see how the machine learning based trading strategies are performing. This shows their cumulative historical performance vs a long only benchmark, plus the recent trades made.
-                      </p>
-                        <iframe 
-                          src="https://grafana-trading-engine.erickopen.com/d/ad5pdrs/systematic-trading?orgId=1&from=now-30d&to=now&timezone=browser&refresh=5s&theme=light&kiosk"
-                          width="100%"
-                          height="600"
-                          frameborder="0">
-                        </iframe>
-
-                      <p> Next, we can see when the ML trading models will be next retrained on recent market data, alongside the performance of the currently implemented models. </p>
-                        <iframe 
-                          src="https://grafana-trading-engine.erickopen.com/d/adgkt7m/ml-strategies?orgId=1&from=now-24h&to=now&timezone=browser&refresh=60s&theme=light&kiosk"
-                          width="100%"
-                          height="400"
-                          frameborder="0">
-                        </iframe>
-
-                      <p> All models are trained on tick data captured in a Clickhouse database, which is shown alongside other related metrics. </p>
-
-                        <iframe 
-                          src="https://grafana-trading-engine.erickopen.com/d/37fb53d0-bf32-4e50-b46e-3bf1a868e61e/market-data?orgId=1&from=now-30d&to=now&timezone=browser&var-ds=af0a2qlhij6yoa&var-Ticker=ETH&refresh=5s&theme=light&kiosk"
-                          width="100%"
-                          height="700"
-                          frameborder="0">
-                        </iframe>
-                      <p>
-                        A few extra tidbits relating to the database size and data lag are also tracked here.
-                      </p>
-                        <iframe 
-                          src="https://grafana-trading-engine.erickopen.com/d/market-data-monitoring/market-data-monitoring?orgId=1&from=now-24h&to=now&timezone=browser&var-ds_clickhouse=af0a2qlhij6yoa&refresh=10s&theme=light&kiosk"
-                          width="100%"
-                          height="300"
-                          frameborder="0">
-                        </iframe>
-
-                      <p> Finally, since the backbone of this system is a real time market data stream, we want to monitor the performance of the websocket and Kafka. </p>
-                        <iframe 
-                          src="https://grafana-trading-engine.erickopen.com/d/advz678/data-stream-v2?orgId=1&from=now-7d&to=now&timezone=browser&refresh=5s&&theme=light&kiosk"
-                          width="100%"
-                          height="550"
-                          frameborder="0">
-                        </iframe>
-                    </div>'> 
-              Live Dashboards
-            </button>
-          </div>
-
-
+        <div class="primary-nav">
+          <button id="nav-insights" class="pill nav-pill primary-nav-btn btn-primary-blue" type="button">
+            Insights
+          </button>
         </div>
       </div>
     </aside>
 
     <!-- ===== RIGHT COLUMN ===== -->
     <main class="right">
-      <!-- ABOUT VIEW RIGHT -->
+      <!-- ABOUT VIEW RIGHT (default landing content) -->
       <section id="right-about" class="stack">
         <h2>About</h2>
-        <p>Hello! I’m Eric. Thanks for visiting my page!</p>
+        <hr>
+        <p>Thanks for visiting my page!</p>
         <p>
-          I specialize in building and maintaining infrastructure for financial market interaction, a focus I’m deepening through projects featured here and on GitHub. I’m currently seeking part-time opportunities while completing my master’s this fall and will be available for full-time roles in 2026. My ideal position is an engineering role focused on real-time data systems.
+          I specialize in building and maintaining infrastructure for financial market interaction, with a specialization in prediction markets. I will be available for full-time roles in 2026. My ideal position is an engineering role focused on data systems.
         </p>
         <p>
-          Here’s a summary of my professional experience:
+          Professional experience:
         </p>
-          <ul>
-            <li><strong>Bank of America (Summer 2025):</strong> Built data pipelines, automated risk processes, and developed trader dashboards.</li>
-            <li><strong>Mizuho Bank (Winter 2025):</strong> Designed ML models to generate and analyze volatility surfaces.</li>
-            <li><strong>UnitedHealthcare (2022–2024):</strong> Engineered SQL workflows, automated ETL, and implemented data quality controls.</li>
-            <li><strong>Agiliti Health (2019–2022):</strong> Built pricing models, dashboards with API integrations, and managed database infrastructure.</li>
+          <ul class="experience-list">
+            <li>
+              <strong>Bank of America (Summer 2025): Quantitative Engineer</strong>
+              <p class="experience-detail">Built data pipelines, automated risk processes, and developed trader dashboards.</p>
+            </li>
+            <li>
+              <strong>Mizuho Bank (Winter 2024): Quantitative Analyst</strong>
+              <p class="experience-detail">Designed ML models to generate and analyze volatility surfaces.</p>
+            </li>
+            <li>
+              <strong>UnitedHealthcare (2022–2024): Data Consultant</strong>
+              <p class="experience-detail">Engineered SQL workflows, automated ETL, and implemented data quality controls.</p>
+            </li>
+            <li>
+              <strong>Agiliti Health (2019–2022): Data Engineer</strong>
+              <p class="experience-detail">Designed pricing models, integrated dashboards with APIs, and managed database infrastructure.</p>
+            </li>
           </ul>
         <p>
-          I’m pursuing a Master’s in Financial Mathematics at the University of Chicago, graduating in December 2025. 
-          Before that, I obtained a Bachelor's degree from the University of Minnesota (2019), where I studied Management Information Systems and Finance.
+          Educational background:
+        </p>
+          <ul class="education-list">
+            <li>
+              <strong>University of Chicago (2025)</strong>
+              <p class="experience-detail">Master’s in Financial Mathematics.</p>
+            </li>
+            <li>
+              <strong>University of Minnesota (2019)</strong>
+              <p class="experience-detail">Bachelor’s in Management Information Systems and Finance.</p>
+            </li>
+          </ul>
           Please reach out to me if you would like to connect!
         </p>
+        <hr>
       </section>
 
 
-      <!-- PROJECTS VIEW RIGHT -->
-      <section id="right-projects" class="hidden stack">
-        <div class="proj-title-bar">
-          <h2 id="p-title">Select a Project</h2>
-          <a id="p-github" href="#" target="_blank" class="hidden" aria-label="View on GitHub">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="22" height="22" fill="#181717">
-              <path d="M12 .297c-6.63 0-12 5.373-12 12 
-                0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 
-                0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61
-                -.546-1.387-1.333-1.757-1.333-1.757-1.09-.744.084-.729.084-.729
-                1.205.084 1.84 1.237 1.84 1.237 
-                1.07 1.835 2.809 1.305 3.495.998.108-.775.418-1.305.762-1.605
-                -2.665-.3-5.466-1.334-5.466-5.93 
-                0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 
-                0 0 1.005-.322 3.3 1.23a11.5 11.5 0 0 1 3-.405
-                c1.02.005 2.045.138 3 .405 2.28-1.552 3.285-1.23 
-                3.285-1.23.645 1.653.24 2.873.12 
-                3.176.765.84 1.23 1.91 1.23 3.22 
-                0 4.61-2.805 5.625-5.475 5.92.435.372.81 1.096.81 
-                2.22 0 1.606-.015 2.896-.015 
-                3.286 0 .315.21.69.825.57C20.565 
-                22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/>
+      <!-- LIVE TRADING ENGINE CONTENT (one continuous scrollable section) -->
+      <section id="right-lte" class="hidden stack">
+        <div class="proj-header-with-github">
+          <h2>Live Trading Engine</h2>
+          <a class="proj-github-link" href="https://github.com/ekopen/live_trading_engine" target="_blank" rel="noopener" aria-label="Live Trading Engine on GitHub">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="26" height="26" fill="#444D84">
+              <path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61-.546-1.387-1.333-1.757-1.333-1.757-1.09-.744.084-.729.084-.729 1.205.084 1.84 1.237 1.84 1.237 1.07 1.835 2.809 1.305 3.495.998.108-.775.418-1.305.762-1.605-2.665-.3-5.466-1.334-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23a11.5 11.5 0 0 1 3-.405c1.02.005 2.045.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.435.372.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/>
             </svg>
           </a>
         </div>
-        <p id="p-desc" class="muted">Click a button on the left to see details here.</p>
-        <div class="iframe-wrap" id="proj-frame-wrap">
-          <iframe id="proj-frame" title="Project View" allowfullscreen></iframe>
+        <hr>
+
+        <!-- Overview -->
+        <div class="stack">
+          <h3>Overview</h3>
+          <p>
+            This project develops a full-stack trading engine that integrates real-time data ingestion, processing, and machine learning to drive automated trading decisions.
+          </p>
+
+          <p>
+            The system is built around four core modules:
+          </p>
+          <ul>
+            <li><strong>Market Data Ingestion:</strong> Ingests real-time, tick-level data from a crypto exchange.</li>
+            <li><strong>Market Data Storage:</strong> Continuously writes incoming data to a local and cloud-backed database.</li>
+            <li><strong>Machine Learning Service:</strong> Retrains machine learning models regularly to adapt to current market conditions.</li>
+            <li><strong>Execution Engine:</strong> Executes trades using ML predictions with integrated risk and portfolio management.</li>
+          </ul>
+          <p>
+            Here are some of the key results:
+          </p>
+          <ul>
+            <li><strong>High-Throughput Streaming:</strong> Processes 100k+ ticks per minute across five cryptocurrencies with sub-second latency.</li>
+            <li><strong>Efficient Storage:</strong> Maintains a rolling 30 day window of high-frequency data (over 500 million rows) while archiving older data to the cloud.</li>
+            <li><strong>Adaptive Trading:</strong> Retrains five ML models in real time to generate trades across ten portfolio strategies.</li>
+          </ul>
+
+          <p>
+            Additionally, I took away several lessons from building this:
+          </p>
+          <ul>
+            <li><strong>Uptime reveals hidden issues:</strong> Persistent logs and crashed connections taught me the importance of graceful restarts and resource monitoring.</li>
+            <li><strong>Architecture matters:</strong> Early ad hoc design caused hours of rework, such as migrating to Docker and consolidating modules sprawled across several servers.</li>
+            <li><strong>Modularity drives scalability:</strong> Adding new assets or strategies was painful until I fully modularized each component.</li>
+          </ul>
         </div>
+
+        <!-- Architecture -->
+        <div class="stack">
+          <hr>
+          <h3>Architecture</h3>
+
+          <!-- ARCHITECTURE DIAGRAM -->
+          <div class="architecture-diagram">
+            <img src="images/trading_engine_architecture.png" alt="Trading Engine Architecture" class="architecture-graphic">
+          </div>
+
+          <div class="icon-block">
+            <img src="icons/digitalocean.png" alt="DigitalOcean" class="icon-left">
+            <p>
+              <strong>DigitalOcean</strong> hosts the server the project runs on. It currently supported by a $48/month droplet with 8GB RAM, 4 vCPUs, and 160GB SSD storage.
+            </p>
+          </div>
+
+          <div class="icon-block">
+            <img src="icons/docker.png" alt="Docker" class="icon-left">
+            <p>
+              <strong>Docker</strong> is the platform this project is orchestrated with. Besides the module containers, there are containers for Kafka, Clickhouse, Grafana, Prometheus, and other monitoring tools.
+            </p>
+          </div>
+
+          <div class="icon-block">
+            <img src="icons/grafana.png" alt="Grafana" class="icon-left">
+            <p>
+              <strong>Grafana</strong> powers all dashboards for real time monitoring.
+            </p>
+          </div>
+
+          <div class="icon-block">
+            <img src="icons/binance.png" alt="Binance" class="icon-left">
+            <p>
+              <strong>Binance</strong> serves as the source for cryptocurrency tick-level data, which is ingested from the exchange in real time via a WebSocket provided through Finnhub.
+            </p>
+          </div>
+
+          <div class="icon-block">
+            <img src="icons/kafka.png" alt="Kafka" class="icon-left">
+            <p>
+              <strong>Kafka</strong> captures all data from the WebSocket, where a producer publishes incoming messages to a Kafka topic managed by one broker.
+            </p>
+          </div>
+
+          <div class="icon-block">
+            <img src="icons/clickhouse.png" alt="ClickHouse" class="icon-left">
+            <p>
+              <strong>ClickHouse</strong> is connected to the data stream via a Kafka consumer. New data is appended to the database via batch processing, and monitoring/diagnostics measures are periodically recorded.
+            </p>
+          </div>
+
+          <div class="icon-block">
+            <img src="icons/aws.png" alt="AWS" class="icon-left">
+            <p>
+              <strong>AWS</strong> serves as a cold storage for old data. Data older than 7 days is converted to a parquet, deleted from Clickhouse, and uploaded to an S3 bucket.
+            </p>
+          </div>
+
+          <ul class="architecture-list">
+            <li>Machine learning models are trained with recent market data on set intervals. Their performance are recorded, and the models are then uploaded to an AWS ML repository.</li>
+            <li>The ML models power several strategies which simulate real time trading. This process is powered via execution, risk, and portfolio monitoring engines.</li>
+          </ul>
+          <br>
+        </div>
+
+        <!-- Live Dashboards -->
+        <div class="stack">
+          <hr>
+          <h3>Dashboards</h3>
+          <div class="dashboard-gallery">
+            <div class="dashboard-item">
+              <img src="images/snapshot1.png" alt="snapshot1" class="dashboard-image">
+              <p class="dashboard-caption">Portfolio performance after this project ran for around 30 days.</p>
+            </div>
+
+            <div class="dashboard-item">
+              <img src="images/snapshot2.png" alt="snapshot2" class="dashboard-image">
+              <p class="dashboard-caption">Snapshot of trade executions, along with a demonstration of the risk engine setting trade limits.</p>
+            </div>
+
+            <div class="dashboard-item">
+              <img src="images/snapshot3.png" alt="snapshot3" class="dashboard-image">
+              <p class="dashboard-caption">List of the different ML models that are continuously retrained to adapt to market changes.</p>
+            </div>
+
+            <div class="dashboard-item">
+              <img src="images/snapshot4.png" alt="snapshot4" class="dashboard-image">
+              <p class="dashboard-caption">Time series of granular price ticks for ETH, one of the tickers (alongside BTC, SOL, ADA, and XRP) processed via Kafka stored in Clickhouse.</p>
+            </div>
+
+            <div class="dashboard-item">
+              <img src="images/snapshot5.png" alt="snapshot5" class="dashboard-image">
+              <p class="dashboard-caption">Snapshot of running memory usage by Docker container, showing that different services have varying resource demands.</p>
+            </div>
+
+          </div>
+      </section>
+
+      <!-- PREDICTION MARKET AGGREGATOR PLACEHOLDER -->
+      <section id="right-pma" class="hidden stack">
+        <div class="proj-header-with-github">
+          <h2>Prediction Market Aggregator</h2>
+          <a class="proj-github-link" href="https://github.com/ekopen" target="_blank" rel="noopener" aria-label="Prediction Market Aggregator GitHub placeholder">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="26" height="26" fill="#444D84">
+              <path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61-.546-1.387-1.333-1.757-1.333-1.757-1.09-.744.084-.729.084-.729 1.205.084 1.84 1.237 1.84 1.237 1.07 1.835 2.809 1.305 3.495.998.108-.775.418-1.305.762-1.605-2.665-.3-5.466-1.334-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23a11.5 11.5 0 0 1 3-.405c1.02.005 2.045.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.435.372.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/>
+            </svg>
+          </a>
+        </div>
+        <hr>
+        <p>Coming soon.</p>
+      </section>
+
+      <!-- INSIGHTS PLACEHOLDER (can be filled later) -->
+      <section id="right-insights" class="hidden stack">
+        <h2>Insights</h2>
+        <hr>
+        <p>Coming soon.</p>
       </section>
     </main>
   </div>

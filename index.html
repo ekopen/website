@@ -203,7 +203,7 @@
           <div class="icon-block">
             <img src="icons/digitalocean.png" alt="DigitalOcean" class="icon-left">
             <p>
-              <strong>DigitalOcean</strong> hosts the server the project runs on. It currently supported by a $48/month droplet with 8GB RAM, 4 vCPUs, and 160GB SSD storage.
+              <strong>DigitalOcean</strong> hosts the server the project runs on. It is currently supported by a $48/month droplet with 8GB RAM, 4 vCPUs, and 160GB SSD storage.
             </p>
           </div>
 
@@ -217,14 +217,14 @@
           <div class="icon-block">
             <img src="icons/grafana.png" alt="Grafana" class="icon-left">
             <p>
-              <strong>Grafana</strong> powers all dashboards for real time monitoring.
+              <strong>Grafana</strong> powers all dashboards for real-time monitoring.
             </p>
           </div>
 
           <div class="icon-block">
             <img src="icons/binance.png" alt="Binance" class="icon-left">
             <p>
-              <strong>Binance</strong> serves as the source for cryptocurrency tick-level data, which is ingested from the exchange in real time via a WebSocket provided through Finnhub.
+              <strong>Binance</strong> serves as the source for cryptocurrency tick-level data, which is ingested from the exchange in real-time via a WebSocket provided through Finnhub.
             </p>
           </div>
 
@@ -245,14 +245,14 @@
           <div class="icon-block">
             <img src="icons/aws.png" alt="AWS" class="icon-left">
             <p>
-              <strong>AWS</strong> serves as a cold storage for old data. Data older than 7 days is converted to a parquet, deleted from Clickhouse, and uploaded to an S3 bucket.
-            </p>
-          </div>
+              <strong>AWS</strong> serves as a cold storage for old data. Data older than 7 days is converted to a parquet, deleted from ClickHouse, and uploaded to an S3 bucket.
+              </p>
+            </div>
 
-          <ul class="architecture-list">
-            <li>Machine learning models are trained with recent market data on set intervals. Their performance are recorded, and the models are then uploaded to an AWS ML repository.</li>
-            <li>The ML models power several strategies which simulate real time trading. This process is powered via execution, risk, and portfolio monitoring engines.</li>
-          </ul>
+          <!-- <ul class="architecture-list">
+            <li>Machine learning models are trained with recent market data on set intervals. Their performances are recorded, and the models are then uploaded to an AWS ML repository.</li>
+            <li>The ML models power several strategies which simulate real-time trading. This process is powered via execution, risk, and portfolio monitoring engines.</li>
+          </ul> -->
           <br>
         </div>
 

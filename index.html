@@ -64,9 +64,12 @@
         <div class="muted contact">erictkopen@gmail.com</div>
 
         <!-- Primary nav buttons -->
-        <div class="primary-nav">
+        <div class="primary-nav primary-nav-inline">
           <button id="nav-about-top" class="pill nav-pill primary-nav-btn btn-primary-blue" type="button">
             About
+          </button>
+          <button id="nav-writings" class="pill nav-pill primary-nav-btn btn-primary-blue" type="button">
+            Writing
           </button>
         </div>
 
@@ -85,11 +88,6 @@
           </div>
         </div>
 
-        <div class="primary-nav">
-          <button id="nav-insights" class="pill nav-pill primary-nav-btn btn-primary-blue" type="button">
-            Insights
-          </button>
-        </div>
       </div>
     </aside>
 
@@ -159,7 +157,7 @@
         <div class="stack">
           <h3>Overview</h3>
           <p>
-            This project develops a full-stack trading engine that integrates real-time data ingestion, processing, and machine learning to drive automated trading decisions.
+            This project is a full-stack trading engine that integrates real-time data ingestion, processing, and machine learning to make automated trading decisions.
           </p>
 
           <p>
@@ -168,8 +166,8 @@
           <ul>
             <li><strong>Market Data Ingestion:</strong> Ingests real-time, tick-level data from a crypto exchange.</li>
             <li><strong>Market Data Storage:</strong> Continuously writes incoming data to a local and cloud-backed database.</li>
-            <li><strong>Machine Learning Service:</strong> Retrains machine learning models regularly to adapt to current market conditions.</li>
-            <li><strong>Execution Engine:</strong> Executes trades using ML predictions with integrated risk and portfolio management.</li>
+            <li><strong>Machine Learning Service:</strong> Retrains an array of machine learning models regularly to adapt to current market conditions.</li>
+            <li><strong>Execution Engine:</strong> Executes trades based on machine learning generated signals with integrated risk and portfolio management.</li>
           </ul>
           <p>
             Here are some of the key results:
@@ -177,16 +175,16 @@
           <ul>
             <li><strong>High-Throughput Streaming:</strong> Processes 100k+ ticks per minute across five cryptocurrencies with sub-second latency.</li>
             <li><strong>Efficient Storage:</strong> Maintains a rolling 30 day window of high-frequency data (over 500 million rows) while archiving older data to the cloud.</li>
-            <li><strong>Adaptive Trading:</strong> Retrains five ML models in real time to generate trades across ten portfolio strategies.</li>
+            <li><strong>Adaptive Performance:</strong> ML models quickly identify new patterns, adjust their parameters, and optimize trading strategies.</li>
           </ul>
 
           <p>
             Additionally, I took away several lessons from building this:
           </p>
           <ul>
-            <li><strong>Uptime reveals hidden issues:</strong> Persistent logs and crashed connections taught me the importance of graceful restarts and resource monitoring.</li>
-            <li><strong>Architecture matters:</strong> Early ad hoc design caused hours of rework, such as migrating to Docker and consolidating modules sprawled across several servers.</li>
-            <li><strong>Modularity drives scalability:</strong> Adding new assets or strategies was painful until I fully modularized each component.</li>
+            <li><strong>Designing for constant uptime:</strong> Long-running use surfaced unexpected failures, underscoring the need for proactive resource monitoring, alerting, and graceful restarts.</li>
+            <li><strong>Scaling from prototype to production:</strong> Early ad hoc decisions led to painful rework (such as migrating to Docker and consolidating services), so I now design with production in mind from the outset.</li>
+            <li><strong>Building for modular growth:</strong> A monolithic first pass was quick to ship but became a bottleneck as the system grew, reinforcing the value of clear module boundaries and interfaces early on.</li>
           </ul>
         </div>
 
@@ -210,14 +208,14 @@
           <div class="icon-block">
             <img src="icons/docker.png" alt="Docker" class="icon-left">
             <p>
-              <strong>Docker</strong> is the platform this project is orchestrated with. Besides the module containers, there are containers for Kafka, Clickhouse, Grafana, Prometheus, and other monitoring tools.
+              <strong>Docker</strong> serves as the containerization platform. Besides the module containers, there are containers for Kafka, Clickhouse, Grafana, Prometheus, and other miscellaneous services.
             </p>
           </div>
 
           <div class="icon-block">
             <img src="icons/grafana.png" alt="Grafana" class="icon-left">
             <p>
-              <strong>Grafana</strong> powers all dashboards for real-time monitoring.
+              <strong>Grafana</strong> powers all dashboards for real-time monitoring, visualization, and alerting.
             </p>
           </div>
 
@@ -231,14 +229,14 @@
           <div class="icon-block">
             <img src="icons/kafka.png" alt="Kafka" class="icon-left">
             <p>
-              <strong>Kafka</strong> captures all data from the WebSocket, where a producer publishes incoming messages to a Kafka topic managed by one broker.
+              <strong>Kafka</strong> captures all data from the WebSocket, where a producer publishes incoming messages to a Kafka topic managed by one broker, accessed via various consumers downstream.
             </p>
           </div>
 
           <div class="icon-block">
             <img src="icons/clickhouse.png" alt="ClickHouse" class="icon-left">
             <p>
-              <strong>ClickHouse</strong> is connected to the data stream via a Kafka consumer. New data is appended to the database via batch processing, and monitoring/diagnostics measures are periodically recorded.
+              <strong>ClickHouse</strong> is connected to the data stream via Kafka. New data is appended to the database via batch processing, and monitoring/diagnostics measures are periodically recorded.
             </p>
           </div>
 
@@ -249,10 +247,10 @@
               </p>
             </div>
 
-          <!-- <ul class="architecture-list">
-            <li>Machine learning models are trained with recent market data on set intervals. Their performances are recorded, and the models are then uploaded to an AWS ML repository.</li>
-            <li>The ML models power several strategies which simulate real-time trading. This process is powered via execution, risk, and portfolio monitoring engines.</li>
-          </ul> -->
+          <ul class="architecture-list">
+            <li>The machine learning module retrains five models at regular intervals with the most recent set of data, using Python libraries such as scikit-learn and TensorFlow.</li>
+            <li>The execution module loads these ML models to generate real time signals and simulate trades. This process is supported with risk and portfolio monitoring engines.</li>
+          </ul>
           <br>
         </div>
 
@@ -273,12 +271,12 @@
 
             <div class="dashboard-item">
               <img src="images/snapshot3.png" alt="snapshot3" class="dashboard-image">
-              <p class="dashboard-caption">List of the different ML models that are continuously retrained to adapt to market changes.</p>
+              <p class="dashboard-caption">List of the different ML models that are implemented in the project.</p>
             </div>
 
             <div class="dashboard-item">
               <img src="images/snapshot4.png" alt="snapshot4" class="dashboard-image">
-              <p class="dashboard-caption">Time series of granular price ticks for ETH, one of the tickers (alongside BTC, SOL, ADA, and XRP) processed via Kafka stored in Clickhouse.</p>
+              <p class="dashboard-caption">Time series of granular price ticks for ETH, one of the tickers (alongside BTC, SOL, ADA, and XRP) processed via Kafka stored in ClickHouse.</p>
             </div>
 
             <div class="dashboard-item">
@@ -303,9 +301,9 @@
         <p>Coming soon.</p>
       </section>
 
-      <!-- INSIGHTS PLACEHOLDER (can be filled later) -->
-      <section id="right-insights" class="hidden stack">
-        <h2>Insights</h2>
+      <!-- WRITINGS PLACEHOLDER (can be filled later) -->
+      <section id="right-writings" class="hidden stack">
+        <h2>Writing</h2>
         <hr>
         <p>Coming soon.</p>
       </section>

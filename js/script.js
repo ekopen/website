@@ -6,7 +6,7 @@ function setActiveNav(button) {
 }
 
 function showRightSection(sectionId) {
-  const sections = ['right-about', 'right-lte', 'right-pma', 'right-insights'];
+  const sections = ['right-about', 'right-lte', 'right-pma', 'right-writings'];
   sections.forEach(id => {
     const el = document.getElementById(id);
     if (!el) return;
@@ -16,7 +16,7 @@ function showRightSection(sectionId) {
 
 window.addEventListener('load', () => {
   const aboutTopBtn = document.getElementById('nav-about-top');
-  const insightsBtn = document.getElementById('nav-insights');
+  const writingsBtn = document.getElementById('nav-writings');
   const lteBtn = document.getElementById('nav-lte');
   const pmaBtn = document.getElementById('nav-pma');
 
@@ -28,11 +28,11 @@ window.addEventListener('load', () => {
     });
   }
 
-  // Insights -> show insights section
-  if (insightsBtn) {
-    insightsBtn.addEventListener('click', () => {
-      setActiveNav(insightsBtn);
-      showRightSection('right-insights');
+  // Writings -> show writings section
+  if (writingsBtn) {
+    writingsBtn.addEventListener('click', () => {
+      setActiveNav(writingsBtn);
+      showRightSection('right-writings');
     });
   }
 

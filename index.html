@@ -83,10 +83,10 @@
           </div>
           <div class="nav-projects" role="list">
             <button id="nav-lte" class="pill nav-pill nav-child btn-project-blue" type="button">
-              Live Trading Platform
+              ML Live Trading Platform
             </button>
             <button id="nav-pma" class="pill nav-pill nav-child btn-project-blue" type="button">
-              Prediction Market Aggregator
+              Prediction Market Aggregator (PrediDesk)
             </button>
           </div>
         </div>
@@ -102,9 +102,7 @@
         <hr>
         <p>Thanks for visiting my page!</p>
         <p>
-          I specialize in building and maintaining infrastructure for financial market interaction, with a
-          specialization in prediction markets. I will be available for full-time roles in 2026. My ideal position is an
-          engineering role focused on data systems.
+          I specialize in building and maintaining infrastructure for financial market interaction.
         </p>
         <p>
           Professional experience:
@@ -115,8 +113,7 @@
               <img src="icons/bofa.png" alt="Bank of America logo" class="icon-left">
               <div>
                 <strong>Bank of America - Quantitative Engineer (Summer 2025)</strong>
-                <p class="experience-detail">Built data pipelines, automated risk processes, and developed trader
-                  dashboards.</p>
+                <p class="experience-detail">Developed Treasury Futures pricing engines and automated VaR ETL pipelines.</p>
               </div>
             </div>
           </div>
@@ -124,8 +121,8 @@
             <div class="icon-block">
               <img src="icons/mizu.png" alt="Mizuho Bank logo" class="icon-left">
               <div>
-                <strong>Mizuho Bank - Quantitative Analyst (Winter 2024)</strong>
-                <p class="experience-detail">Designed ML models to generate and analyze volatility surfaces.</p>
+                <strong>Mizuho Bank - Quantitative Analyst (Winter 2025)</strong>
+                <p class="experience-detail">Built deep generative frameworks (GANs) to model implied volatility surfaces.</p>
               </div>
             </div>
           </div>
@@ -134,8 +131,7 @@
               <img src="icons/uhc.png" alt="UnitedHealthcare logo" class="icon-left">
               <div>
                 <strong>UnitedHealthcare - Data Consultant (2022–2024)</strong>
-                <p class="experience-detail">Engineered SQL workflows, automated ETL, and implemented data quality
-                  controls.</p>
+                <p class="experience-detail">Optimized forecasting decision tree models and refactored big data SQL workflows.</p>
               </div>
             </div>
           </div>
@@ -143,9 +139,8 @@
             <div class="icon-block">
               <img src="icons/agiliti.png" alt="Agiliti Health logo" class="icon-left">
               <div>
-                <strong>Agiliti Health - Data Engineer (2019–2022)</strong>
-                <p class="experience-detail">Designed pricing models, integrated dashboards with APIs, and managed
-                  database infrastructure.</p>
+                <strong>Agiliti Health - Data Engineer & Analyst (2019–2022)</strong>
+                <p class="experience-detail">Managed critical databases, created API dashboards, and designed regression pricing models.</p>
               </div>
             </div>
           </div>
@@ -173,7 +168,8 @@
             </div>
           </div>
         </div>
-        Please reach out to me if you would like to connect!
+        <p>
+          Please reach out to me if you would like to connect!
         </p>
         <hr>
       </section>
@@ -182,7 +178,7 @@
       <!-- LIVE TRADING ENGINE CONTENT (one continuous scrollable section) -->
       <section id="right-lte" class="hidden stack">
         <div class="proj-header-with-github">
-          <h2>Live Trading Platform</h2>
+          <h2>ML Live Trading Platform</h2>
           <a class="proj-github-link" href="https://github.com/ekopen/live_trading_engine" target="_blank"
             rel="noopener" aria-label="Live Trading Engine on GitHub">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="26" height="26" fill="#444D84">
@@ -197,32 +193,18 @@
         <div class="stack">
           <h3>Overview</h3>
           <p>
-            This project is a full-stack trading platform that integrates real-time data ingestion, processing, and
-            machine learning to make automated trading decisions.
+            This project is a fault-tolerant, containerized trading engine that integrates real-time data ingestion, processing, and
+            machine learning for alpha generation.
           </p>
 
           <p>
-            The system is built around four core modules:
+            Key highlights:
           </p>
           <ul>
-            <li><strong>Market Data Ingestion:</strong> Ingests real-time, tick-level data from a crypto exchange.</li>
-            <li><strong>Market Data Storage:</strong> Continuously writes incoming data to a local and cloud-backed
-              database.</li>
-            <li><strong>Machine Learning Service:</strong> Retrains an array of machine learning models regularly to
-              adapt to current market conditions.</li>
-            <li><strong>Execution Engine:</strong> Executes trades based on machine learning generated signals with
-              integrated risk and portfolio management.</li>
-          </ul>
-          <p>
-            Here are some of the key results:
-          </p>
-          <ul>
-            <li><strong>High-Throughput Streaming:</strong> Processes 100k+ ticks per minute across five
-              cryptocurrencies with sub-second latency.</li>
-            <li><strong>Efficient Storage:</strong> Maintains a rolling 30 day window of high-frequency data (over 500
-              million rows) while archiving older data to the cloud.</li>
-            <li><strong>Adaptive Performance:</strong> ML models quickly identify new patterns, adjust their parameters,
-              and optimize trading strategies.</li>
+            <li><strong>High-Throughput Streaming:</strong> Engineered the system using Kafka and ClickHouse to ingest 70K+ ticks/minute on AWS with sub-second latency.</li>
+            <li><strong>Automated MLOps Pipeline:</strong> Architected a pipeline for real-time feature engineering and continuous model retraining to adapt to current market conditions.</li>
+            <li><strong>Execution Engine:</strong> Executes trades based on machine learning, generating signals with integrated risk and portfolio management for alpha generation.</li>
+            <li><strong>Efficient Storage:</strong> Maintains a rolling 30-day window of high-frequency data while archiving older data to the cloud.</li>
           </ul>
 
           <p>
@@ -354,7 +336,7 @@
       <!-- PREDICTION MARKET AGGREGATOR PLACEHOLDER -->
       <section id="right-pma" class="hidden stack">
         <div class="proj-header-with-github">
-          <h2>Prediction Market Aggregator</h2>
+          <h2>Prediction Market Aggregator (PrediDesk)</h2>
 
         </div>
         <hr>
@@ -364,7 +346,7 @@
           <h3>Overview</h3>
           <p>
             <strong>Predidesk</strong> (<a href="https://predidesk.com" target="_blank">predidesk.com</a>) is a live
-            prediction market aggregator that consolidates data from multiple platforms into a single, unified
+            prediction market aggregator that consolidates data from 5+ platforms into a single, unified
             interface. It solves the fragmentation problem in prediction markets by providing a centralized location for
             discovery and analysis.
           </p>
@@ -378,15 +360,10 @@
             Key technical highlights include:
           </p>
           <ul>
-            <li><strong>Multi-Source API Ingestion:</strong> Concurrently ingests real-time data from <strong>Kalshi and
-                Polymarket</strong>, normalizing inconsistent schemas into a unified format.</li>
-            <li><strong>AI-Driven Data Processing:</strong> Leverages OpenAI <strong>GPT-5</strong> calls combined with
-              embeddings and regex to parse unstructured market questions and metadata. Extensive prompt engineering
-              ensures high-accuracy classification and data extraction.</li>
-            <li><strong>Robust Data Pipeline:</strong> Processes raw JSON payloads, cleanses the data, and stores
-              structured records in a PostgreSQL database for efficient querying.</li>
-            <li><strong>Full-Stack Implementation:</strong> Features a high-performance backend serving data via FastAPI
-              and a responsive frontend designed for seamless experiences on both mobile and desktop.</li>
+            <li><strong>Cross-Exchange Ingestion:</strong> Architecting an automated pipeline that continuously polls and synthesizes raw data from 5+ disparate prediction market APIs into a normalized PostgreSQL schema.</li>
+            <li><strong>LLM-Driven Normalization:</strong> Leverages a multi-step Gemini-powered pipeline with vector embeddings to deconstruct unstructured metadata, rewrite resolutions, and cluster heterogeneous contracts.</li>
+            <li><strong>Arbitrage Discovery:</strong> Identifies real-time synthetic arbitrage opportunities across multiple trading platforms by leveraging normalized pricing and clustered question-answer mappings.</li>
+            <li><strong>Full-Stack Implementation:</strong> Features a containerized backend serving structured REST API endpoints via FastAPI and a responsive frontend optimized for real-time market discovery.</li>
           </ul>
         </div>
 
@@ -408,14 +385,13 @@
           <h3>Arbitrage & Opportunities</h3>
           <p>
             Predidesk includes a dedicated <strong>Arbitrage Dashboard</strong> that scans for price discrepancies
-            across platforms. By identifying inverse payout probabilities (e.g., "Buy Yes" on Polymarket vs. "Buy No" on
-            Kalshi), the system highlights guaranteed profit opportunities.
+            across multiple exchanges. By identifying inverse payout probabilities across different platforms, the system highlights guaranteed profit opportunities.
           </p>
           <div class="architecture-diagram">
             <img src="images/predidesk_arb.png" alt="Predidesk Arbitrage Dashboard" class="architecture-graphic">
           </div>
           <p class="dashboard-caption">
-            The Arbitrage view, identifying live spreads between Polymarket and Kalshi contracts.
+            The Arbitrage view, identifying live spreads across multiple prediction market exchanges.
           </p>
         </div>
       </section>

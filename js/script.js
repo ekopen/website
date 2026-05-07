@@ -5,7 +5,16 @@ function setActiveNav(button) {
 
 function showView(sectionId) {
   document.querySelectorAll('.view').forEach(v => {
-    v.classList.toggle('hidden', v.id !== sectionId);
+    if (v.id === sectionId) {
+      v.classList.remove('hidden');
+      v.classList.remove('view-enter');
+      void v.offsetWidth;
+      v.classList.add('view-enter');
+      v.addEventListener('animationend', () => v.classList.remove('view-enter'), { once: true });
+    } else {
+      v.classList.add('hidden');
+      v.classList.remove('view-enter');
+    }
   });
 }
 

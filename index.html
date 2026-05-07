@@ -1,417 +1,268 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Eric Kopen</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
 </head>
-
 <body>
   <div class="shell">
-    <!-- ===== LEFT COLUMN (NAV) ===== -->
-    <aside class="left">
-      <!-- ABOUT (Landing) -->
-      <div id="nav-about" class="stack">
-        <div class="profile-card">
-          <img src="images/eric-kopen.jpg" alt="Eric Kopen" class="pfp" />
-          <div class="name">Eric Kopen</div>
-        </div>
 
-        <!-- Social links -->
+    <!-- SIDEBAR -->
+    <aside class="left">
+      <div class="profile">
+        <img src="images/eric-kopen.jpg" alt="Eric Kopen" class="pfp" />
+        <div class="name">Eric Kopen</div>
+        <div class="tagline">Prediction Markets</div>
+      </div>
+
+      <nav class="sidebar-nav">
+        <button id="nav-about-top" class="nav-link">About</button>
+        <button id="nav-lte" class="nav-link">Projects</button>
+        <button id="nav-writings" class="nav-link">Writing</button>
+      </nav>
+
+      <div class="sidebar-footer">
         <div class="socials">
           <a href="https://www.linkedin.com/in/eric-kopen-419266116/" target="_blank" aria-label="LinkedIn">
-            <!-- LinkedIn SVG -->
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="#0A66C2">
-              <path d="M20.447 20.452H16.89v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 
-                      0-2.136 1.445-2.136 2.939v5.667H9.345V9h3.409v1.561h.049c.476-.9 
-                      1.637-1.85 3.369-1.85 3.598 0 4.263 2.368 4.263 5.452v6.289zM5.337 
-                      7.433a1.986 1.986 0 1 1 0-3.972 1.986 1.986 0 0 1 0 3.972zM6.814 
-                      20.452H3.861V9h2.953v11.452zM22.225 0H1.771C.792 0 0 
-                      .774 0 1.729v20.542C0 23.227.792 24 1.771 
-                      24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 
-                      .774 23.2 0 22.225 0z" />
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
+              <path d="M20.447 20.452H16.89v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.345V9h3.409v1.561h.049c.476-.9 1.637-1.85 3.369-1.85 3.598 0 4.263 2.368 4.263 5.452v6.289zM5.337 7.433a1.986 1.986 0 1 1 0-3.972 1.986 1.986 0 0 1 0 3.972zM6.814 20.452H3.861V9h2.953v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.225 0z"/>
             </svg>
           </a>
           <a href="https://github.com/ekopen" target="_blank" aria-label="GitHub">
-            <!-- GitHub SVG -->
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="#444D84">
-              <path d="M12 .297c-6.63 0-12 5.373-12 
-                      12 0 5.303 3.438 9.8 8.205 
-                      11.385.6.113.82-.258.82-.577 
-                      0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61-.546-1.387-1.333-1.757-1.333-1.757-1.09-.744.084-.729.084-.729 
-                      1.205.084 1.84 1.237 1.84 1.237 
-                      1.07 1.835 2.809 1.305 3.495.998.108-.775.418-1.305.762-1.605-2.665-.3-5.466-1.334-5.466-5.93 
-                      0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 
-                      0 0 1.005-.322 3.3 1.23a11.5 
-                      11.5 0 0 1 3-.405c1.02.005 2.045.138 
-                      3 .405 2.28-1.552 3.285-1.23 
-                      3.285-1.23.645 1.653.24 2.873.12 
-                      3.176.765.84 1.23 1.91 1.23 
-                      3.22 0 4.61-2.805 5.625-5.475 
-                      5.92.435.372.81 1.096.81 
-                      2.22 0 1.606-.015 2.896-.015 
-                      3.286 0 .315.21.69.825.57C20.565 
-                      22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12" />
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
+              <path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61-.546-1.387-1.333-1.757-1.333-1.757-1.09-.744.084-.729.084-.729 1.205.084 1.84 1.237 1.84 1.237 1.07 1.835 2.809 1.305 3.495.998.108-.775.418-1.305.762-1.605-2.665-.3-5.466-1.334-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23a11.5 11.5 0 0 1 3-.405c1.02.005 2.045.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.435.372.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/>
             </svg>
           </a>
-          <a href="https://x.com/e_kopen" target="_blank" aria-label="Twitter">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="#1D9BF0">
-              <path
-                d="M17.21 2h3.24l-7.07 8.08L21 22h-6.18l-4.84-6.33L4.4 22H1.16l7.55-8.65L3 2h6.34l4.36 5.72L17.21 2Zm-1.14 18h1.8L8.29 4h-1.9l9.68 16Z" />
+          <a href="https://x.com/e_kopen" target="_blank" aria-label="Twitter / X">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
+              <path d="M17.21 2h3.24l-7.07 8.08L21 22h-6.18l-4.84-6.33L4.4 22H1.16l7.55-8.65L3 2h6.34l4.36 5.72L17.21 2Zm-1.14 18h1.8L8.29 4h-1.9l9.68 16Z"/>
             </svg>
           </a>
         </div>
-
-        <div class="muted contact">erictkopen@gmail.com</div>
-
-        <!-- Primary nav buttons -->
-        <div class="primary-nav primary-nav-inline">
-          <button id="nav-about-top" class="pill nav-pill primary-nav-btn btn-primary-blue" type="button">
-            About
-          </button>
-          <button id="nav-writings" class="pill nav-pill primary-nav-btn btn-primary-blue" type="button">
-            Writing
-          </button>
-        </div>
-
-        <!-- Projects list -->
-        <div class="nav-card">
-          <div class="nav-card-heading">
-            <p class="nav-label">Projects</p>
-          </div>
-          <div class="nav-projects" role="list">
-            <button id="nav-lte" class="pill nav-pill nav-child btn-project-blue" type="button">
-              ML Live Trading Platform
-            </button>
-            <button id="nav-pma" class="pill nav-pill nav-child btn-project-blue" type="button">
-              Prediction Market Aggregator (PrediDesk)
-            </button>
-          </div>
-        </div>
-
+        <div class="email">erictkopen@gmail.com</div>
       </div>
     </aside>
 
-    <!-- ===== RIGHT COLUMN ===== -->
+    <!-- MAIN CONTENT -->
     <main class="right">
-      <!-- ABOUT VIEW RIGHT (default landing content) -->
-      <section id="right-about" class="stack">
-        <h2>About</h2>
-        <hr>
-        <p>Thanks for visiting my page!</p>
-        <p>
-          I specialize in building and maintaining infrastructure for financial market interaction.
-        </p>
-        <p>
-          Professional experience:
-        </p>
-        <div class="experience-list">
-          <div class="experience-item">
-            <div class="icon-block">
-              <img src="icons/bofa.png" alt="Bank of America logo" class="icon-left">
-              <div>
-                <strong>Bank of America - Quantitative Engineer (Summer 2025)</strong>
-                <p class="experience-detail">Developed Treasury Futures pricing engines and automated VaR ETL pipelines.</p>
+
+      <!-- ABOUT -->
+      <section id="right-about" class="view">
+        <h2 class="section-title">About</h2>
+        <p class="lead">I specialize in prediction market trading, analytics, and tooling.</p>
+        <p>Please reach out if you'd like to connect!</p>
+
+        <h3 class="sub-title">Professional Experience</h3>
+        <div class="exp-list">
+          <div class="exp-card">
+            <div class="exp-header">
+              <img src="icons/draftkings.png" alt="DraftKings" class="exp-logo">
+              <div class="exp-meta">
+                <div class="exp-company">DraftKings</div>
+                <div class="exp-role">Trading Strategist</div>
               </div>
+              <div class="exp-date">2026–Present</div>
+            </div>
+            <p class="exp-desc">Helping build out DraftKings Predictions, with a focus on market making.</p>
+          </div>
+
+          <div class="exp-card">
+            <div class="exp-header">
+              <img src="icons/predidesk.png" alt="Predidesk" class="exp-logo">
+              <div class="exp-meta">
+                <div class="exp-company">Predidesk</div>
+                <div class="exp-role">Founder</div>
+              </div>
+              <div class="exp-date">2025–2026</div>
+            </div>
+            <p class="exp-desc">Founded a prediction market intelligence platform with LLM-powered classification and enrichment for 100,000+ live contracts, surfacing cross-exchange arbitrage opportunities. Archived at <a href="https://predidesk.com" target="_blank" rel="noopener">predidesk.com</a>.</p>
+          </div>
+
+          <div class="exp-card">
+            <div class="exp-header">
+              <img src="icons/bofa.png" alt="Bank of America" class="exp-logo">
+              <div class="exp-meta">
+                <div class="exp-company">Bank of America</div>
+                <div class="exp-role">Quantitative Engineer</div>
+              </div>
+              <div class="exp-date">Summer 2025</div>
+            </div>
+            <p class="exp-desc">Developed Treasury Futures pricing engines and automated VaR ETL pipelines.</p>
+          </div>
+
+          <div class="exp-card">
+            <div class="exp-header">
+              <img src="icons/mizu.png" alt="Mizuho Bank" class="exp-logo">
+              <div class="exp-meta">
+                <div class="exp-company">Mizuho Bank</div>
+                <div class="exp-role">Quantitative Analyst</div>
+              </div>
+              <div class="exp-date">Winter 2025</div>
+            </div>
+            <p class="exp-desc">Built deep generative frameworks (GANs) to model implied volatility surfaces.</p>
+          </div>
+
+          <div class="exp-card">
+            <div class="exp-header">
+              <img src="icons/uhc.png" alt="UnitedHealthcare" class="exp-logo">
+              <div class="exp-meta">
+                <div class="exp-company">UnitedHealthcare</div>
+                <div class="exp-role">Data Consultant</div>
+              </div>
+              <div class="exp-date">2022–2024</div>
+            </div>
+            <p class="exp-desc">Optimized forecasting decision tree models and refactored big data SQL workflows.</p>
+          </div>
+
+          <div class="exp-card">
+            <div class="exp-header">
+              <img src="icons/agiliti.png" alt="Agiliti Health" class="exp-logo">
+              <div class="exp-meta">
+                <div class="exp-company">Agiliti Health</div>
+                <div class="exp-role">Data Engineer &amp; Analyst</div>
+              </div>
+              <div class="exp-date">2019–2022</div>
+            </div>
+            <p class="exp-desc">Managed critical databases, created API dashboards, and designed regression pricing models.</p>
+          </div>
+        </div>
+
+        <h3 class="sub-title">Education</h3>
+        <div class="exp-list">
+          <div class="exp-card">
+            <div class="exp-header">
+              <img src="icons/uofc.png" alt="University of Chicago" class="exp-logo">
+              <div class="exp-meta">
+                <div class="exp-company">University of Chicago</div>
+                <div class="exp-role">M.S. Financial Mathematics</div>
+              </div>
+              <div class="exp-date">2025</div>
             </div>
           </div>
-          <div class="experience-item">
-            <div class="icon-block">
-              <img src="icons/mizu.png" alt="Mizuho Bank logo" class="icon-left">
-              <div>
-                <strong>Mizuho Bank - Quantitative Analyst (Winter 2025)</strong>
-                <p class="experience-detail">Built deep generative frameworks (GANs) to model implied volatility surfaces.</p>
+
+          <div class="exp-card">
+            <div class="exp-header">
+              <img src="icons/umn.png" alt="University of Minnesota" class="exp-logo">
+              <div class="exp-meta">
+                <div class="exp-company">University of Minnesota</div>
+                <div class="exp-role">B.S. Management Information Systems &amp; Finance</div>
               </div>
-            </div>
-          </div>
-          <div class="experience-item">
-            <div class="icon-block">
-              <img src="icons/uhc.png" alt="UnitedHealthcare logo" class="icon-left">
-              <div>
-                <strong>UnitedHealthcare - Data Consultant (2022–2024)</strong>
-                <p class="experience-detail">Optimized forecasting decision tree models and refactored big data SQL workflows.</p>
-              </div>
-            </div>
-          </div>
-          <div class="experience-item">
-            <div class="icon-block">
-              <img src="icons/agiliti.png" alt="Agiliti Health logo" class="icon-left">
-              <div>
-                <strong>Agiliti Health - Data Engineer & Analyst (2019–2022)</strong>
-                <p class="experience-detail">Managed critical databases, created API dashboards, and designed regression pricing models.</p>
-              </div>
+              <div class="exp-date">2019</div>
             </div>
           </div>
         </div>
-        <p>
-          Educational background:
-        </p>
-        <div class="education-list">
-          <div class="education-item">
-            <div class="icon-block">
-              <img src="icons/uofc.png" alt="University of Chicago logo" class="icon-left">
-              <div>
-                <strong>University of Chicago (2025)</strong>
-                <p class="experience-detail">Master’s in Financial Mathematics.</p>
-              </div>
-            </div>
-          </div>
-          <div class="education-item">
-            <div class="icon-block">
-              <img src="icons/umn.png" alt="University of Minnesota logo" class="icon-left">
-              <div>
-                <strong>University of Minnesota (2019)</strong>
-                <p class="experience-detail">Bachelor’s in Management Information Systems and Finance.</p>
-              </div>
-            </div>
-          </div>
-        </div>
-        <p>
-          Please reach out to me if you would like to connect!
-        </p>
-        <hr>
       </section>
 
-
-      <!-- LIVE TRADING ENGINE CONTENT (one continuous scrollable section) -->
-      <section id="right-lte" class="hidden stack">
-        <div class="proj-header-with-github">
-          <h2>ML Live Trading Platform</h2>
-          <a class="proj-github-link" href="https://github.com/ekopen/live_trading_engine" target="_blank"
-            rel="noopener" aria-label="Live Trading Engine on GitHub">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="26" height="26" fill="#444D84">
-              <path
-                d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61-.546-1.387-1.333-1.757-1.333-1.757-1.09-.744.084-.729.084-.729 1.205.084 1.84 1.237 1.84 1.237 1.07 1.835 2.809 1.305 3.495.998.108-.775.418-1.305.762-1.605-2.665-.3-5.466-1.334-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23a11.5 11.5 0 0 1 3-.405c1.02.005 2.045.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.435.372.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12" />
+      <!-- PROJECTS -->
+      <section id="right-lte" class="view hidden">
+        <div class="proj-title-row">
+          <h2 class="section-title" style="margin-bottom:0;border:0;padding:0;">ML Live Trading Platform</h2>
+          <a class="github-icon-link" href="https://github.com/ekopen/live_trading_engine" target="_blank" rel="noopener" aria-label="View on GitHub">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="22" height="22" fill="currentColor">
+              <path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61-.546-1.387-1.333-1.757-1.333-1.757-1.09-.744.084-.729.084-.729 1.205.084 1.84 1.237 1.84 1.237 1.07 1.835 2.809 1.305 3.495.998.108-.775.418-1.305.762-1.605-2.665-.3-5.466-1.334-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23a11.5 11.5 0 0 1 3-.405c1.02.005 2.045.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.435.372.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/>
             </svg>
           </a>
         </div>
-        <hr>
 
-        <!-- Overview -->
-        <div class="stack">
-          <h3>Overview</h3>
-          <p>
-            This project is a fault-tolerant, containerized trading engine that integrates real-time data ingestion, processing, and
-            machine learning for alpha generation.
-          </p>
+        <h3 class="sub-title">Overview</h3>
+        <p>This project is a fault-tolerant, containerized trading engine that integrates real-time data ingestion, processing, and machine learning for alpha generation.</p>
+        <p>Key highlights:</p>
+        <ul>
+          <li><strong>High-Throughput Streaming:</strong> Engineered the system using Kafka and ClickHouse to ingest 70K+ ticks/minute on AWS with sub-second latency.</li>
+          <li><strong>Automated MLOps Pipeline:</strong> Architected a pipeline for real-time feature engineering and continuous model retraining to adapt to current market conditions.</li>
+          <li><strong>Execution Engine:</strong> Executes trades based on machine learning, generating signals with integrated risk and portfolio management for alpha generation.</li>
+          <li><strong>Efficient Storage:</strong> Maintains a rolling 30-day window of high-frequency data while archiving older data to the cloud.</li>
+        </ul>
+        <p>Additionally, I took away several lessons from building this:</p>
+        <ul>
+          <li><strong>Designing for constant uptime:</strong> Long-running use surfaced unexpected failures, underscoring the need for proactive resource monitoring, alerting, and graceful restarts.</li>
+          <li><strong>Scaling from prototype to production:</strong> Early ad hoc decisions led to painful rework (such as migrating to Docker and consolidating services), so I now design with production in mind from the outset.</li>
+          <li><strong>Building for modular growth:</strong> A monolithic first pass was quick to ship but became a bottleneck as the system grew, reinforcing the value of clear module boundaries and interfaces early on.</li>
+        </ul>
 
-          <p>
-            Key highlights:
-          </p>
-          <ul>
-            <li><strong>High-Throughput Streaming:</strong> Engineered the system using Kafka and ClickHouse to ingest 70K+ ticks/minute on AWS with sub-second latency.</li>
-            <li><strong>Automated MLOps Pipeline:</strong> Architected a pipeline for real-time feature engineering and continuous model retraining to adapt to current market conditions.</li>
-            <li><strong>Execution Engine:</strong> Executes trades based on machine learning, generating signals with integrated risk and portfolio management for alpha generation.</li>
-            <li><strong>Efficient Storage:</strong> Maintains a rolling 30-day window of high-frequency data while archiving older data to the cloud.</li>
-          </ul>
-
-          <p>
-            Additionally, I took away several lessons from building this:
-          </p>
-          <ul>
-            <li><strong>Designing for constant uptime:</strong> Long-running use surfaced unexpected failures,
-              underscoring the need for proactive resource monitoring, alerting, and graceful restarts.</li>
-            <li><strong>Scaling from prototype to production:</strong> Early ad hoc decisions led to painful rework
-              (such as migrating to Docker and consolidating services), so I now design with production in mind from the
-              outset.</li>
-            <li><strong>Building for modular growth:</strong> A monolithic first pass was quick to ship but became a
-              bottleneck as the system grew, reinforcing the value of clear module boundaries and interfaces early on.
-            </li>
-          </ul>
+        <h3 class="sub-title">Architecture</h3>
+        <div class="arch-diagram">
+          <img src="images/trading_engine_architecture.png" alt="Trading Engine Architecture">
         </div>
-
-        <!-- Architecture -->
-        <div class="stack">
-          <hr>
-          <h3>Architecture</h3>
-
-          <!-- ARCHITECTURE DIAGRAM -->
-          <div class="architecture-diagram">
-            <img src="images/trading_engine_architecture.png" alt="Trading Engine Architecture"
-              class="architecture-graphic">
+        <div class="tech-stack">
+          <div class="tech-item">
+            <img src="icons/digitalocean.png" alt="DigitalOcean" class="tech-icon">
+            <div><strong>DigitalOcean</strong> — hosts the server on a $48/month droplet with 8GB RAM, 4 vCPUs, and 160GB SSD storage.</div>
           </div>
-
-          <div class="icon-block">
-            <img src="icons/digitalocean.png" alt="DigitalOcean" class="icon-left">
-            <p>
-              <strong>DigitalOcean</strong> hosts the server the project runs on. It is currently supported by a
-              $48/month droplet with 8GB RAM, 4 vCPUs, and 160GB SSD storage.
-            </p>
+          <div class="tech-item">
+            <img src="icons/docker.png" alt="Docker" class="tech-icon">
+            <div><strong>Docker</strong> — containerization platform for Kafka, ClickHouse, Grafana, Prometheus, and all project modules.</div>
           </div>
-
-          <div class="icon-block">
-            <img src="icons/docker.png" alt="Docker" class="icon-left">
-            <p>
-              <strong>Docker</strong> serves as the containerization platform. Besides the module containers, there are
-              containers for Kafka, Clickhouse, Grafana, Prometheus, and other miscellaneous services.
-            </p>
+          <div class="tech-item">
+            <img src="icons/grafana.png" alt="Grafana" class="tech-icon">
+            <div><strong>Grafana</strong> — powers all dashboards for real-time monitoring, visualization, and alerting.</div>
           </div>
-
-          <div class="icon-block">
-            <img src="icons/grafana.png" alt="Grafana" class="icon-left">
-            <p>
-              <strong>Grafana</strong> powers all dashboards for real-time monitoring, visualization, and alerting.
-            </p>
+          <div class="tech-item">
+            <img src="icons/binance.png" alt="Binance" class="tech-icon">
+            <div><strong>Binance</strong> — source for cryptocurrency tick-level data, ingested in real-time via WebSocket through Finnhub.</div>
           </div>
-
-          <div class="icon-block">
-            <img src="icons/binance.png" alt="Binance" class="icon-left">
-            <p>
-              <strong>Binance</strong> serves as the source for cryptocurrency tick-level data, which is ingested from
-              the exchange in real-time via a WebSocket provided through Finnhub.
-            </p>
+          <div class="tech-item">
+            <img src="icons/kafka.png" alt="Kafka" class="tech-icon">
+            <div><strong>Kafka</strong> — captures all WebSocket data via a producer/broker topology, accessed by various consumers downstream.</div>
           </div>
-
-          <div class="icon-block">
-            <img src="icons/kafka.png" alt="Kafka" class="icon-left">
-            <p>
-              <strong>Kafka</strong> captures all data from the WebSocket, where a producer publishes incoming messages
-              to a Kafka topic managed by one broker, accessed via various consumers downstream.
-            </p>
+          <div class="tech-item">
+            <img src="icons/clickhouse.png" alt="ClickHouse" class="tech-icon">
+            <div><strong>ClickHouse</strong> — connected to the data stream via Kafka, with batch appends and periodic monitoring snapshots.</div>
           </div>
-
-          <div class="icon-block">
-            <img src="icons/clickhouse.png" alt="ClickHouse" class="icon-left">
-            <p>
-              <strong>ClickHouse</strong> is connected to the data stream via Kafka. New data is appended to the
-              database via batch processing, and monitoring/diagnostics measures are periodically recorded.
-            </p>
+          <div class="tech-item">
+            <img src="icons/aws.png" alt="AWS" class="tech-icon">
+            <div><strong>AWS S3</strong> — cold storage for data older than 7 days, converted to Parquet before archival.</div>
           </div>
-
-          <div class="icon-block">
-            <img src="icons/aws.png" alt="AWS" class="icon-left">
-            <p>
-              <strong>AWS</strong> serves as a cold storage for old data. Data older than 7 days is converted to a
-              parquet, deleted from ClickHouse, and uploaded to an S3 bucket.
-            </p>
-          </div>
-
-          <ul class="architecture-list">
-            <li>The machine learning module retrains five models at regular intervals with the most recent set of data,
-              using Python libraries such as scikit-learn and TensorFlow.</li>
-            <li>The execution module loads these ML models to generate real time signals and simulate trades. This
-              process is supported with risk and portfolio monitoring engines.</li>
-          </ul>
-          <br>
         </div>
+        <ul>
+          <li>The machine learning module retrains five models at regular intervals using scikit-learn and TensorFlow.</li>
+          <li>The execution module loads these ML models to generate real-time signals and simulate trades, supported by risk and portfolio monitoring engines.</li>
+        </ul>
 
-        <!-- Live Dashboards -->
-        <div class="stack">
-          <hr>
-          <h3>Dashboards</h3>
-          <div class="dashboard-gallery">
-            <div class="dashboard-item">
-              <img src="images/snapshot1.png" alt="snapshot1" class="dashboard-image">
-              <p class="dashboard-caption">Portfolio performance after this project ran for around 30 days.</p>
-            </div>
-
-            <div class="dashboard-item">
-              <img src="images/snapshot2.png" alt="snapshot2" class="dashboard-image">
-              <p class="dashboard-caption">Snapshot of trade executions, along with a demonstration of the risk engine
-                setting trade limits.</p>
-            </div>
-
-            <div class="dashboard-item">
-              <img src="images/snapshot3.png" alt="snapshot3" class="dashboard-image">
-              <p class="dashboard-caption">List of the different ML models that are implemented in the project.</p>
-            </div>
-
-            <div class="dashboard-item">
-              <img src="images/snapshot4.png" alt="snapshot4" class="dashboard-image">
-              <p class="dashboard-caption">Time series of granular price ticks for ETH, one of the tickers (alongside
-                BTC, SOL, ADA, and XRP) processed via Kafka stored in ClickHouse.</p>
-            </div>
-
-            <div class="dashboard-item">
-              <img src="images/snapshot5.png" alt="snapshot5" class="dashboard-image">
-              <p class="dashboard-caption">Snapshot of running memory usage by Docker container, showing that different
-                services have varying resource demands.</p>
-            </div>
-
+        <h3 class="sub-title">Dashboards</h3>
+        <div class="dashboard-gallery">
+          <div class="dashboard-item">
+            <img src="images/snapshot1.png" alt="Portfolio performance">
+            <p class="caption">Portfolio performance after running for ~30 days.</p>
           </div>
-      </section>
-
-      <!-- PREDICTION MARKET AGGREGATOR PLACEHOLDER -->
-      <section id="right-pma" class="hidden stack">
-        <div class="proj-header-with-github">
-          <h2>Prediction Market Aggregator (PrediDesk)</h2>
-
-        </div>
-        <hr>
-
-        <!-- Overview -->
-        <div class="stack">
-          <h3>Overview</h3>
-          <p>
-            <strong>Predidesk</strong> (<a href="https://predidesk.com" target="_blank">predidesk.com</a>) is a live
-            prediction market aggregator that consolidates data from 5+ platforms into a single, unified
-            interface. It solves the fragmentation problem in prediction markets by providing a centralized location for
-            discovery and analysis.
-          </p>
-
-          <p>
-            The platform is built on modern data engineering principles, focusing on reliability, scalability, and
-            automated intelligence.
-          </p>
-
-          <p>
-            Key technical highlights include:
-          </p>
-          <ul>
-            <li><strong>Cross-Exchange Ingestion:</strong> Architecting an automated pipeline that continuously polls and synthesizes raw data from 5+ disparate prediction market APIs into a normalized PostgreSQL schema.</li>
-            <li><strong>LLM-Driven Normalization:</strong> Leverages a multi-step Gemini-powered pipeline with vector embeddings to deconstruct unstructured metadata, rewrite resolutions, and cluster heterogeneous contracts.</li>
-            <li><strong>Arbitrage Discovery:</strong> Identifies real-time synthetic arbitrage opportunities across multiple trading platforms by leveraging normalized pricing and clustered question-answer mappings.</li>
-            <li><strong>Full-Stack Implementation:</strong> Features a containerized backend serving structured REST API endpoints via FastAPI and a responsive frontend optimized for real-time market discovery.</li>
-          </ul>
-        </div>
-
-        <!-- Architecture/Preview -->
-        <div class="stack">
-          <hr>
-          <h3>Platform Preview</h3>
-          <div class="architecture-diagram">
-            <img src="images/predidesk.png" alt="Predidesk Landing Page" class="architecture-graphic">
+          <div class="dashboard-item">
+            <img src="images/snapshot2.png" alt="Trade executions">
+            <p class="caption">Trade executions with the risk engine setting trade limits.</p>
           </div>
-          <p class="dashboard-caption">
-            The Predidesk landing page, showcasing different features of the site.
-          </p>
-        </div>
-
-        <!-- Arbitrage Section -->
-        <div class="stack">
-          <hr>
-          <h3>Arbitrage & Opportunities</h3>
-          <p>
-            Predidesk includes a dedicated <strong>Arbitrage Dashboard</strong> that scans for price discrepancies
-            across multiple exchanges. By identifying inverse payout probabilities across different platforms, the system highlights guaranteed profit opportunities.
-          </p>
-          <div class="architecture-diagram">
-            <img src="images/predidesk_arb.png" alt="Predidesk Arbitrage Dashboard" class="architecture-graphic">
+          <div class="dashboard-item">
+            <img src="images/snapshot3.png" alt="ML models">
+            <p class="caption">ML models implemented in the project.</p>
           </div>
-          <p class="dashboard-caption">
-            The Arbitrage view, identifying live spreads across multiple prediction market exchanges.
-          </p>
+          <div class="dashboard-item">
+            <img src="images/snapshot4.png" alt="Price ticks">
+            <p class="caption">Time series of granular ETH price ticks (alongside BTC, SOL, ADA, XRP) via Kafka/ClickHouse.</p>
+          </div>
+          <div class="dashboard-item">
+            <img src="images/snapshot5.png" alt="Memory usage">
+            <p class="caption">Memory usage by Docker container.</p>
+          </div>
         </div>
       </section>
 
-      <!-- WRITINGS PLACEHOLDER (can be filled later) -->
-      <section id="right-writings" class="hidden stack">
-        <h2>Writing</h2>
-        <hr>
-        <p>Check out my <a href="https://erickopen.substack.com/" target="_blank">Substack</a>!</p>
+      <!-- WRITING -->
+      <section id="right-writings" class="view hidden">
+        <h2 class="section-title">Writing</h2>
+        <p>Check out my <a href="https://erickopen.substack.com/" target="_blank" rel="noopener">Substack</a> for more.</p>
         <div class="substack-post-embed">
           <p lang="en">Prediction markets are gambling... right? by Eric Kopen</p>
-          <p>Technically, yes. But they might also be the future of risk management.</p><a data-post-link
-            href="https://erickopen.substack.com/p/prediction-markets-are-gambling-right">Read on Substack</a>
+          <p>Technically, yes. But they might also be the future of risk management.</p>
+          <a data-post-link href="https://erickopen.substack.com/p/prediction-markets-are-gambling-right">Read on Substack</a>
         </div>
         <script async src="https://substack.com/embedjs/embed.js" charset="utf-8"></script>
       </section>
+
     </main>
   </div>
-
   <script src="js/script.js"></script>
 </body>
-
 </html>
